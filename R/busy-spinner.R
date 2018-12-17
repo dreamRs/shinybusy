@@ -6,6 +6,7 @@
 #' @param spin Style of the spinner, choice between : \code{circle}, \code{bounce}, \code{folding-cube},
 #'  \code{rotating-plane}, \code{cube-grid}, \code{fading-circle}, \code{double-bounce}, \code{dots}, \code{cube}.
 #' @param color Color for the spinner, in a valid CSS format.
+#' @param timeout Number of milliseconds after the server is busy to display the spinner.
 #' @param position Where to display the spinner: \code{'top-right'}, \code{'top-left'}, \code{'bottom-right'},
 #'  \code{'bottom-left'}, \code{'full-page'}.
 #' @param onstart Logical, display the spinner when the application starts ?
@@ -16,13 +17,14 @@
 #' @export
 #'
 #' @importFrom htmltools validateCssUnit attachDependencies tags
+#' @importFrom jsonlite toJSON
 #'
 #' @examples
 #' if (interactive()) {
 #'
 #'
 #' }
-add_busy_spinner <- function(spin = "double-bounce", color = "#112446",
+add_busy_spinner <- function(spin = "double-bounce", color = "#112446", timeout = 100,
                              position = c("top-right", "top-left", "bottom-right", "bottom-left", "full-page"),
                              onstart = TRUE, margins = c(10, 10),
                              height = "50px", width = "50px") {
@@ -54,6 +56,16 @@ add_busy_spinner <- function(spin = "double-bounce", color = "#112446",
       spin_tag
     )
   }
+  spin_tag <- tagList(
+    spin_tag,
+    tags$script(
+      type = "application/json",
+      `data-for` = "shinybusy",
+      toJSON(list(
+        timeout = timeout
+      ), auto_unbox = TRUE, json_verbatim = TRUE)
+    )
+  )
   attachDependencies(
     x = spin_tag,
     value = list(

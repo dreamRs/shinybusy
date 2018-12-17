@@ -1,6 +1,6 @@
 Package: shinybusy
 Title: Busy Indicator for 'Shiny' Applications
-Version: 0.0.0.9000
+Version: 0.0.0.9100
 Authors@R: c(person("Fanny", "Meyer", email = "fanny.meyer@dreamrs.fr", role = c("aut")),
   person("Victor", "Perrier", email = "victor.perrier@dreamrs.fr", role = c("aut", "cre")),
   person("Silex Technologies", comment = "https://www.silex-ip.com/fr/", role = "fnd"),
@@ -11,7 +11,8 @@ Encoding: UTF-8
 LazyData: true
 Imports: 
     htmltools,
-    shiny
+    shiny,
+    jsonlite
 RoxygenNote: 6.1.1
 URL: https://github.com/dreamRs/shinybusy
 BugReports: https://github.com/dreamRs/shinybusy/issues

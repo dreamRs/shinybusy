@@ -5,15 +5,17 @@
 \title{Busy indicator (spinner)}
 \usage{
 add_busy_spinner(spin = "double-bounce", color = "#112446",
-  position = c("top-right", "top-left", "bottom-right", "bottom-left",
-  "full-page"), onstart = TRUE, margins = c(10, 10), height = "50px",
-  width = "50px")
+  timeout = 100, position = c("top-right", "top-left", "bottom-right",
+  "bottom-left", "full-page"), onstart = TRUE, margins = c(10, 10),
+  height = "50px", width = "50px")
 }
 \arguments{
 \item{spin}{Style of the spinner, choice between : \code{circle}, \code{bounce}, \code{folding-cube},
 \code{rotating-plane}, \code{cube-grid}, \code{fading-circle}, \code{double-bounce}, \code{dots}, \code{cube}.}
 
 \item{color}{Color for the spinner, in a valid CSS format.}
+
+\item{timeout}{Number of milliseconds after the server is busy to display the spinner.}
 
 \item{position}{Where to display the spinner: \code{'top-right'}, \code{'top-left'}, \code{'bottom-right'},
 \code{'bottom-left'}, \code{'full-page'}.}
