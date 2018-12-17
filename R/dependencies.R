@@ -21,3 +21,14 @@ shinybusy_dependencies <- function() {
   )
 }
 
+#' @importFrom htmltools htmlDependency
+freezeframe_dependencies <- function() {
+  htmlDependency(
+    name = "freezeframe", version = "3.0.10",
+    src = list(href = "shinybusy", file = "www"),
+    package = "shinybusy",
+    script = "freezeframe/freezeframe.pkgd.min.js",
+    stylesheet = "freezeframe/freezeframe_styles.min.css"
+  )
+}
+

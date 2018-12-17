@@ -113,7 +113,7 @@ add_busy_spinner <- function(spin = "double-bounce", color = "#112446", timeout 
       type = "application/json",
       `data-for` = "shinybusy",
       toJSON(list(
-        timeout = timeout
+        timeout = timeout, mode = "spin"
       ), auto_unbox = TRUE, json_verbatim = TRUE)
     )
   )
