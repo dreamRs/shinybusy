@@ -43,7 +43,7 @@ add_busy_gif <- function(src, timeout = 100,
   if (position == "full-page") {
     gif_tag <- tagList(
       tags$div(
-        class = "shinybusy shinybusy-busy shinybusy-overlay"
+        class = "shinybusy shinybusy-overlay"
       ),
       gif_tag
     )
@@ -54,7 +54,8 @@ add_busy_gif <- function(src, timeout = 100,
       type = "application/json",
       `data-for` = "shinybusy",
       toJSON(list(
-        timeout = timeout, mode = "gif"
+        timeout = timeout, mode = "gif",
+        position = position
       ), auto_unbox = TRUE, json_verbatim = TRUE)
     )
   )
