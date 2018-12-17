@@ -1,0 +1,17 @@
+Package: shinybusy
+Title: Busy Indicator for 'Shiny' Applications
+Version: 0.0.0.9000
+Authors@R: c(person("Fanny", "Meyer", email = "fanny.meyer@dreamrs.fr", role = c("aut")),
+  person("Victor", "Perrier", email = "victor.perrier@dreamrs.fr", role = c("aut", "cre")),
+  person("Silex Technologies", comment = "https://www.silex-ip.com/fr/", role = "fnd"),
+  person("Tobias", "Ahlin", role = "cph", comment = "spin.css"))
+Description: Add a global indicator in your 'shiny' applications to show the user that the server is busy.
+License: GPL-3 | file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    htmltools,
+    shiny
+RoxygenNote: 6.1.1
+URL: https://github.com/dreamRs/shinybusy
+BugReports: https://github.com/dreamRs/shinybusy/issues
