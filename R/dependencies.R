@@ -32,3 +32,14 @@ freezeframe_dependencies <- function() {
   )
 }
 
+#' @importFrom htmltools htmlDependency
+nanobar_dependencies <- function() {
+  htmlDependency(
+    name = "nanobar", version = "0.4.2",
+    src = list(href = "shinybusy", file = "www"),
+    package = "shinybusy",
+    script = "nanobar/nanobar.min.js",
+    stylesheet = "nanobar/nanobar-styles.css"
+  )
+}
+

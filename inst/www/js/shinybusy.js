@@ -1,7 +1,7 @@
 
 $(function() {
 
-  var timingbusy, busytimeout, busymode, busypos;
+  var timingbusy, intervalbusy, busytimeout, busymode, busypos, busyclassname;
 
   // config
   var config = document.querySelectorAll('script[data-for="shinybusy"]');
@@ -10,10 +10,12 @@ $(function() {
     busytimeout = config.timeout;
     busymode = config.mode;
     busypos = config.position;
+    busyclassname = config.classname;
   } else {
     busytimeout = 500;
     busymode = "spin";
     busypos = "top-right";
+    busyclassname = 'shinybusy-bar';
   }
   console.log(busymode);
 
@@ -34,6 +36,7 @@ $(function() {
       $(".shinybusy").addClass("shinybusy-ready");
     });
   }
+
   if (busymode == 'gif') {
     //$('.shinybusy-freezeframe').freezeframe();
     var gifbusy = new freezeframe('.shinybusy-freezeframe');//
@@ -57,6 +60,20 @@ $(function() {
       }
       clearTimeout(timingbusy);
       gifbusy.release();
+    });
+  }
+
+  if (busymode == 'nanobar') {
+    var nanobar = new Nanobar({classname: busyclassname});
+
+    $(document).on('shiny:busy', function(event) {
+      intervalbusy = setInterval(function() {
+        nanobar.go(100);
+      }, busytimeout);
+    });
+
+    $(document).on('shiny:idle', function(event) {
+      clearInterval(intervalbusy);
     });
   }
 });

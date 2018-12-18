@@ -5,7 +5,8 @@ Authors@R: c(person("Fanny", "Meyer", email = "fanny.meyer@dreamrs.fr", role = c
   person("Victor", "Perrier", email = "victor.perrier@dreamrs.fr", role = c("aut", "cre")),
   person("Silex Technologies", comment = "https://www.silex-ip.com/fr/", role = "fnd"),
   person("Tobias", "Ahlin", role = "cph", comment = "spin.css"),
-  person("Chris", "Antonellis", role = "cph", comment = "freezeframe.js"))
+  person("Chris", "Antonellis", role = "cph", comment = "freezeframe.js"),
+  person("Jacobo", "Tabernero", role = "cph", comment = "nanobar.js"))
 Description: Add a global indicator in your 'shiny' applications to show the user that the server is busy.
 License: GPL-3 | file LICENSE
 Encoding: UTF-8
