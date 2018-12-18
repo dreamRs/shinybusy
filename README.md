@@ -27,6 +27,15 @@ add_busy_gif(src = "https://jeroen.github.io/images/banana.gif", height = 70, wi
 ```
 ![](imgs/shinybusy-gif.gif)
 
+### Progress bar
+
+Make an infinite progress bar appear on top of the page when server is busy :
+
+```r
+add_busy_bar(color = "#FF0000")
+```
+
+![](imgs/shinybusy-bar.gif)
 
 
 ### Spinner
