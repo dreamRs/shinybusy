@@ -4,7 +4,7 @@
 #' @description Make a GIF play when server is busy and stop when idle.
 #'
 #' @param src Path to the GIF, an URL or a file in www/ folder.
-#' @param timeout Number of milliseconds after the server is busy to display the spinner.
+#' @param timeout Number of milliseconds after the server is busy to display the Gif
 #' @param position Where to display the spinner: \code{'top-right'}, \code{'top-left'}, \code{'bottom-right'},
 #'  \code{'bottom-left'}, \code{'full-page'}.
 #' @param margins Distance from margins, a vector of length two, where first element is distance from top/bottom,
@@ -17,6 +17,31 @@
 #' @importFrom jsonlite toJSON
 #'
 #' @examples
+#' if (interactive()) {
+#'   library(shiny)
+#'   library(shinybusy)
+#'
+#'   ui <- fluidPage(
+#'
+#'     # Use this function somewhere in UI
+#'     add_busy_gif(
+#'       src = "https://jeroen.github.io/images/banana.gif",
+#'       height = 70, width = 70
+#'     ),
+#'
+#'     actionButton("sleep", "Long calculation")
+#'   )
+#'
+#'   server <- function(input, output, session) {
+#'
+#'     observeEvent(input$sleep, {
+#'       Sys.sleep(5)
+#'     })
+#'
+#'   }
+#'
+#'   shinyApp(ui, server)
+#' }
 add_busy_gif <- function(src, timeout = 100,
                          position = c("top-right", "top-left", "bottom-right", "bottom-left", "full-page"),
                          margins = c(10, 10),
