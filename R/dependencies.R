@@ -5,7 +5,7 @@ spinner_dependencies <- function() {
     name = "spin", version = "0.1.0",
     src = list(href = "shinybusy", file = "www"),
     package = "shinybusy",
-    stylesheet = "spinner/spin.css"
+    stylesheet = "spinner/spin.min.css"
   )
 }
 
