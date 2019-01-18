@@ -62,5 +62,5 @@ Shinythemes:
 
 Development of this package was funded by Silex Technologies (https://www.silex-ip.com)
 
-![silexlogo](imgs/logotype_RVB-02.png)
+![silexlogo](imgs/logotype_RVB-02.png | width=200)
 
