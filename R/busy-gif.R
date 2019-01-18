@@ -43,7 +43,7 @@
 #'   shinyApp(ui, server)
 #' }
 add_busy_gif <- function(src, timeout = 100,
-                         position = c("top-right", "top-left", "bottom-right", "bottom-left", "full-page"),
+                         position = c("top-right", "top-left", "bottom-right", "bottom-left", "full-page", "free"),
                          margins = c(10, 10),
                          height = "50px", width = "50px") {
   stopifnot(length(margins) == 2)
@@ -56,7 +56,8 @@ add_busy_gif <- function(src, timeout = 100,
     "top-left" = sprintf("top:%s; left:%s;", marg1, marg2),
     "bottom-right" = sprintf("bottom:%s; right:%s;", marg1, marg2),
     "bottom-left" = sprintf("bottom:%s; left:%s;", marg1, marg2),
-    "full-page" = "top:0; bottom:0; right:0; left:0; margin:auto;"
+    "full-page" = "top:0; bottom:0; right:0; left:0; margin:auto;",
+    "free" = ""
   )
   gif_tag <- tags$div(
     class = "shinybusy",
