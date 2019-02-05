@@ -46,7 +46,7 @@ add_busy_bar(color = "#FF0000")
 
 ### Spinner
 
-Add a spinner when server is busy on top right corner of the page with:
+Add a spinner when server is busy on top-right corner of the page with:
 
 
 ```r
@@ -55,13 +55,17 @@ add_busy_spinner(spin = "fading-circle")
 ```
 
 Classic Shiny:
-![](imgs/spin-classic.png)
+![](imgs/shinybusy-spin.gif)
+
 
 Shinydashboard:
 ![](imgs/spin-dash.png)
 
 Shinythemes:
 ![](imgs/spin-theme.png)
+
+
+
 
 
 
