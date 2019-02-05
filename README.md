@@ -14,6 +14,8 @@ You can install `shinybusy` from GitHub:
 remotes::install_github("dreamRs/shinybusy")
 ```
 
+
+
 ## Examples
 
 
@@ -27,6 +29,8 @@ add_busy_gif(src = "https://jeroen.github.io/images/banana.gif", height = 70, wi
 ```
 ![](imgs/shinybusy-gif.gif)
 
+
+
 ### Progress bar
 
 Make an infinite progress bar appear on top of the page when server is busy :
@@ -38,6 +42,8 @@ add_busy_bar(color = "#FF0000")
 ![](imgs/shinybusy-bar.gif)
 
 
+
+
 ### Spinner
 
 Add a spinner when server is busy on top right corner of the page with:
@@ -47,6 +53,7 @@ Add a spinner when server is busy on top right corner of the page with:
 # UI
 add_busy_spinner(spin = "fading-circle")
 ```
+
 Classic Shiny:
 ![](imgs/spin-classic.png)
 
@@ -62,4 +69,4 @@ Shinythemes:
 
 Development of this package was funded by Silex Technologies (https://www.silex-ip.com)
 
-<img src="imgs/logotype_RVB-02.png" width="400">
+<img src="imgs/logo-silex.png">
