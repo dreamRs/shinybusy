@@ -89,7 +89,7 @@ add_busy_bar <- function(timeout = 1000, color = "#112446", centered = FALSE) {
 #'   shinyApp(ui, server)
 #' }
 use_busy_bar <- function(color = "#112446", centered = FALSE) {
-  busy_bar(color = "#112446", centered = FALSE, manual = TRUE)
+  busy_bar(color = "#112446", centered = FALSE, type = "manual")
 }
 
 
@@ -109,7 +109,7 @@ update_busy_bar <- function(value, session = shiny::getDefaultReactiveDomain()) 
 
 #' @importFrom htmltools attachDependencies tags tagList
 #' @importFrom jsonlite toJSON
-busy_bar <- function(timeout = 1000, color = "#112446", centered = FALSE, manual = FALSE) {
+busy_bar <- function(timeout = 1000, color = "#112446", centered = FALSE, type = "auto") {
   classname <- "shinybusy-nanobar"
   if (isTRUE(centered)) {
     classname <- "shinybusy-nanobar-centered"
@@ -124,7 +124,7 @@ busy_bar <- function(timeout = 1000, color = "#112446", centered = FALSE, manual
       `data-for` = "shinybusy",
       toJSON(list(
         timeout = timeout, mode = "nanobar",
-        classname = classname, manual = manual
+        classname = classname, type = type
       ), auto_unbox = TRUE, json_verbatim = TRUE)
     )
   )

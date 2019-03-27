@@ -304,7 +304,7 @@ use_busy_spinner <- function(spin = "double-bounce", color = "#112446",
     spin = spin, color = color, timeout = 1000,
     position = position, onstart = FALSE,
     margins = margins, height = height, width = width,
-    manual = TRUE
+    type = "manual"
   )
 }
 
@@ -333,12 +333,22 @@ hide_spinner <- function(session = shiny::getDefaultReactiveDomain()) {
 }
 
 
+spin_onstart <- function(spin = "double-bounce", color = "#112446",
+                         height = "100px", width = "100px") {
+  busy_spinner(
+    spin = spin, color = color,
+    position = "full-page", type = "start",
+    height = height, width = width
+  )
+}
+
+
 #' @importFrom htmltools validateCssUnit attachDependencies tags tagList
 #' @importFrom jsonlite toJSON
 busy_spinner <- function(spin = "double-bounce", color = "#112446", timeout = 100,
                          position = c("top-right", "top-left", "bottom-right", "bottom-left", "full-page"),
                          onstart = TRUE, margins = c(10, 10),
-                         height = "50px", width = "50px", manual = FALSE) {
+                         height = "50px", width = "50px", type = "auto") {
   stopifnot(length(margins) == 2)
   marg1 <- validateCssUnit(margins[1])
   marg2 <- validateCssUnit(margins[2])
@@ -373,7 +383,7 @@ busy_spinner <- function(spin = "double-bounce", color = "#112446", timeout = 10
       type = "application/json",
       `data-for` = "shinybusy",
       toJSON(list(
-        timeout = timeout, mode = "spin", manual = manual
+        timeout = timeout, mode = "spin", type = type
       ), auto_unbox = TRUE, json_verbatim = TRUE)
     )
   )
