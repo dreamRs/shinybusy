@@ -19,20 +19,33 @@ $(function() {
 
 
   if (busymode == 'spin') {
-    $(document).on('shiny:busy', function(event) {
-      //console.log("busy");
-      timingbusy = setTimeout(function() {
+
+    if (manualmode) {
+      Shiny.addCustomMessageHandler('show-spinner', function(data) {
         $(".shinybusy").removeClass("shinybusy-ready");
         $(".shinybusy").addClass("shinybusy-busy");
-      }, busytimeout);
-    });
+      });
+      Shiny.addCustomMessageHandler('hide-spinner', function(data) {
+        $(".shinybusy").removeClass("shinybusy-busy");
+        $(".shinybusy").addClass("shinybusy-ready");
+      });
+    } else {
+      $(document).on('shiny:busy', function(event) {
+        //console.log("busy");
+        timingbusy = setTimeout(function() {
+          $(".shinybusy").removeClass("shinybusy-ready");
+          $(".shinybusy").addClass("shinybusy-busy");
+        }, busytimeout);
+      });
 
-    $(document).on('shiny:idle', function(event) {
-      //console.log("idle");
-      clearTimeout(timingbusy);
-      $(".shinybusy").removeClass("shinybusy-busy");
-      $(".shinybusy").addClass("shinybusy-ready");
-    });
+      $(document).on('shiny:idle', function(event) {
+        //console.log("idle");
+        clearTimeout(timingbusy);
+        $(".shinybusy").removeClass("shinybusy-busy");
+        $(".shinybusy").addClass("shinybusy-ready");
+      });
+    }
+
   }
 
   if (busymode == 'gif') {

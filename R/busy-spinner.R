@@ -220,6 +220,117 @@ spinner <- function(spin = "double-bounce", color = "#112446") {
 }
 
 
+#' @title Manual spinner
+#'
+#' @description Declare \code{use_busy_spinner} in your UI and show/hide
+#'  server-side with \code{show_spinner}/\code{hide_spinner}.
+#'
+#' @param spin Style of the spinner, choice between : \code{circle}, \code{bounce}, \code{folding-cube},
+#'  \code{rotating-plane}, \code{cube-grid}, \code{fading-circle}, \code{double-bounce}, \code{dots}, \code{cube}.
+#' @param color Color for the spinner, in a valid CSS format.
+#' @param position Where to display the spinner: \code{'top-right'}, \code{'top-left'}, \code{'bottom-right'},
+#'  \code{'bottom-left'}, \code{'full-page'}.
+#' @param margins Distance from margins, a vector of length two, where first element is distance from top/bottom,
+#'  second element distance from right/left.
+#' @param height,width Height and width ot the spinner, default to \code{'50px'} for both, must be specified.
+#'
+#' @export
+#'
+#' @name manual-spinner
+#'
+#' @examples
+#' if (interactive()) {
+#'   library(shiny)
+#'   library(shinybusy)
+#'
+#'   ui <- fluidPage(
+#'
+#'     # Use this function somewhere in UI
+#'     use_busy_spinner(spin = "fading-circle"),
+#'
+#'     headerPanel('Iris k-means clustering'),
+#'
+#'     sidebarLayout(
+#'       sidebarPanel(
+#'         selectInput('xcol', 'X Variable', names(iris)),
+#'         selectInput('ycol', 'Y Variable', names(iris),
+#'                     selected=names(iris)[[2]]),
+#'         numericInput('clusters', 'Cluster count', 3,
+#'                      min = 1, max = 9),
+#'         actionButton("sleep", "Long calculation")
+#'       ),
+#'       mainPanel(
+#'         plotOutput('plot1')
+#'       )
+#'     )
+#'   )
+#'
+#'   server <- function(input, output, session) {
+#'
+#'     selectedData <- reactive({
+#'       iris[, c(input$xcol, input$ycol)]
+#'     })
+#'
+#'     clusters <- reactive({
+#'       kmeans(selectedData(), input$clusters)
+#'     })
+#'
+#'     output$plot1 <- renderPlot({
+#'       palette(c("#E41A1C", "#377EB8", "#4DAF4A", "#984EA3",
+#'                 "#FF7F00", "#FFFF33", "#A65628", "#F781BF", "#999999"))
+#'
+#'       par(mar = c(5.1, 4.1, 0, 1))
+#'       plot(selectedData(),
+#'            col = clusters()$cluster,
+#'            pch = 20, cex = 3)
+#'       points(clusters()$centers, pch = 4, cex = 4, lwd = 4)
+#'     })
+#'
+#'     observeEvent(input$sleep, {
+#'       show_spinner()
+#'       Sys.sleep(5)
+#'       hide_spinner()
+#'     })
+#'
+#'   }
+#'
+#'   shinyApp(ui, server)
+#' }
+use_busy_spinner <- function(spin = "double-bounce", color = "#112446",
+                             position = c("top-right", "top-left", "bottom-right", "bottom-left", "full-page"),
+                             margins = c(10, 10),
+                             height = "50px", width = "50px") {
+  busy_spinner(
+    spin = spin, color = color, timeout = 1000,
+    position = position, onstart = FALSE,
+    margins = margins, height = height, width = width,
+    manual = TRUE
+  )
+}
+
+
+#' @param session Shiny session.
+#'
+#' @export
+#'
+#' @rdname manual-spinner
+show_spinner <- function(session = shiny::getDefaultReactiveDomain()) {
+  session$sendCustomMessage(
+    type =  "show-spinner",
+    message = list()
+  )
+}
+
+
+#' @export
+#'
+#' @rdname manual-spinner
+hide_spinner <- function(session = shiny::getDefaultReactiveDomain()) {
+  session$sendCustomMessage(
+    type =  "hide-spinner",
+    message = list()
+  )
+}
 
 
 #' @importFrom htmltools validateCssUnit attachDependencies tags tagList
