@@ -6,7 +6,8 @@
 \usage{
 add_busy_gif(src, timeout = 100, position = c("top-right", "top-left",
   "bottom-right", "bottom-left", "full-page", "free"), margins = c(10,
-  10), height = "50px", width = "50px")
+  10), overlay_color = "rgba(0, 0, 0, 0.5)", height = "50px",
+  width = "50px")
 }
 \arguments{
 \item{src}{Path to the GIF, an URL or a file in www/ folder.}
@@ -18,6 +19,8 @@ add_busy_gif(src, timeout = 100, position = c("top-right", "top-left",
 
 \item{margins}{Distance from margins, a vector of length two, where first element is distance from top/bottom,
 second element distance from right/left.}
+
+\item{overlay_color}{Background color for the overlay if \code{position = "full-page"}.}
 
 \item{height, width}{Height and width ot the spinner, default to \code{'50px'} for both, must be specified.}
 }

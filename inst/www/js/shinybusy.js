@@ -39,28 +39,42 @@ $(function() {
 
   if (busymode == 'gif') {
     //$('.shinybusy-freezeframe').freezeframe();
-    var gifbusy = new freezeframe('.shinybusy-freezeframe');//
-    if (busypos !== 'full-page') {
-      gifbusy.capture().setup();
-    }
-    $(document).on('shiny:busy', function(event) {
-      if (busypos == 'full-page') {
-        $(".shinybusy").removeClass("shinybusy-ready");
-        $(".shinybusy").addClass("shinybusy-busy");
+    if (busypos != 'full-page') {
+      var gifbusy = new freezeframe('.shinybusy-freezeframe');//
+      if (busypos !== 'full-page') {
+        gifbusy.capture().setup();
       }
-      timingbusy = setTimeout(function() {
-        gifbusy.trigger();
-      }, busytimeout);
-    });
+      $(document).on('shiny:busy', function(event) {
+        if (busypos == 'full-page') {
+          $(".shinybusy").removeClass("shinybusy-ready");
+          $(".shinybusy").addClass("shinybusy-busy");
+        }
+        timingbusy = setTimeout(function() {
+          gifbusy.trigger();
+        }, busytimeout);
+      });
 
-    $(document).on('shiny:idle', function(event) {
-      if (busypos == 'full-page') {
+      $(document).on('shiny:idle', function(event) {
+        if (busypos == 'full-page') {
+          $(".shinybusy").removeClass("shinybusy-busy");
+          $(".shinybusy").addClass("shinybusy-ready");
+        }
+        clearTimeout(timingbusy);
+        gifbusy.release();
+      });
+    } else {
+      $(document).on('shiny:busy', function(event) {
+        timingbusy = setTimeout(function() {
+          $(".shinybusy").removeClass("shinybusy-ready");
+          $(".shinybusy").addClass("shinybusy-busy");
+        }, busytimeout);
+      });
+      $(document).on('shiny:idle', function(event) {
+        clearTimeout(timingbusy);
         $(".shinybusy").removeClass("shinybusy-busy");
         $(".shinybusy").addClass("shinybusy-ready");
-      }
-      clearTimeout(timingbusy);
-      gifbusy.release();
-    });
+      });
+    }
   }
 
   if (busymode == 'nanobar') {

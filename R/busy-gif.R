@@ -9,6 +9,7 @@
 #'  \code{'bottom-left'}, \code{'full-page'}.
 #' @param margins Distance from margins, a vector of length two, where first element is distance from top/bottom,
 #'  second element distance from right/left.
+#' @param overlay_color Background color for the overlay if \code{position = "full-page"}.
 #' @param height,width Height and width ot the spinner, default to \code{'50px'} for both, must be specified.
 #'
 #' @export
@@ -44,7 +45,7 @@
 #' }
 add_busy_gif <- function(src, timeout = 100,
                          position = c("top-right", "top-left", "bottom-right", "bottom-left", "full-page", "free"),
-                         margins = c(10, 10),
+                         margins = c(10, 10), overlay_color = "rgba(0, 0, 0, 0.5)",
                          height = "50px", width = "50px") {
   stopifnot(length(margins) == 2)
   marg1 <- validateCssUnit(margins[1])
@@ -62,16 +63,20 @@ add_busy_gif <- function(src, timeout = 100,
   gif_tag <- tags$div(
     class = "shinybusy",
     style = style,
-    style = paste0("height:", validateCssUnit(height), ";"),
-    style = paste0("width:", validateCssUnit(width), ";"),
-    tags$img(src = src, class = "freezeframe freezeframe-responsive shinybusy-freezeframe")
+    style = if (position != "full-page") paste0("height:", validateCssUnit(height), ";"),
+    style = if (position != "full-page") paste0("width:", validateCssUnit(width), ";"),
+    tags$img(
+      src = src, class = "freezeframe freezeframe-responsive shinybusy-freezeframe",
+      class = if (position == "full-page") "shinybusy-full-page"
+    )
   )
   if (position == "full-page") {
     gif_tag <- tagList(
       tags$div(
-        class = "shinybusy shinybusy-overlay"
-      ),
-      gif_tag
+        class = "shinybusy shinybusy-overlay",
+        style = sprintf("background-color: %s;", overlay_color),
+        gif_tag
+      )
     )
   }
   gif_tag <- tagList(
