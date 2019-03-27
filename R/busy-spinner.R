@@ -16,8 +16,6 @@
 #'
 #' @export
 #'
-#' @importFrom htmltools validateCssUnit attachDependencies tags
-#' @importFrom jsonlite toJSON
 #'
 #' @examples
 #' if (interactive()) {
@@ -79,50 +77,10 @@ add_busy_spinner <- function(spin = "double-bounce", color = "#112446", timeout 
                              position = c("top-right", "top-left", "bottom-right", "bottom-left", "full-page"),
                              onstart = TRUE, margins = c(10, 10),
                              height = "50px", width = "50px") {
-  stopifnot(length(margins) == 2)
-  marg1 <- validateCssUnit(margins[1])
-  marg2 <- validateCssUnit(margins[2])
-  position <- match.arg(position)
-  style <- switch(
-    EXPR = position,
-    "top-right" = sprintf("top:%s; right:%s;", marg1, marg2),
-    "top-left" = sprintf("top:%s; left:%s;", marg1, marg2),
-    "bottom-right" = sprintf("bottom:%s; right:%s;", marg1, marg2),
-    "bottom-left" = sprintf("bottom:%s; left:%s;", marg1, marg2),
-    "full-page" = "top:0; bottom:0; right:0; left:0; margin:auto;"
-  )
-  spin_tag <- tags$div(
-    class = "shinybusy",
-    class = if (isTRUE(onstart)) "shinybusy-busy" else "shinybusy-ready",
-    style = style,
-    style = paste0("height:", validateCssUnit(height), ";"),
-    style = paste0("width:", validateCssUnit(width), ";"),
-    spinner(spin = spin, color = color)
-  )
-  if (position == "full-page") {
-    spin_tag <- tagList(
-      tags$div(
-        class = "shinybusy shinybusy-busy shinybusy-overlay"
-      ),
-      spin_tag
-    )
-  }
-  spin_tag <- tagList(
-    spin_tag,
-    tags$script(
-      type = "application/json",
-      `data-for` = "shinybusy",
-      toJSON(list(
-        timeout = timeout, mode = "spin"
-      ), auto_unbox = TRUE, json_verbatim = TRUE)
-    )
-  )
-  attachDependencies(
-    x = spin_tag,
-    value = list(
-      spinner_dependencies(),
-      shinybusy_dependencies()
-    )
+  busy_spinner(
+    spin = spin, color = color, timeout = timeout,
+    position = position, onstart = onstart,
+    margins = margins, height = height, width = width
   )
 }
 
@@ -261,3 +219,58 @@ spinner <- function(spin = "double-bounce", color = "#112446") {
   tagSpin
 }
 
+
+
+
+#' @importFrom htmltools validateCssUnit attachDependencies tags tagList
+#' @importFrom jsonlite toJSON
+busy_spinner <- function(spin = "double-bounce", color = "#112446", timeout = 100,
+                         position = c("top-right", "top-left", "bottom-right", "bottom-left", "full-page"),
+                         onstart = TRUE, margins = c(10, 10),
+                         height = "50px", width = "50px", manual = FALSE) {
+  stopifnot(length(margins) == 2)
+  marg1 <- validateCssUnit(margins[1])
+  marg2 <- validateCssUnit(margins[2])
+  position <- match.arg(position)
+  style <- switch(
+    EXPR = position,
+    "top-right" = sprintf("top:%s; right:%s;", marg1, marg2),
+    "top-left" = sprintf("top:%s; left:%s;", marg1, marg2),
+    "bottom-right" = sprintf("bottom:%s; right:%s;", marg1, marg2),
+    "bottom-left" = sprintf("bottom:%s; left:%s;", marg1, marg2),
+    "full-page" = "top:0; bottom:0; right:0; left:0; margin:auto;"
+  )
+  spin_tag <- tags$div(
+    class = "shinybusy",
+    class = if (isTRUE(onstart)) "shinybusy-busy" else "shinybusy-ready",
+    style = style,
+    style = paste0("height:", validateCssUnit(height), ";"),
+    style = paste0("width:", validateCssUnit(width), ";"),
+    spinner(spin = spin, color = color)
+  )
+  if (position == "full-page") {
+    spin_tag <- tagList(
+      tags$div(
+        class = "shinybusy shinybusy-busy shinybusy-overlay"
+      ),
+      spin_tag
+    )
+  }
+  spin_tag <- tagList(
+    spin_tag,
+    tags$script(
+      type = "application/json",
+      `data-for` = "shinybusy",
+      toJSON(list(
+        timeout = timeout, mode = "spin", manual = manual
+      ), auto_unbox = TRUE, json_verbatim = TRUE)
+    )
+  )
+  attachDependencies(
+    x = spin_tag,
+    value = list(
+      spinner_dependencies(),
+      shinybusy_dependencies()
+    )
+  )
+}

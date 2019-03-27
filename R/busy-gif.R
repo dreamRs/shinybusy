@@ -10,6 +10,7 @@
 #' @param margins Distance from margins, a vector of length two, where first element is distance from top/bottom,
 #'  second element distance from right/left.
 #' @param overlay_color Background color for the overlay if \code{position = "full-page"}.
+#' @param overlay_css Additional CSS for the overlay, for example \code{"z-index: 1000;"} to make it appear of everything.
 #' @param height,width Height and width ot the spinner, default to \code{'50px'} for both, must be specified.
 #'
 #' @export
@@ -45,7 +46,7 @@
 #' }
 add_busy_gif <- function(src, timeout = 100,
                          position = c("top-right", "top-left", "bottom-right", "bottom-left", "full-page", "free"),
-                         margins = c(10, 10), overlay_color = "rgba(0, 0, 0, 0.5)",
+                         margins = c(10, 10), overlay_color = "rgba(0, 0, 0, 0.5)", overlay_css = NULL,
                          height = "50px", width = "50px") {
   stopifnot(length(margins) == 2)
   marg1 <- validateCssUnit(margins[1])
@@ -75,6 +76,7 @@ add_busy_gif <- function(src, timeout = 100,
       tags$div(
         class = "shinybusy shinybusy-overlay",
         style = sprintf("background-color: %s;", overlay_color),
+        style = if (!is.null(overlay_css)) overlay_css,
         gif_tag
       )
     )

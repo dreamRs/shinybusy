@@ -9,8 +9,6 @@
 #'
 #' @export
 #'
-#' @importFrom htmltools attachDependencies tags
-#' @importFrom jsonlite toJSON
 #'
 #' @examples
 #' if (interactive()) {
@@ -44,31 +42,7 @@
 #'   shinyApp(ui, server)
 #' }
 add_busy_bar <- function(timeout = 1000, color = "#112446", centered = FALSE) {
-  classname <- "shinybusy-nanobar"
-  if (isTRUE(centered)) {
-    classname <- "shinybusy-nanobar-centered"
-  }
-  nanobar_tag <- tags$style(
-    sprintf(".%s .bar {background: %s}", classname, color)
-  )
-  nanobar_tag <- tagList(
-    nanobar_tag,
-    tags$script(
-      type = "application/json",
-      `data-for` = "shinybusy",
-      toJSON(list(
-        timeout = timeout, mode = "nanobar",
-        classname = classname
-      ), auto_unbox = TRUE, json_verbatim = TRUE)
-    )
-  )
-  attachDependencies(
-    x = nanobar_tag,
-    value = list(
-      nanobar_dependencies(),
-      shinybusy_dependencies()
-    )
-  )
+  busy_bar(color = "#112446", centered = FALSE, timeout = timeout)
 }
 
 
@@ -115,31 +89,7 @@ add_busy_bar <- function(timeout = 1000, color = "#112446", centered = FALSE) {
 #'   shinyApp(ui, server)
 #' }
 use_busy_bar <- function(color = "#112446", centered = FALSE) {
-  classname <- "shinybusy-nanobar"
-  if (isTRUE(centered)) {
-    classname <- "shinybusy-nanobar-centered"
-  }
-  nanobar_tag <- tags$style(
-    sprintf(".%s .bar {background: %s}", classname, color)
-  )
-  nanobar_tag <- tagList(
-    nanobar_tag,
-    tags$script(
-      type = "application/json",
-      `data-for` = "shinybusy",
-      toJSON(list(
-        mode = "nanobar", manual = TRUE,
-        classname = classname
-      ), auto_unbox = TRUE, json_verbatim = TRUE)
-    )
-  )
-  attachDependencies(
-    x = nanobar_tag,
-    value = list(
-      nanobar_dependencies(),
-      shinybusy_dependencies()
-    )
-  )
+  busy_bar(color = "#112446", centered = FALSE, manual = TRUE)
 }
 
 
@@ -157,3 +107,32 @@ update_busy_bar <- function(value, session = shiny::getDefaultReactiveDomain()) 
 }
 
 
+#' @importFrom htmltools attachDependencies tags tagList
+#' @importFrom jsonlite toJSON
+busy_bar <- function(timeout = 1000, color = "#112446", centered = FALSE, manual = FALSE) {
+  classname <- "shinybusy-nanobar"
+  if (isTRUE(centered)) {
+    classname <- "shinybusy-nanobar-centered"
+  }
+  nanobar_tag <- tags$style(
+    sprintf(".%s .bar {background: %s}", classname, color)
+  )
+  nanobar_tag <- tagList(
+    nanobar_tag,
+    tags$script(
+      type = "application/json",
+      `data-for` = "shinybusy",
+      toJSON(list(
+        timeout = timeout, mode = "nanobar",
+        classname = classname, manual = manual
+      ), auto_unbox = TRUE, json_verbatim = TRUE)
+    )
+  )
+  attachDependencies(
+    x = nanobar_tag,
+    value = list(
+      nanobar_dependencies(),
+      shinybusy_dependencies()
+    )
+  )
+}
