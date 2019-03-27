@@ -6,7 +6,6 @@
 #' @param timeout Number of milliseconds after the server is busy to display the progress bar.
 #' @param color Progress bar color.
 #' @param centered Center the progress bar or not.
-#' @param classname Additionnal CSS class for the progress bar, can be used for custom styles.
 #'
 #' @export
 #'
@@ -44,11 +43,8 @@
 #'
 #'   shinyApp(ui, server)
 #' }
-add_busy_bar <- function(timeout = 1000, color = "#112446", centered = FALSE, classname = NULL) {
-  classname <- "shinybusy-bar"
-  if (!is.null(classname)) {
-    classname <- classname
-  }
+add_busy_bar <- function(timeout = 1000, color = "#112446", centered = FALSE) {
+  classname <- "shinybusy-nanobar"
   if (isTRUE(centered)) {
     classname <- "shinybusy-nanobar-centered"
   }
@@ -75,5 +71,89 @@ add_busy_bar <- function(timeout = 1000, color = "#112446", centered = FALSE, cl
   )
 }
 
+
+#' @title Manual progress bar
+#'
+#' @description Declare \code{use_busy_bar} in your UI and update value server-side with \code{update_busy_bar}.
+#'
+#' @param color Progress bar color.
+#' @param centered Center the progress bar or not.
+#'
+#' @export
+#'
+#' @name manual-progressbar
+#'
+#' @examples
+#' if (interactive()) {
+#'   library(shiny)
+#'   library(shinybusy)
+#'
+#'   ui <- fluidPage(
+#'     tags$h2("Manual nanobar"),
+#'     use_busy_bar(),
+#'     actionButton(inputId = "go", label = "Go")
+#'   )
+#'
+#'   server <- function(input, output, session) {
+#'
+#'     observeEvent(input$go, {
+#'       update_busy_bar(10)
+#'       Sys.sleep(1)
+#'       update_busy_bar(20)
+#'       Sys.sleep(1)
+#'       update_busy_bar(40)
+#'       Sys.sleep(1)
+#'       update_busy_bar(60)
+#'       Sys.sleep(1)
+#'       update_busy_bar(80)
+#'       Sys.sleep(1)
+#'       update_busy_bar(100)
+#'     })
+#'
+#'   }
+#'
+#'   shinyApp(ui, server)
+#' }
+use_busy_bar <- function(color = "#112446", centered = FALSE) {
+  classname <- "shinybusy-nanobar"
+  if (isTRUE(centered)) {
+    classname <- "shinybusy-nanobar-centered"
+  }
+  nanobar_tag <- tags$style(
+    sprintf(".%s .bar {background: %s}", classname, color)
+  )
+  nanobar_tag <- tagList(
+    nanobar_tag,
+    tags$script(
+      type = "application/json",
+      `data-for` = "shinybusy",
+      toJSON(list(
+        mode = "nanobar", manual = TRUE,
+        classname = classname
+      ), auto_unbox = TRUE, json_verbatim = TRUE)
+    )
+  )
+  attachDependencies(
+    x = nanobar_tag,
+    value = list(
+      nanobar_dependencies(),
+      shinybusy_dependencies()
+    )
+  )
+}
+
+
+#' @param value The new value for the progress bar.
+#' @param session Shiny session.
+#'
+#' @rdname manual-progressbar
+#' @export
+#'
+update_busy_bar <- function(value, session = shiny::getDefaultReactiveDomain()) {
+  session$sendCustomMessage(
+    type =  "update-nanobar",
+    message = list(value = value)
+  )
+}
 
 

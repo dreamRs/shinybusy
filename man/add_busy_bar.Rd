@@ -4,8 +4,7 @@
 \alias{add_busy_bar}
 \title{Busy indicator (Progress bar)}
 \usage{
-add_busy_bar(timeout = 1000, color = "#112446", centered = FALSE,
-  classname = NULL)
+add_busy_bar(timeout = 1000, color = "#112446", centered = FALSE)
 }
 \arguments{
 \item{timeout}{Number of milliseconds after the server is busy to display the progress bar.}
@@ -13,8 +12,6 @@ add_busy_bar(timeout = 1000, color = "#112446", centered = FALSE,
 \item{color}{Progress bar color.}
 
 \item{centered}{Center the progress bar or not.}
-
-\item{classname}{Additionnal CSS class for the progress bar, can be used for custom styles.}
 }
 \description{
 Make a progress bar appear on top of the page.

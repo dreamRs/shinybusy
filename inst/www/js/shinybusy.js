@@ -1,7 +1,7 @@
 
 $(function() {
 
-  var timingbusy, intervalbusy, busytimeout, busymode, busypos, busyclassname;
+  var timingbusy, intervalbusy, busytimeout, busymode, busypos, busyclassname, manualmode = false;
 
   // config
   var config = document.querySelectorAll('script[data-for="shinybusy"]');
@@ -11,13 +11,11 @@ $(function() {
     busymode = config.mode;
     busypos = config.position;
     busyclassname = config.classname;
-  } else {
-    busytimeout = 500;
-    busymode = "spin";
-    busypos = "top-right";
-    busyclassname = 'shinybusy-bar';
+    if (config.hasOwnProperty("manual")) {
+      manualmode = config.manual;
+    }
   }
-  console.log(busymode);
+  // console.log(busymode);
 
 
   if (busymode == 'spin') {
@@ -80,15 +78,21 @@ $(function() {
   if (busymode == 'nanobar') {
     var nanobar = new Nanobar({classname: busyclassname});
 
-    $(document).on('shiny:busy', function(event) {
-      intervalbusy = setInterval(function() {
-        nanobar.go(100);
-      }, busytimeout);
-    });
+    if (manualmode) {
+      Shiny.addCustomMessageHandler('update-nanobar', function(data) {
+        nanobar.go(data.value);
+      });
+    } else {
+      $(document).on('shiny:busy', function(event) {
+        intervalbusy = setInterval(function() {
+          nanobar.go(100);
+        }, busytimeout);
+      });
 
-    $(document).on('shiny:idle', function(event) {
-      clearInterval(intervalbusy);
-    });
+      $(document).on('shiny:idle', function(event) {
+        clearInterval(intervalbusy);
+      });
+    }
   }
 });
 
