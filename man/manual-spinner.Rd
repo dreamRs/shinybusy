@@ -9,11 +9,14 @@
 \usage{
 use_busy_spinner(spin = "double-bounce", color = "#112446",
   position = c("top-right", "top-left", "bottom-right", "bottom-left",
-  "full-page"), margins = c(10, 10), height = "50px", width = "50px")
+  "full-page"), margins = c(10, 10), spin_id = NULL, height = "50px",
+  width = "50px")
 
-show_spinner(session = shiny::getDefaultReactiveDomain())
+show_spinner(spin_id = NULL,
+  session = shiny::getDefaultReactiveDomain())
 
-hide_spinner(session = shiny::getDefaultReactiveDomain())
+hide_spinner(spin_id = NULL,
+  session = shiny::getDefaultReactiveDomain())
 }
 \arguments{
 \item{spin}{Style of the spinner, choice between : \code{circle}, \code{bounce}, \code{folding-cube},
@@ -26,6 +29,8 @@ hide_spinner(session = shiny::getDefaultReactiveDomain())
 
 \item{margins}{Distance from margins, a vector of length two, where first element is distance from top/bottom,
 second element distance from right/left.}
+
+\item{spin_id}{An explicit id for the spinner, useful if you want to use multiple spinners.}
 
 \item{height, width}{Height and width ot the spinner, default to \code{'50px'} for both, must be specified.}
 

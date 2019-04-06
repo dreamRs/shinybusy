@@ -232,6 +232,7 @@ spinner <- function(spin = "double-bounce", color = "#112446") {
 #'  \code{'bottom-left'}, \code{'full-page'}.
 #' @param margins Distance from margins, a vector of length two, where first element is distance from top/bottom,
 #'  second element distance from right/left.
+#' @param spin_id An explicit id for the spinner, useful if you want to use multiple spinners.
 #' @param height,width Height and width ot the spinner, default to \code{'50px'} for both, must be specified.
 #'
 #' @export
@@ -298,13 +299,13 @@ spinner <- function(spin = "double-bounce", color = "#112446") {
 #' }
 use_busy_spinner <- function(spin = "double-bounce", color = "#112446",
                              position = c("top-right", "top-left", "bottom-right", "bottom-left", "full-page"),
-                             margins = c(10, 10),
+                             margins = c(10, 10), spin_id = NULL,
                              height = "50px", width = "50px") {
   busy_spinner(
     spin = spin, color = color, timeout = 1000,
     position = position, onstart = FALSE,
     margins = margins, height = height, width = width,
-    type = "manual"
+    type = "manual", spin_id = spin_id
   )
 }
 
@@ -314,10 +315,10 @@ use_busy_spinner <- function(spin = "double-bounce", color = "#112446",
 #' @export
 #'
 #' @rdname manual-spinner
-show_spinner <- function(session = shiny::getDefaultReactiveDomain()) {
+show_spinner <- function(spin_id = NULL, session = shiny::getDefaultReactiveDomain()) {
   session$sendCustomMessage(
     type =  "show-spinner",
-    message = list()
+    message = dropNulls(list(spin_id = spin_id))
   )
 }
 
@@ -325,10 +326,10 @@ show_spinner <- function(session = shiny::getDefaultReactiveDomain()) {
 #' @export
 #'
 #' @rdname manual-spinner
-hide_spinner <- function(session = shiny::getDefaultReactiveDomain()) {
+hide_spinner <- function(spin_id = NULL, session = shiny::getDefaultReactiveDomain()) {
   session$sendCustomMessage(
     type =  "hide-spinner",
-    message = list()
+    message = dropNulls(list(spin_id = spin_id))
   )
 }
 
@@ -348,7 +349,7 @@ spin_onstart <- function(spin = "double-bounce", color = "#112446",
 busy_spinner <- function(spin = "double-bounce", color = "#112446", timeout = 100,
                          position = c("top-right", "top-left", "bottom-right", "bottom-left", "full-page"),
                          onstart = TRUE, margins = c(10, 10),
-                         height = "50px", width = "50px", type = "auto") {
+                         height = "50px", width = "50px", type = "auto", spin_id = NULL) {
   stopifnot(length(margins) == 2)
   marg1 <- validateCssUnit(margins[1])
   marg2 <- validateCssUnit(margins[2])
@@ -361,8 +362,11 @@ busy_spinner <- function(spin = "double-bounce", color = "#112446", timeout = 10
     "bottom-left" = sprintf("bottom:%s; left:%s;", marg1, marg2),
     "full-page" = "top:0; bottom:0; right:0; left:0; margin:auto;"
   )
+  if (is.null(spin_id)) {
+    spin_id <- paste0("spin-", create_id())
+  }
   spin_tag <- tags$div(
-    class = "shinybusy",
+    class = "shinybusy", id = spin_id,
     class = if (isTRUE(onstart)) "shinybusy-busy" else "shinybusy-ready",
     style = style,
     style = paste0("height:", validateCssUnit(height), ";"),
@@ -383,7 +387,8 @@ busy_spinner <- function(spin = "double-bounce", color = "#112446", timeout = 10
       type = "application/json",
       `data-for` = "shinybusy",
       toJSON(list(
-        timeout = timeout, mode = "spin", type = type
+        timeout = timeout, mode = "spin",
+        id = spin_id, type = type
       ), auto_unbox = TRUE, json_verbatim = TRUE)
     )
   )

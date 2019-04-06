@@ -3,7 +3,7 @@
 spinner_dependencies <- function() {
   htmlDependency(
     name = "spin", version = "0.1.0",
-    src = list(href = "shinybusy", file = "www"),
+    src = list(href = "shinybusy", file = "assets"),
     package = "shinybusy",
     stylesheet = "spinner/spin.min.css"
   )
@@ -14,7 +14,7 @@ spinner_dependencies <- function() {
 shinybusy_dependencies <- function() {
   htmlDependency(
     name = "shinybusy", version = packageVersion("shinybusy"),
-    src = list(href = "shinybusy", file = "www"),
+    src = list(href = "shinybusy", file = "assets"),
     package = "shinybusy",
     script = "js/shinybusy.js",
     stylesheet = "css/shinybusy.css"
@@ -25,7 +25,7 @@ shinybusy_dependencies <- function() {
 freezeframe_dependencies <- function() {
   htmlDependency(
     name = "freezeframe", version = "3.0.10",
-    src = list(href = "shinybusy", file = "www"),
+    src = list(href = "shinybusy", file = "assets"),
     package = "shinybusy",
     script = "freezeframe/freezeframe.pkgd.min.js",
     stylesheet = "freezeframe/freezeframe_styles.min.css"
@@ -36,7 +36,7 @@ freezeframe_dependencies <- function() {
 nanobar_dependencies <- function() {
   htmlDependency(
     name = "nanobar", version = "0.4.2",
-    src = list(href = "shinybusy", file = "www"),
+    src = list(href = "shinybusy", file = "assets"),
     package = "shinybusy",
     script = "nanobar/nanobar.min.js",
     stylesheet = "nanobar/nanobar-styles.css"
