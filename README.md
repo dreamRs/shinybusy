@@ -27,7 +27,7 @@ Animate a Gif when server is busy and pause animation when server is idle :
 # Somewhere in UI
 add_busy_gif(src = "https://jeroen.github.io/images/banana.gif", height = 70, width = 70)
 ```
-![](imgs/shinybusy-gif.gif)
+![](man/figures/shinybusy-gif.gif)
 
 
 
@@ -39,7 +39,7 @@ Make an infinite progress bar appear on top of the page when server is busy :
 add_busy_bar(color = "#FF0000")
 ```
 
-![](imgs/shinybusy-bar.gif)
+![](man/figures/shinybusy-bar.gif)
 
 
 
@@ -55,14 +55,14 @@ add_busy_spinner(spin = "fading-circle")
 ```
 
 Classic Shiny:
-![](imgs/shinybusy-spin.gif)
+![](man/figures/shinybusy-spin.gif)
 
 
 Shinydashboard:
-![](imgs/spin-dash.png)
+![](man/figures/spin-dash.png)
 
 Shinythemes:
-![](imgs/spin-theme.png)
+![](man/figures/spin-theme.png)
 
 
 
@@ -73,4 +73,4 @@ Shinythemes:
 
 Development of this package was funded by Silex Technologies (https://www.silex-ip.com)
 
-<img src="imgs/logo-silex.png">
+<img src="man/figures/logo-silex.png">

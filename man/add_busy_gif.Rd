@@ -24,7 +24,7 @@ second element distance from right/left.}
 
 \item{overlay_css}{Additional CSS for the overlay, for example \code{"z-index: 1000;"} to make it appear of everything.}
 
-\item{height, width}{Height and width ot the spinner, default to \code{'50px'} for both, must be specified.}
+\item{height, width}{Height and width of the spinner, default to \code{'50px'} for both, must be specified.}
 }
 \description{
 Make a GIF play when server is busy and stop when idle.

@@ -11,7 +11,7 @@
 #'  second element distance from right/left.
 #' @param overlay_color Background color for the overlay if \code{position = "full-page"}.
 #' @param overlay_css Additional CSS for the overlay, for example \code{"z-index: 1000;"} to make it appear of everything.
-#' @param height,width Height and width ot the spinner, default to \code{'50px'} for both, must be specified.
+#' @param height,width Height and width of the spinner, default to \code{'50px'} for both, must be specified.
 #'
 #' @export
 #'
