@@ -7,7 +7,7 @@ Authors@R: c(person("Fanny", "Meyer", email = "fanny.meyer@dreamrs.fr", role = c
   person("Tobias", "Ahlin", role = "cph", comment = "spin.css"),
   person("Chris", "Antonellis", role = "cph", comment = "freezeframe.js"),
   person("Jacobo", "Tabernero", role = "cph", comment = "nanobar.js"))
-Description: Add a global indicator in your 'shiny' applications to show the user that the server is busy.
+Description: Add a global indicator (spinner, progress bar, gif) in your 'shiny' applications to show the user that the server is busy.
 License: GPL-3 | file LICENSE
 Encoding: UTF-8
 LazyData: true
