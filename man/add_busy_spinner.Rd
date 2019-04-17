@@ -25,7 +25,7 @@ add_busy_spinner(spin = "double-bounce", color = "#112446",
 \item{margins}{Distance from margins, a vector of length two, where first element is distance from top/bottom,
 second element distance from right/left.}
 
-\item{height, width}{Height and width ot the spinner, default to \code{'50px'} for both, must be specified.}
+\item{height, width}{Height and width of the spinner, default to \code{'50px'} for both, must be specified.}
 }
 \description{
 Add a spinner in an application each time the server take more 100 milliseconds to respond.

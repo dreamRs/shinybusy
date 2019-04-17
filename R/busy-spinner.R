@@ -12,7 +12,7 @@
 #' @param onstart Logical, display the spinner when the application starts ?
 #' @param margins Distance from margins, a vector of length two, where first element is distance from top/bottom,
 #'  second element distance from right/left.
-#' @param height,width Height and width ot the spinner, default to \code{'50px'} for both, must be specified.
+#' @param height,width Height and width of the spinner, default to \code{'50px'} for both, must be specified.
 #'
 #' @export
 #'
