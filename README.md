@@ -9,7 +9,13 @@
 
 ## Installation
 
-You can install `shinybusy` from GitHub:
+Install from CRAN with:
+
+```r
+install.packages("shinybusy")
+```
+
+You can install dev version of `shinybusy` from GitHub:
 
 ``` r
 remotes::install_github("dreamRs/shinybusy")
