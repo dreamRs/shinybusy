@@ -4,3 +4,4 @@
 ^\.Rproj\.user$
 dev/
 imgs/
+^CRAN-RELEASE$
