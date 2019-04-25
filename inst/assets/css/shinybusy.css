@@ -1,6 +1,6 @@
 
 .shinybusy {
-  z-index: 2000;
+  z-index: 9999;
   position: absolute;
 }
 
@@ -50,7 +50,7 @@
   right: 0;
   bottom: 0;
   background-color: #FFF; /*rgba(0,0,0,0.4)*/
-  z-index: 2;
+  z-index: 20;
 }
 
 .shinybusy-full-page {

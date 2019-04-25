@@ -376,6 +376,7 @@ busy_spinner <- function(spin = "double-bounce", color = "#112446", timeout = 10
   if (position == "full-page") {
     spin_tag <- tagList(
       tags$div(
+        id = paste0(spin_id, "_overlay"),
         class = "shinybusy shinybusy-busy shinybusy-overlay"
       ),
       spin_tag
@@ -388,7 +389,8 @@ busy_spinner <- function(spin = "double-bounce", color = "#112446", timeout = 10
       `data-for` = "shinybusy",
       toJSON(list(
         timeout = timeout, mode = "spin",
-        id = spin_id, type = type
+        id = spin_id, type = type,
+        position = position
       ), auto_unbox = TRUE, json_verbatim = TRUE)
     )
   )

@@ -25,12 +25,16 @@ $(function() {
     if (busymode == 'spin') {
 
       if (busytype == 'auto') {
-        console.log(id);
+        // console.log(id);
         $(document).on('shiny:busy', function(event) {
           //console.log("busy");
           timingbusy = setTimeout(function() {
             $("#" + id).removeClass("shinybusy-ready");
             $("#" + id).addClass("shinybusy-busy");
+            if (busypos == "full-page") {
+              $("#" + id + "_overlay").removeClass("shinybusy-ready");
+              $("#" + id + "_overlay").addClass("shinybusy-busy");
+            }
           }, busytimeout);
         });
 
@@ -39,6 +43,10 @@ $(function() {
           clearTimeout(timingbusy);
           $("#" + id).removeClass("shinybusy-busy");
           $("#" + id).addClass("shinybusy-ready");
+          if (busypos == "full-page") {
+            $("#" + id + "_overlay").removeClass("shinybusy-busy");
+            $("#" + id + "_overlay").addClass("shinybusy-ready");
+          }
         });
       }
       if (busytype == 'start') {
