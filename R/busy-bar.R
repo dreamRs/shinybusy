@@ -42,7 +42,7 @@
 #'   shinyApp(ui, server)
 #' }
 add_busy_bar <- function(timeout = 1000, color = "#112446", centered = FALSE) {
-  busy_bar(color = "#112446", centered = FALSE, timeout = timeout)
+  busy_bar(color = color, centered = FALSE, timeout = timeout)
 }
 
 
@@ -89,7 +89,7 @@ add_busy_bar <- function(timeout = 1000, color = "#112446", centered = FALSE) {
 #'   shinyApp(ui, server)
 #' }
 use_busy_bar <- function(color = "#112446", centered = FALSE) {
-  busy_bar(color = "#112446", centered = FALSE, type = "manual")
+  busy_bar(color = color, centered = FALSE, type = "manual")
 }
 
 
