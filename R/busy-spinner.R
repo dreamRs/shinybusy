@@ -233,7 +233,7 @@ spinner <- function(spin = "double-bounce", color = "#112446") {
 #' @param margins Distance from margins, a vector of length two, where first element is distance from top/bottom,
 #'  second element distance from right/left.
 #' @param spin_id An explicit id for the spinner, useful if you want to use multiple spinners.
-#' @param height,width Height and width ot the spinner, default to \code{'50px'} for both, must be specified.
+#' @param height,width Height and width of the spinner, default to \code{'50px'} for both, must be specified.
 #'
 #' @export
 #'
