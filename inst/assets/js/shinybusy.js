@@ -1,9 +1,31 @@
+/*!
+ * Copyright (c) 2019 dreamRs
+ *
+ * shinybusy, JavaScript bindings to add
+ * simple loading indicators
+ * https://github.com/dreamRs/shinybusy
+ *
+ * @version 0.0.3
+ */
+
+
+// forEach polyfill for IE (https://developer.mozilla.org/fr/docs/Web/API/NodeList/forEach)
+if (window.NodeList && !NodeList.prototype.forEach) {
+  NodeList.prototype.forEach = function (callback, thisArg) {
+    thisArg = thisArg || window;
+    for (var i = 0; i < this.length; i++) {
+      callback.call(thisArg, this[i], i, this);
+    }
+  };
+}
 
 $(function() {
 
   // config
   var configs = document.querySelectorAll('script[data-for="shinybusy"]');
+
   configs.forEach(function(element) {
+
 
     var id, timingbusy, intervalbusy, busytimeout,
       busymode, busypos, busyclassname, manualmode = false;

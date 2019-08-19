@@ -1,3 +1,8 @@
+# shinybusy 0.1.3
+
+* Fix bug in IE.
+
+
 # shinybusy 0.1.2
 
 * Bugfix: change color in 'busy-bar'.
