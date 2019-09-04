@@ -84,3 +84,113 @@ remove_modal_spinner <- shiny::removeModal
 
 
 
+
+
+
+#' @title Show a modal with a progress bar
+#'
+#' @description Make a pop-up window appear from the server
+#'  with a spinner during long computation, remove it when finished.
+#'
+#' @inheritParams shinyWidgets::progressBar
+#' @param session The \code{session} object passed to function given to \code{shinyServer}.
+#'
+#' @export
+#'
+#' @importFrom shiny showModal modalDialog getDefaultReactiveDomain
+#' @importFrom shinyWidgets progressBar
+#'
+#' @name modal-progress
+#'
+#' @examples
+#' if (interactive()) {
+#'
+#'   library(shiny)
+#'   library(shinybusy)
+#'
+#'   ui <- fluidPage(
+#'
+#'     tags$h1("Modal with progress bar"),
+#'     actionButton("sleep1", "Launch a long calculation"),
+#'     actionButton("sleep2", "And another one")
+#'   )
+#'
+#'   server <- function(input, output, session) {
+#'
+#'     observeEvent(input$sleep1, {
+#'       show_modal_progress()
+#'       for (i in 1:100) {
+#'         update_modal_progress(
+#'           value = i
+#'         )
+#'         Sys.sleep(0.1)
+#'       }
+#'       remove_modal_progress()
+#'     })
+#'
+#'     observeEvent(input$sleep2, {
+#'       show_modal_progress(
+#'         display_pct = TRUE,
+#'         status = "success",
+#'         title = ""
+#'       )
+#'       for (i in 1:100) {
+#'         update_modal_progress(
+#'           value = i,
+#'           title = paste("Process", trunc(i/10))
+#'         )
+#'         Sys.sleep(0.1)
+#'       }
+#'       remove_modal_progress()
+#'     })
+#'
+#'   }
+#'
+#'   shinyApp(ui, server)
+#'
+#' }
+show_modal_progress <- function(title = NULL, total = NULL, display_pct = FALSE,
+                                size = NULL, status = NULL, striped = FALSE,
+                                range_value = NULL, unit_mark = "%",
+                                session = shiny::getDefaultReactiveDomain()) {
+  showModal(modalDialog(
+    class = "shinybusy-modal",
+    style = if (is.null(title)) "margin-top: 20px;",
+    tags$script(
+      "$('.shinybusy-modal').parent().css('margin-top', '40vh');"
+    ),
+    progressBar(
+      id = session$ns("shinybusy-progress"),
+      value = 0, total = total,
+      display_pct = display_pct, size = size,
+      status = status, striped = striped,
+      title = title, range_value = range_value,
+      unit_mark = unit_mark
+    ),
+    footer = NULL,
+    easyClose = FALSE,
+    fade = FALSE,
+    size = "m"
+  ), session = session)
+}
+
+#' @export
+#' @importFrom shiny removeModal
+#' @rdname modal-progress
+remove_modal_progress <- shiny::removeModal
+
+#' @export
+#' @importFrom shinyWidgets updateProgressBar
+#' @rdname modal-progress
+update_modal_progress <- function(value, total = NULL,
+                                  title = NULL, status = NULL,
+                                  range_value = NULL, unit_mark = "%",
+                                  session = shiny::getDefaultReactiveDomain()) {
+  updateProgressBar(
+    session = session, id = "shinybusy-progress",
+    value = value, total = total, title = title,
+    status = status, range_value = range_value,
+    unit_mark = unit_mark
+  )
+}
+
