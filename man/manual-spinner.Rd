@@ -32,7 +32,7 @@ second element distance from right/left.}
 
 \item{spin_id}{An explicit id for the spinner, useful if you want to use multiple spinners.}
 
-\item{height, width}{Height and width ot the spinner, default to \code{'50px'} for both, must be specified.}
+\item{height, width}{Height and width of the spinner, default to \code{'50px'} for both, must be specified.}
 
 \item{session}{Shiny session.}
 }

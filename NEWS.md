@@ -1,3 +1,8 @@
+# shinybusy 0.1.4
+
+* New functions `show_modal_spinner()` and `remove_modal_spinner()` to show a modal with a spinner and remove it.
+
+
 # shinybusy 0.1.3
 
 * Fix bug in IE.
