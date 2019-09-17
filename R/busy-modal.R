@@ -58,9 +58,7 @@ show_modal_spinner <- function(spin = "double-bounce",
                                session = shiny::getDefaultReactiveDomain()) {
   showModal(modalDialog(
     class = "shinybusy-modal",
-    tags$script(
-      "$('.shinybusy-modal').parent().css('margin-top', '40vh');"
-    ),
+    js_center_modal(),
     spinner_dependencies(),
     tags$div(
       style = "width: 60px; height: 60px; position: relative; margin: auto;",
@@ -156,9 +154,7 @@ show_modal_progress <- function(title = NULL, total = NULL, display_pct = FALSE,
   showModal(modalDialog(
     class = "shinybusy-modal",
     style = if (is.null(title)) "margin-top: 20px;",
-    tags$script(
-      "$('.shinybusy-modal').parent().css('margin-top', '40vh');"
-    ),
+    js_center_modal(),
     progressBar(
       id = session$ns("shinybusy-progress"),
       value = 0, total = total,
@@ -193,4 +189,101 @@ update_modal_progress <- function(value, total = NULL,
     unit_mark = unit_mark
   )
 }
+
+
+
+
+
+
+
+#' @title Show a modal with a GIF
+#'
+#' @description Make a pop-up window appear from the server
+#'  with a GIF during long computation, remove it when finished.
+#'
+#' @param src Path to the GIF, an URL or a file in www/ folder.
+#' @param text Additional text to appear under the spinner.
+#' @param height,width Height and width of the spinner, default to \code{'50px'} for both, must be specified.
+#' @param modal_size One of \code{"s"} for small (the default) , \code{"m"} for medium, or \code{"l"} for large.
+#' @param session The \code{session} object passed to function given to \code{shinyServer}.
+#'
+#' @export
+#'
+#' @importFrom shiny showModal modalDialog getDefaultReactiveDomain
+#' @importFrom htmltools validateCssUnit
+#'
+#' @name modal-gif
+#'
+#' @examples
+#' if (interactive()) {
+#'
+#'   library(shiny)
+#'   library(shinybusy)
+#'
+#'   ui <- fluidPage(
+#'
+#'     tags$h1("Modal with spinner"),
+#'     actionButton("sleep1", "Launch a long calculation"),
+#'     actionButton("sleep2", "And another one")
+#'   )
+#'
+#'   server <- function(input, output, session) {
+#'
+#'     observeEvent(input$sleep1, {
+#'       show_modal_gif(
+#'         src = "https://jeroen.github.io/images/banana.gif"
+#'       )
+#'       Sys.sleep(5)
+#'       remove_modal_gif()
+#'     })
+#'
+#'     observeEvent(input$sleep2, {
+#'       show_modal_gif(
+#'         src = "https://jeroen.github.io/images/banana.gif",
+#'         width = "300px", height = "300px",
+#'         modal_size = "m",
+#'         text = "Please wait..."
+#'       )
+#'       Sys.sleep(5)
+#'       remove_modal_gif()
+#'     })
+#'
+#'   }
+#'
+#'   shinyApp(ui, server)
+#'
+#' }
+show_modal_gif <- function(src,
+                           text = NULL,
+                           height = "100px", width = "100px",
+                           modal_size = "s",
+                           session = shiny::getDefaultReactiveDomain()) {
+  showModal(modalDialog(
+    class = "shinybusy-modal",
+    style = "text-align: center;",
+    js_center_modal(),
+    tags$img(
+      style = paste0("height:", validateCssUnit(height), ";"),
+      style = paste0("width:", validateCssUnit(width), ";"),
+      src = src
+    ),
+    tags$div(
+      style = "text-align: center;", text
+    ),
+    footer = NULL,
+    easyClose = FALSE,
+    fade = FALSE,
+    size = modal_size
+  ), session = session)
+}
+
+#' @export
+#' @importFrom shiny removeModal
+#' @rdname modal-gif
+remove_modal_gif <- shiny::removeModal
+
+
+
+
+
 

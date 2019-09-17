@@ -6,3 +6,21 @@ create_id <- function() {
 dropNulls <- function(x) {
   x[!vapply(x, is.null, FUN.VALUE = logical(1))]
 }
+
+#' @importFrom htmltools tags HTML
+js_center_modal <- function() {
+  tags$script(HTML(
+    # "$('.shinybusy-modal').parent().css('margin-top', '40vh');"
+    paste(
+      sep = ".",
+      "$('.shinybusy-modal')",
+      "parent()",
+      "parent()",
+      "css('position', 'fixed')",
+      "css('top', '50%')",
+      "css('left', '50%')",
+      "css('transform', 'translate(-50%, -100%)');"
+    )
+  ))
+}
+
