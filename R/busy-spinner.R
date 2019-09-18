@@ -266,7 +266,7 @@ busy_spinner <- function(spin = "double-bounce", color = "#112446", timeout = 10
   attachDependencies(
     x = spin_tag,
     value = list(
-      spinner_dependencies(),
+      spinkit_dependencies(),
       shinybusy_dependencies()
     )
   )

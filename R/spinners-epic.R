@@ -7,6 +7,8 @@
 #' @return an HTML tag.
 #' @export
 #'
+#' @importFrom htmltools tags attachDependencies
+#'
 #' @examples
 #' if (interactive()) {
 #'   library(shiny)

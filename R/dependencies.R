@@ -1,11 +1,11 @@
 
 #' @importFrom htmltools htmlDependency
-spinner_dependencies <- function() {
+spinkit_dependencies <- function() {
   htmlDependency(
-    name = "spin", version = "0.1.0",
+    name = "spinkit", version = "0.1.0",
     src = list(href = "shinybusy", file = "assets"),
     package = "shinybusy",
-    stylesheet = "spinner/spin.min.css"
+    stylesheet = "spinkit/spin.min.css"
   )
 }
 

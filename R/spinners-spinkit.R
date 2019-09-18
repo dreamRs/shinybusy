@@ -1,5 +1,45 @@
 
-#' @importFrom htmltools tags tagList
+#' SpinKit spinners
+#'
+#' @param spin Name of the spinner.
+#' @param color Color of the spinner.
+#'
+#' @return an HTML tag.
+#' @export
+#'
+#' @importFrom htmltools tags tagList attachDependencies
+#'
+#' @examples
+#' if (interactive()) {
+#'   library(shiny)
+#'   library(shinybusy)
+#'
+#'   ui <- fluidPage(
+#'     tags$h2("SpinKit demo"),
+#'     fluidRow(lapply(
+#'       X = c(
+#'         "circle", "bounce", "folding-cube", "rotating-plane", "cube-grid",
+#'         "fading-circle", "double-bounce", "dots", "cube"
+#'       ),
+#'       FUN = function(x) {
+#'         column(
+#'           width = 2,
+#'           tags$b(x),
+#'           tags$div(
+#'             style = "width: 60px; height: 60px; position: relative;",
+#'             spin_kit(spin = x)
+#'           )
+#'         )
+#'       }
+#'     ))
+#'   )
+#'
+#'   server <- function(input, output, session) {
+#'
+#'   }
+#'
+#'   shinyApp(ui, server)
+#' }
 spin_kit <- function(spin = "double-bounce", color = "#112446") {
   spin <- match.arg(
     arg = spin, choices = c(
@@ -129,5 +169,5 @@ spin_kit <- function(spin = "double-bounce", color = "#112446") {
     )
   }
 
-  tagSpin
+  attachDependencies(tagSpin, spinkit_dependencies())
 }

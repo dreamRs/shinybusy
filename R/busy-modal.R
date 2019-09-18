@@ -59,7 +59,7 @@ show_modal_spinner <- function(spin = "double-bounce",
   showModal(modalDialog(
     class = "shinybusy-modal",
     js_center_modal(),
-    spinner_dependencies(),
+    spinkit_dependencies(),
     tags$div(
       style = "width: 60px; height: 60px; position: relative; margin: auto;",
       spin_kit(spin = spin, color = color)
