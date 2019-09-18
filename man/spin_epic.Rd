@@ -6,7 +6,10 @@
 \usage{
 spin_epic(spin = c("flower", "pixel", "hollow-dots",
   "intersecting-circles", "orbit", "radar", "scaling-squares",
-  "half-circle", "trinity-rings", "fulfilling-square"),
+  "half-circle", "trinity-rings", "fulfilling-square",
+  "circles-to-rhombuses", "semipolar", "self-building-square",
+  "swapping-squares", "fulfilling-bouncing-circle", "fingerprint",
+  "spring", "atom", "looping-rhombuses", "breeding-rhombus"),
   color = "#112446")
 }
 \arguments{
@@ -26,51 +29,36 @@ if (interactive()) {
   library(shinybusy)
 
   ui <- fluidPage(
-    tags$h2("Epic spinners demo"),
-
-    fluidRow(
-      column(
-        width = 2,
-        tags$b("flower"),
-        spin_epic(color = "#FF8000"),
-        tags$br(),
-        tags$b("scaling-squares"),
-        spin_epic("scaling-squares", color = "#FF8000")
+    tags$h2("Epic spinner demo"),
+    lapply(
+      X = c(
+        "flower", "pixel", "hollow-dots",
+        "intersecting-circles", "orbit", "radar",
+        "scaling-squares", "half-circle",
+        "fulfilling-square", "circles-to-rhombuses"
       ),
-      column(
-        width = 2,
-        tags$b("pixel"),
-        spin_epic("pixel", color = "#FF8000"),
-        tags$br(),
-        tags$b("half-circle"),
-        spin_epic("half-circle", color = "#FF8000")
+      FUN = function(x) {
+        tags$div(
+          style = "display: table-cell; width: 150px; height: 100px; margin: 10px;",
+          tags$b(x),
+          spin_epic(x, color = "#08298A")
+        )
+      }
+    ),
+    tags$hr(),
+    lapply(
+      X = c(
+        "semipolar", "self-building-square", "swapping-squares",
+        "fulfilling-bouncing-circle", "fingerprint", "spring",
+        "atom", "looping-rhombuses", "breeding-rhombus", "trinity-rings"
       ),
-      column(
-        width = 2,
-        tags$b("hollow-dots"),
-        spin_epic("hollow-dots", color = "#FF8000"),
-        tags$br(),
-        tags$b("trinity-rings"),
-        spin_epic("trinity-rings", color = "#FF8000")
-      ),
-      column(
-        width = 2,
-        tags$b("intersecting-circles"),
-        spin_epic("intersecting-circles", color = "#FF8000"),
-        tags$br(),
-        tags$b("fulfilling-square"),
-        spin_epic("fulfilling-square", color = "#FF8000")
-      ),
-      column(
-        width = 2,
-        tags$b("orbit"),
-        spin_epic("orbit", color = "#FF8000")
-      ),
-      column(
-        width = 2,
-        tags$b("radar"),
-        spin_epic("radar", color = "#FF8000")
-      )
+      FUN = function(x) {
+        tags$div(
+          style = "display: table-cell; width: 150px; height: 100px; margin: 10px;",
+          tags$b(x),
+          spin_epic(x, color = "#08298A")
+        )
+      }
     )
   )
 

@@ -29,7 +29,10 @@ test_that("spin_epic works", {
   spins <- c("flower", "pixel", "hollow-dots",
              "intersecting-circles", "orbit", "radar",
              "scaling-squares", "half-circle", "trinity-rings",
-             "fulfilling-square")
+             "fulfilling-square", "circles-to-rhombuses",
+             "semipolar", "self-building-square", "swapping-squares",
+             "fulfilling-bouncing-circle", "fingerprint", "spring",
+             "atom", "looping-rhombuses", "breeding-rhombus")
 
   for (spin in spins) {
     tag_spinner <- spin_epic(spin = spin)

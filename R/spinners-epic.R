@@ -15,51 +15,36 @@
 #'   library(shinybusy)
 #'
 #'   ui <- fluidPage(
-#'     tags$h2("Epic spinners demo"),
-#'
-#'     fluidRow(
-#'       column(
-#'         width = 2,
-#'         tags$b("flower"),
-#'         spin_epic(color = "#FF8000"),
-#'         tags$br(),
-#'         tags$b("scaling-squares"),
-#'         spin_epic("scaling-squares", color = "#FF8000")
+#'     tags$h2("Epic spinner demo"),
+#'     lapply(
+#'       X = c(
+#'         "flower", "pixel", "hollow-dots",
+#'         "intersecting-circles", "orbit", "radar",
+#'         "scaling-squares", "half-circle",
+#'         "fulfilling-square", "circles-to-rhombuses"
 #'       ),
-#'       column(
-#'         width = 2,
-#'         tags$b("pixel"),
-#'         spin_epic("pixel", color = "#FF8000"),
-#'         tags$br(),
-#'         tags$b("half-circle"),
-#'         spin_epic("half-circle", color = "#FF8000")
+#'       FUN = function(x) {
+#'         tags$div(
+#'           style = "display: table-cell; width: 150px; height: 100px; margin: 10px;",
+#'           tags$b(x),
+#'           spin_epic(x, color = "#08298A")
+#'         )
+#'       }
+#'     ),
+#'     tags$hr(),
+#'     lapply(
+#'       X = c(
+#'         "semipolar", "self-building-square", "swapping-squares",
+#'         "fulfilling-bouncing-circle", "fingerprint", "spring",
+#'         "atom", "looping-rhombuses", "breeding-rhombus", "trinity-rings"
 #'       ),
-#'       column(
-#'         width = 2,
-#'         tags$b("hollow-dots"),
-#'         spin_epic("hollow-dots", color = "#FF8000"),
-#'         tags$br(),
-#'         tags$b("trinity-rings"),
-#'         spin_epic("trinity-rings", color = "#FF8000")
-#'       ),
-#'       column(
-#'         width = 2,
-#'         tags$b("intersecting-circles"),
-#'         spin_epic("intersecting-circles", color = "#FF8000"),
-#'         tags$br(),
-#'         tags$b("fulfilling-square"),
-#'         spin_epic("fulfilling-square", color = "#FF8000")
-#'       ),
-#'       column(
-#'         width = 2,
-#'         tags$b("orbit"),
-#'         spin_epic("orbit", color = "#FF8000")
-#'       ),
-#'       column(
-#'         width = 2,
-#'         tags$b("radar"),
-#'         spin_epic("radar", color = "#FF8000")
-#'       )
+#'       FUN = function(x) {
+#'         tags$div(
+#'           style = "display: table-cell; width: 150px; height: 100px; margin: 10px;",
+#'           tags$b(x),
+#'           spin_epic(x, color = "#08298A")
+#'         )
+#'       }
 #'     )
 #'   )
 #'
@@ -72,7 +57,10 @@
 spin_epic <- function(spin = c("flower", "pixel", "hollow-dots",
                                "intersecting-circles", "orbit", "radar",
                                "scaling-squares", "half-circle", "trinity-rings",
-                               "fulfilling-square"),
+                               "fulfilling-square", "circles-to-rhombuses",
+                               "semipolar", "self-building-square", "swapping-squares",
+                               "fulfilling-bouncing-circle", "fingerprint", "spring",
+                               "atom", "looping-rhombuses", "breeding-rhombus"),
                       color = "#112446") {
   spin <- match.arg(arg = spin)
 
@@ -238,6 +226,306 @@ spin_epic <- function(spin = c("flower", "pixel", "hollow-dots",
       style = border_col,
       tags$div(
         class = "spinner-inner",
+        style = bg_col
+      )
+    )
+  } else if (identical(spin, "circles-to-rhombuses")) {
+    epic <- tags$div(
+      class = "circles-to-rhombuses-spinner",
+      tags$div(
+        class = "circle",
+        style = border_col
+      ),
+      tags$div(
+        class = "circle",
+        style = border_col
+      ),
+      tags$div(
+        class = "circle",
+        style = border_col
+      )
+    )
+  } else if (identical(spin, "semipolar")) {
+    epic <- tags$div(
+      class = "semipolar-spinner",
+      tags$div(
+        class = "ring",
+        style = sprintf(
+          "border-left-color: %s; border-top-color: %s;",
+          color, color
+        )
+      ),
+      tags$div(
+        class = "ring",
+        style = sprintf(
+          "border-left-color: %s; border-top-color: %s;",
+          color, color
+        )
+      ),
+      tags$div(
+        class = "ring",
+        style = sprintf(
+          "border-left-color: %s; border-top-color: %s;",
+          color, color
+        )
+      ),
+      tags$div(
+        class = "ring",
+        style = sprintf(
+          "border-left-color: %s; border-top-color: %s;",
+          color, color
+        )
+      ),
+      tags$div(
+        class = "ring",
+        style = sprintf(
+          "border-left-color: %s; border-top-color: %s;",
+          color, color
+        )
+      )
+    )
+  } else if (identical(spin, "self-building-square")) {
+    epic <- tags$div(
+      class = "self-building-square-spinner",
+      tags$div(
+        class="square",
+        style = bg_col
+      ),
+      tags$div(
+        class="square",
+        style = bg_col
+      ),
+      tags$div(
+        class="square",
+        style = bg_col
+      ),
+      tags$div(
+        class="square clear",
+        style = bg_col
+      ),
+      tags$div(
+        class="square",
+        style = bg_col
+      ),
+      tags$div(
+        class="square",
+        style = bg_col
+      ),
+      tags$div(
+        class="square clear",
+        style = bg_col
+      ),
+      tags$div(
+        class="square",
+        style = bg_col
+      ),
+      tags$div(
+        class="square",
+        style = bg_col
+      )
+    )
+  } else if (identical(spin, "swapping-squares")) {
+    epic <- tags$div(
+      class = "swapping-squares-spinner",
+      tags$div(
+        class = "square",
+        style = border_col
+      ),
+      tags$div(
+        class = "square",
+        style = border_col
+      ),
+      tags$div(
+        class = "square",
+        style = border_col
+      ),
+      tags$div(
+        class = "square",
+        style = border_col
+      )
+    )
+  } else if (identical(spin, "fulfilling-bouncing-circle")) {
+    epic <- tags$div(
+      class = "fulfilling-bouncing-circle-spinner",
+      tags$div(
+        class = "circle",
+        style = col
+      ),
+      tags$div(
+        class = "orbit",
+        style = border_col
+      )
+    )
+  } else if (identical(spin, "fingerprint")) {
+    epic <- tags$div(
+      class = "fingerprint-spinner",
+      tags$div(
+        class = "spinner-ring",
+        style = sprintf(
+          "border-top-color: %s;",
+          color
+        )
+      ),
+      tags$div(
+        class = "spinner-ring",
+        style = sprintf(
+          "border-top-color: %s;",
+          color
+        )
+      ),
+      tags$div(
+        class = "spinner-ring",
+        style = sprintf(
+          "border-top-color: %s;",
+          color
+        )
+      ),
+      tags$div(
+        class = "spinner-ring",
+        style = sprintf(
+          "border-top-color: %s;",
+          color
+        )
+      ),
+      tags$div(
+        class = "spinner-ring",
+        style = sprintf(
+          "border-top-color: %s;",
+          color
+        )
+      ),
+      tags$div(
+        class = "spinner-ring",
+        style = sprintf(
+          "border-top-color: %s;",
+          color
+        )
+      ),
+      tags$div(
+        class = "spinner-ring",
+        style = sprintf(
+          "border-top-color: %s;",
+          color
+        )
+      ),
+      tags$div(
+        class = "spinner-ring",
+        style = sprintf(
+          "border-top-color: %s;",
+          color
+        )
+      )
+    )
+  } else if (identical(spin, "spring")) {
+    epic <- tags$div(
+      class = "spring-spinner",
+      tags$div(
+        class = "spring-spinner-part top",
+        tags$div(
+          class = "spring-spinner-rotator",
+          style = sprintf(
+            "border-right-color: %s; border-top-color: %s;",
+            color, color
+          )
+        )
+      ),
+      tags$div(
+        class = "spring-spinner-part bottom",
+        tags$div(
+          class = "spring-spinner-rotator",
+          style = sprintf(
+            "border-right-color: %s; border-top-color: %s;",
+            color, color
+          )
+        )
+      )
+    )
+  } else if (identical(spin, "atom")) {
+    epic <- tags$div(
+      class = "atom-spinner",
+      tags$div(
+        class = "spinner-inner",
+        tags$div(
+          class = "spinner-line",
+          style = sprintf(
+            "border-left-color: %s;",
+            color
+          )
+        ),
+        tags$div(
+          class = "spinner-line",
+          style = sprintf(
+            "border-left-color: %s;",
+            color
+          )
+        ),
+        tags$div(
+          class = "spinner-line",
+          style = sprintf(
+            "border-left-color: %s;",
+            color
+          )
+        ),
+        tags$div(
+          class = "spinner-circle",
+          style = col,
+          HTML("&#9679;")
+        )
+      )
+    )
+  } else if (identical(spin, "looping-rhombuses")) {
+    epic <- tags$div(
+      class = "looping-rhombuses-spinner",
+      tags$div(
+        class = "rhombus",
+        style = bg_col
+      ),
+      tags$div(
+        class = "rhombus",
+        style = bg_col
+      ),
+      tags$div(
+        class = "rhombus",
+        style = bg_col
+      )
+    )
+  } else if (identical(spin, "breeding-rhombus")) {
+    epic <- tags$div(
+      class = "breeding-rhombus-spinner",
+      tags$div(
+        class = "rhombus child-1",
+        style = bg_col
+      ),
+      tags$div(
+        class = "rhombus child-2",
+        style = bg_col
+      ),
+      tags$div(
+        class = "rhombus child-3",
+        style = bg_col
+      ),
+      tags$div(
+        class = "rhombus child-4",
+        style = bg_col
+      ),
+      tags$div(
+        class = "rhombus child-5",
+        style = bg_col
+      ),
+      tags$div(
+        class = "rhombus child-6",
+        style = bg_col
+      ),
+      tags$div(
+        class = "rhombus child-7",
+        style = bg_col
+      ),
+      tags$div(
+        class = "rhombus child-8",
+        style = bg_col
+      ),
+      tags$div(
+        class = "rhombus big",
         style = bg_col
       )
     )
