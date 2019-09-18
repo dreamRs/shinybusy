@@ -40,13 +40,11 @@
 #'
 #'   shinyApp(ui, server)
 #' }
-spin_kit <- function(spin = "double-bounce", color = "#112446") {
-  spin <- match.arg(
-    arg = spin, choices = c(
-      "circle", "bounce", "folding-cube", "rotating-plane", "cube-grid",
-      "fading-circle", "double-bounce", "dots", "cube"
-    )
-  )
+spin_kit <- function(spin = c("double-bounce", "circle", "bounce",
+                              "folding-cube", "rotating-plane", "cube-grid",
+                              "fading-circle", "dots", "cube"),
+                     color = "#112446") {
+  spin <- match.arg(arg = spin)
   alea <- paste(sample(letters, 12, T), collapse = "")
   if (spin == "circle") {
     tagSpin <- tagList(
@@ -171,3 +169,12 @@ spin_kit <- function(spin = "double-bounce", color = "#112446") {
 
   attachDependencies(tagSpin, spinkit_dependencies())
 }
+
+
+spinkit_spinners <- function() {
+  c("double-bounce", "circle", "bounce",
+    "folding-cube", "rotating-plane", "cube-grid",
+    "fading-circle", "dots", "cube")
+}
+
+

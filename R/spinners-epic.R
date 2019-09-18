@@ -532,3 +532,18 @@ spin_epic <- function(spin = c("flower", "pixel", "hollow-dots",
   }
   attachDependencies(epic, epic_spinners_dependencies())
 }
+
+
+
+epic_spinners <- function() {
+  c("flower", "pixel", "hollow-dots",
+    "intersecting-circles", "orbit", "radar",
+    "scaling-squares", "half-circle", "trinity-rings",
+    "fulfilling-square", "circles-to-rhombuses",
+    "semipolar", "self-building-square", "swapping-squares",
+    "fulfilling-bouncing-circle", "fingerprint", "spring",
+    "atom", "looping-rhombuses", "breeding-rhombus")
+}
+
+
+

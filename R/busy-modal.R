@@ -4,8 +4,7 @@
 #' @description Make a pop-up window appear from the server
 #'  with a spinner during long computation, remove it when finished.
 #'
-#' @param spin Style of the spinner, choice between : \code{circle}, \code{bounce}, \code{folding-cube},
-#'  \code{rotating-plane}, \code{cube-grid}, \code{fading-circle}, \code{double-bounce}, \code{dots}, \code{cube}.
+#' @param spin Style of the spinner, see \link{spin_epic} or \link{spin_kit} for possible choices.
 #' @param color Color for the spinner, in a valid CSS format.
 #' @param text Additional text to appear under the spinner.
 #' @param session The \code{session} object passed to function given to \code{shinyServer}.
@@ -56,13 +55,19 @@ show_modal_spinner <- function(spin = "double-bounce",
                                color = "#112446",
                                text = NULL,
                                session = shiny::getDefaultReactiveDomain()) {
+  spin <- match.arg(arg = spin, choices = c(spinkit_spinners(), epic_spinners()))
+  if (spin %in% spinkit_spinners()) {
+    tag_spin <- spin_kit(spin = spin, color = color)
+  } else {
+    tag_spin <- spin_epic(spin = spin, color = color)
+  }
   showModal(modalDialog(
     class = "shinybusy-modal",
     js_center_modal(),
     spinkit_dependencies(),
     tags$div(
       style = "width: 60px; height: 60px; position: relative; margin: auto;",
-      spin_kit(spin = spin, color = color)
+      tag_spin
     ),
     tags$div(
       style = "text-align: center;", text

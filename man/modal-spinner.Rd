@@ -12,8 +12,7 @@ show_modal_spinner(spin = "double-bounce", color = "#112446",
 remove_modal_spinner(session = getDefaultReactiveDomain())
 }
 \arguments{
-\item{spin}{Style of the spinner, choice between : \code{circle}, \code{bounce}, \code{folding-cube},
-\code{rotating-plane}, \code{cube-grid}, \code{fading-circle}, \code{double-bounce}, \code{dots}, \code{cube}.}
+\item{spin}{Style of the spinner, see \link{spin_epic} or \link{spin_kit} for possible choices.}
 
 \item{color}{Color for the spinner, in a valid CSS format.}
 
