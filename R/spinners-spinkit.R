@@ -1,6 +1,6 @@
 
 #' @importFrom htmltools tags tagList
-spinner <- function(spin = "double-bounce", color = "#112446") {
+spin_kit <- function(spin = "double-bounce", color = "#112446") {
   spin <- match.arg(
     arg = spin, choices = c(
       "circle", "bounce", "folding-cube", "rotating-plane", "cube-grid",

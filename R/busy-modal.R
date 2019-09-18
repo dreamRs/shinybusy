@@ -62,7 +62,7 @@ show_modal_spinner <- function(spin = "double-bounce",
     spinner_dependencies(),
     tags$div(
       style = "width: 60px; height: 60px; position: relative; margin: auto;",
-      spinner(spin = spin, color = color)
+      spin_kit(spin = spin, color = color)
     ),
     tags$div(
       style = "text-align: center;", text

@@ -10,7 +10,7 @@ test_that("busy_spinner works", {
 
 
 
-test_that("busy_spinner works", {
+test_that("spin_kit works", {
 
   spins <- c(
     "circle", "bounce", "folding-cube", "rotating-plane", "cube-grid",
@@ -18,10 +18,22 @@ test_that("busy_spinner works", {
   )
 
   for (spin in spins) {
-    tag_spinner <- spinner(spin = spin)
+    tag_spinner <- spin_kit(spin = spin)
 
     expect_true(inherits(tag_spinner, c("shiny.tag", "shiny.tag.list")))
   }
 })
 
+test_that("spin_epic works", {
 
+  spins <- c("flower", "pixel", "hollow-dots",
+             "intersecting-circles", "orbit", "radar",
+             "scaling-squares", "half-circle", "trinity-rings",
+             "fulfilling-square")
+
+  for (spin in spins) {
+    tag_spinner <- spin_epic(spin = spin)
+
+    expect_true(inherits(tag_spinner, c("shiny.tag", "shiny.tag.list")))
+  }
+})

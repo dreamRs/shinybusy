@@ -240,7 +240,7 @@ busy_spinner <- function(spin = "double-bounce", color = "#112446", timeout = 10
     style = style,
     style = paste0("height:", validateCssUnit(height), ";"),
     style = paste0("width:", validateCssUnit(width), ";"),
-    spinner(spin = spin, color = color)
+    spin_kit(spin = spin, color = color)
   )
   if (position == "full-page") {
     spin_tag <- tagList(
