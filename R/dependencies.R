@@ -9,6 +9,16 @@ spinner_dependencies <- function() {
   )
 }
 
+#' @importFrom htmltools htmlDependency
+epic_spinners_dependencies <- function() {
+  htmlDependency(
+    name = "epic-spinners", version = "1.1.0",
+    src = list(href = "shinybusy", file = "assets"),
+    package = "shinybusy",
+    stylesheet = "epic-spinners/epic-spinners.css"
+  )
+}
+
 #' @importFrom utils packageVersion
 #' @importFrom htmltools htmlDependency
 shinybusy_dependencies <- function() {

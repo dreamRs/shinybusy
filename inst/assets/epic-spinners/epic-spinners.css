@@ -1,0 +1,268 @@
+/* Epic spinners by epicmax */
+
+/* Version 1.1.0 */
+
+/* https://github.com/epicmaxco/epic-spinners */
+
+/* Flower spinner */
+
+.flower-spinner,
+.flower-spinner * {
+	box-sizing: border-box;
+}
+.flower-spinner {
+	height: 70px;
+	width: 70px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+.flower-spinner .dots-container {
+	height: calc(70px / 7);
+	width: calc(70px / 7);
+}
+.flower-spinner .smaller-dot {
+	background: #ff1d5e;
+	height: 100%;
+	width: 100%;
+	border-radius: 50%;
+	animation: flower-spinner-smaller-dot-animation 2.5s 0s infinite both;
+}
+.flower-spinner .bigger-dot {
+	background: #ff1d5e;
+	height: 100%;
+	width: 100%;
+	padding: 10%;
+	border-radius: 50%;
+	animation: flower-spinner-bigger-dot-animation 2.5s 0s infinite both;
+}
+@keyframes flower-spinner-bigger-dot-animation {
+	0%, 100% {
+		box-shadow: 0px 0px 0px, 0px 0px 0px, 0px 0px 0px, 0px 0px 0px, 0px 0px 0px, 0px 0px 0px, 0px 0px 0px, 0px 0px 0px;
+	}
+	50% {
+		transform: rotate(180deg);
+	}
+	25%,
+	75% {
+		box-shadow: 26px 0px 0px, -26px 0px 0px, 0px 26px 0px, 0px -26px 0px, 19px -19px 0px, 19px 19px 0px, -19px -19px 0px, -19px 19px 0px;
+	}
+	100% {
+		transform: rotate(360deg);
+		box-shadow: 0px 0px 0px, 0px 0px 0px, 0px 0px 0px, 0px 0px 0px, 0px 0px 0px, 0px 0px 0px, 0px 0px 0px, 0px 0px 0px;
+	}
+}
+@keyframes flower-spinner-smaller-dot-animation {
+	0%, 100% {
+		box-shadow: 0px 0px 0px, 0px 0px 0px, 0px 0px 0px, 0px 0px 0px, 0px 0px 0px, 0px 0px 0px, 0px 0px 0px, 0px 0px 0px;
+	}
+	25%,
+	75% {
+		box-shadow: 14px 0px 0px, -14px 0px 0px, 0px 14px 0px, 0px -14px 0px, 10px -10px 0px, 10px 10px 0px, -10px -10px 0px, -10px 10px 0px;
+	}
+	100% {
+		box-shadow: 0px 0px 0px, 0px 0px 0px, 0px 0px 0px, 0px 0px 0px, 0px 0px 0px, 0px 0px 0px, 0px 0px 0px, 0px 0px 0px;
+	}
+}
+/* pixel spinner */
+
+.pixel-spinner,
+.pixel-spinner * {
+	box-sizing: border-box;
+}
+.pixel-spinner {
+	height: 70px;
+	width: 70px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+.pixel-spinner .pixel-spinner-inner {
+	width: calc(70px / 7);
+	height: calc(70px / 7);
+	background-color: #ff1d5e;
+	color: #ff1d5e;
+	box-shadow: 15px 15px 0 0, -15px -15px 0 0, 15px -15px 0 0, -15px 15px 0 0, 0 15px 0 0, 15px 0 0 0, -15px 0 0 0, 0 -15px 0 0;
+	animation: pixel-spinner-animation 2000ms linear infinite;
+}
+@keyframes pixel-spinner-animation {
+	50% {
+		box-shadow: 20px 20px 0px 0px, -20px -20px 0px 0px, 20px -20px 0px 0px, -20px 20px 0px 0px, 0px 10px 0px 0px, 10px 0px 0px 0px, -10px 0px 0px 0px, 0px -10px 0px 0px;
+	}
+	75% {
+		box-shadow: 20px 20px 0px 0px, -20px -20px 0px 0px, 20px -20px 0px 0px, -20px 20px 0px 0px, 0px 10px 0px 0px, 10px 0px 0px 0px, -10px 0px 0px 0px, 0px -10px 0px 0px;
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+/* Hollow-dots */
+
+.hollow-dots-spinner,
+.hollow-dots-spinner * {
+	box-sizing: border-box;
+}
+.hollow-dots-spinner {
+	height: 15px;
+	width: calc(30px * 3);
+}
+.hollow-dots-spinner .dot {
+	width: 15px;
+	height: 15px;
+	margin: 0 calc(15px / 2);
+	border: calc(15px / 5) solid #ff1d5e;
+	border-radius: 50%;
+	float: left;
+	transform: scale(0);
+	animation: hollow-dots-spinner-animation 1000ms ease infinite 0ms;
+}
+.hollow-dots-spinner .dot:nth-child(1) {
+	animation-delay: calc(300ms * 1);
+}
+.hollow-dots-spinner .dot:nth-child(2) {
+	animation-delay: calc(300ms * 2);
+}
+.hollow-dots-spinner .dot:nth-child(3) {
+	animation-delay: calc(300ms * 3);
+}
+@keyframes hollow-dots-spinner-animation {
+	50% {
+		transform: scale(1);
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+/* intersecting-circles */
+
+.intersecting-circles-spinner,
+.intersecting-circles-spinner * {
+	box-sizing: border-box;
+}
+.intersecting-circles-spinner {
+	height: 70px;
+	width: 70px;
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+.intersecting-circles-spinner .spinnerBlock {
+	animation: intersecting-circles-spinners-animation 1200ms linear infinite;
+	transform-origin: center;
+	display: block;
+	height: 35px;
+	width: 35px;
+}
+.intersecting-circles-spinner .circle {
+	display: block;
+	border: 2px solid #ff1d5e;
+	border-radius: 50%;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.intersecting-circles-spinner .circle:nth-child(1) {
+	left: 0;
+	top: 0;
+}
+.intersecting-circles-spinner .circle:nth-child(2) {
+	left: calc(35px * -0.36);
+	top: calc(35px * 0.2);
+}
+.intersecting-circles-spinner .circle:nth-child(3) {
+	left: calc(35px * -0.36);
+	top: calc(35px * -0.2);
+}
+.intersecting-circles-spinner .circle:nth-child(4) {
+	left: 0;
+	top: calc(35px * -0.36);
+}
+.intersecting-circles-spinner .circle:nth-child(5) {
+	left: calc(35px * 0.36);
+	top: calc(35px * -0.2);
+}
+.intersecting-circles-spinner .circle:nth-child(6) {
+	left: calc(35px * 0.36);
+	top: calc(35px * 0.2);
+}
+.intersecting-circles-spinner .circle:nth-child(7) {
+	left: 0;
+	top: calc(35px * 0.36);
+}
+@keyframes intersecting-circles-spinners-animation {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+/* orbit */
+
+.orbit-spinner,
+.orbit-spinner * {
+	box-sizing: border-box;
+}
+.orbit-spinner {
+	height: 55px;
+	width: 55px;
+	border-radius: 50%;
+	perspective: 800px;
+}
+.orbit-spinner .orbit {
+	position: absolute;
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+}
+.orbit-spinner .orbit:nth-child(1) {
+	left: 0%;
+	top: 0%;
+	animation: orbit-spinner-orbit-one-animation 1200ms linear infinite;
+	border-bottom: 3px solid #ff1d5e;
+}
+.orbit-spinner .orbit:nth-child(2) {
+	right: 0%;
+	top: 0%;
+	animation: orbit-spinner-orbit-two-animation 1200ms linear infinite;
+	border-right: 3px solid #ff1d5e;
+}
+.orbit-spinner .orbit:nth-child(3) {
+	right: 0%;
+	bottom: 0%;
+	animation: orbit-spinner-orbit-three-animation 1200ms linear infinite;
+	border-top: 3px solid #ff1d5e;
+}
+@keyframes orbit-spinner-orbit-one-animation {
+	0% {
+		transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+	}
+	100% {
+		transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+	}
+}
+@keyframes orbit-spinner-orbit-two-animation {
+	0% {
+		transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+	}
+	100% {
+		transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+	}
+}
+@keyframes orbit-spinner-orbit-three-animation {
+	0% {
+		transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+	}
+	100% {
+		transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+	}
+}
+
