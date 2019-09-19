@@ -8,32 +8,58 @@
  * @version 0.1.4
  */
 
-$(document).on("shiny:outputinvalidated", function(event) {
-  console.log(event);
-  var children = $(event.target).children();
-  //$( event.target ).empty();
-  event.target.innerHTML = "";
-  $(event.target).addClass("shinybusy-recalculating");
 
-  $(".shinybusy-auto-recalculating")
-    .clone()
-    .removeClass("shinybusy-auto-recalculating")
-    .addClass("shinybusy-auto-recalculating" + event.target.id)
-    .appendTo(event.target);
-  children.appendTo(
-    $(event.target).find(".shinybusy-auto-recalculating" + event.target.id)
-  );
-  $(event.target).removeClass("recalculating");
-  $(".shinybusy-auto-spinner")
-    .clone()
-    .removeClass("shinybusy-auto-spinner")
-    .prependTo(event.target);
+var findOne = function (haystack, arr) {
+  arr = [].slice.apply(arr);
+  return arr.some(function (v) {
+      return haystack.indexOf(v) >= 0;
+  });
+};
+var outputClass = ["shiny-plot-output", "html-widget-output"];
+
+$(document).on("shiny:outputinvalidated", function(event) {
+  if ( findOne(outputClass, event.target.classList) ) {
+
+    var children = $(event.target).children();
+    event.target.innerHTML = "";
+    $(event.target).addClass("shinybusy-recalculating");
+    // $(event.target).css("position", "relative");
+
+    $(".shinybusy-auto-recalculating")
+      .clone()
+      .removeClass("shinybusy-auto-recalculating")
+      .addClass("shinybusy-auto-recalculating" + event.target.id)
+      .addClass("recalculating")
+      .appendTo(event.target);
+    children.appendTo(
+      $(event.target)
+        .find(".shinybusy-auto-recalculating" + event.target.id)
+    );
+    $(event.target).removeClass("recalculating");
+    $(".shinybusy-auto-spinner")
+      .clone()
+      .removeClass("shinybusy-auto-spinner")
+      .prependTo(event.target);
+
+
+  }
 });
 
+
 $(document).on("shiny:recalculating", function(event) {
-  $(event.target).removeClass("recalculating");
+  console.log("HEre 1");
+  if ( findOne(outputClass, event.target.classList) ) {
+    console.log("HEre 2");
+    $(event.target).removeClass("recalculating");
+  }
 });
 
 $(document).on("shiny:recalculated", function(event) {
-  $(event.target).removeClass("shinybusy-recalculating");
+  if ( findOne(outputClass, event.target.classList) ) {
+    $(event.target).removeClass("shinybusy-recalculating");
+  }
 });
+
+
+
+

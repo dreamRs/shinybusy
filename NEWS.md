@@ -2,6 +2,7 @@
 
 * New functions `show_modal_spinner()` and `remove_modal_spinner()` to show a modal with a spinner and remove it.
 * New functions `show_modal_progress()`, `update_modal_progress()` and `remove_modal_progress()` to show a modal with a progress bar, update it and remove it.
+* New spinners available, see `spin_epic()` for a demo.
 
 
 # shinybusy 0.1.3
