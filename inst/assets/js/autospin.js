@@ -15,51 +15,117 @@ var findOne = function (haystack, arr) {
       return haystack.indexOf(v) >= 0;
   });
 };
-var outputClass = ["shiny-plot-output", "html-widget-output"];
-
-$(document).on("shiny:outputinvalidated", function(event) {
-  if ( findOne(outputClass, event.target.classList) ) {
-
-    var children = $(event.target).children();
-    event.target.innerHTML = "";
-    $(event.target).addClass("shinybusy-recalculating");
-    // $(event.target).css("position", "relative");
-
-    $(".shinybusy-auto-recalculating")
-      .clone()
-      .removeClass("shinybusy-auto-recalculating")
-      .addClass("shinybusy-auto-recalculating" + event.target.id)
-      .addClass("recalculating")
-      .appendTo(event.target);
-    children.appendTo(
-      $(event.target)
-        .find(".shinybusy-auto-recalculating" + event.target.id)
-    );
-    $(event.target).removeClass("recalculating");
-    $(".shinybusy-auto-spinner")
-      .clone()
-      .removeClass("shinybusy-auto-spinner")
-      .prependTo(event.target);
+var idIn, idOut, outputClass = ["shiny-plot-output", "html-widget-output"];
 
 
+$(function() {
+
+  var config = document.querySelector('script[data-for="shinybusy-autospinner"]');
+  config = JSON.parse(config.innerHTML);
+  if (config) {
+    outputClass = config.class_in;
+    idIn = config.id_in;
+    idOut = config.id_out;
   }
+
+  $(document).on("shiny:outputinvalidated", function(event) {
+
+    var elIdIn = false;
+    if (idIn.length === 0) {
+      elIdIn = true;
+    } else {
+      if (findOne(idIn, event.target.id)) {
+        elIdIn = true;
+      }
+    }
+    if (idOut.length !== 0) {
+      if (findOne(idOut, event.target.id)) {
+        elIdIn = false;
+      }
+    }
+    var elClassIn = findOne(outputClass, event.target.classList);
+    if (elIdIn) {
+      elClassIn = true;
+    }
+
+    if ( elIdIn & elClassIn ) {
+
+      var children = $(event.target).children();
+      event.target.innerHTML = "";
+      $(event.target).addClass("shinybusy-recalculating");
+      // $(event.target).css("position", "relative");
+
+      $(".shinybusy-auto-recalculating")
+        .clone()
+        .removeClass("shinybusy-auto-recalculating")
+        .addClass("shinybusy-auto-recalculating" + event.target.id)
+        .addClass("recalculating")
+        .appendTo(event.target);
+      children.appendTo(
+        $(event.target)
+          .find(".shinybusy-auto-recalculating" + event.target.id)
+      );
+      $(event.target).removeClass("recalculating");
+      $(".shinybusy-auto-spinner")
+        .clone()
+        .removeClass("shinybusy-auto-spinner")
+        .prependTo(event.target);
+    }
+
+  });
+
+
+  $(document).on("shiny:recalculating", function(event) {
+
+    var elIdIn = false;
+    if (idIn === undefined) {
+      elIdIn = true;
+    } else {
+      if (findOne(idIn, event.target.id)) {
+        elIdIn = true;
+      }
+    }
+    if (idOut !== undefined) {
+      if (findOne(idOut, event.target.id)) {
+        elIdIn = false;
+      }
+    }
+    var elClassIn = findOne(outputClass, event.target.classList);
+    if (elIdIn) {
+      elClassIn = true;
+    }
+
+    if ( elIdIn & elClassIn ) {
+      $(event.target).removeClass("recalculating");
+    }
+
+  });
+
+  $(document).on("shiny:recalculated", function(event) {
+
+    var elIdIn = false;
+    if (idIn === undefined) {
+      elIdIn = true;
+    } else {
+      if (findOne(idIn, event.target.id)) {
+        elIdIn = true;
+      }
+    }
+    if (idOut !== undefined) {
+      if (findOne(idOut, event.target.id)) {
+        elIdIn = false;
+      }
+    }
+    var elClassIn = findOne(outputClass, event.target.classList);
+    if (elIdIn) {
+      elClassIn = true;
+    }
+
+    if ( elIdIn & elClassIn ) {
+      $(event.target).removeClass("shinybusy-recalculating");
+    }
+
+  });
+
 });
-
-
-$(document).on("shiny:recalculating", function(event) {
-  console.log("HEre 1");
-  if ( findOne(outputClass, event.target.classList) ) {
-    console.log("HEre 2");
-    $(event.target).removeClass("recalculating");
-  }
-});
-
-$(document).on("shiny:recalculated", function(event) {
-  if ( findOne(outputClass, event.target.classList) ) {
-    $(event.target).removeClass("shinybusy-recalculating");
-  }
-});
-
-
-
 

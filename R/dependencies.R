@@ -31,6 +31,18 @@ shinybusy_dependencies <- function() {
   )
 }
 
+#' @importFrom utils packageVersion
+#' @importFrom htmltools htmlDependency
+autospin_dependencies <- function() {
+  htmlDependency(
+    name = "shinybusy-autospin", version = packageVersion("shinybusy"),
+    src = list(href = "shinybusy", file = "assets"),
+    package = "shinybusy",
+    script = "js/autospin.js",
+    stylesheet = "css/autospin.css"
+  )
+}
+
 #' @importFrom htmltools htmlDependency
 freezeframe_dependencies <- function() {
   htmlDependency(
