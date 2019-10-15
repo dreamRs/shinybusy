@@ -5,3 +5,4 @@
 dev/
 imgs/
 ^CRAN-RELEASE$
+^examples$

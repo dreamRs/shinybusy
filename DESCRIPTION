@@ -1,13 +1,14 @@
 Package: shinybusy
 Title: Busy Indicator for 'Shiny' Applications
-Version: 0.1.3.930
+Version: 0.1.4.900
 Authors@R: c(person("Fanny", "Meyer", email = "fanny.meyer@dreamrs.fr", role = c("aut")),
   person("Victor", "Perrier", email = "victor.perrier@dreamrs.fr", role = c("aut", "cre")),
   person("Silex Technologies", comment = "https://www.silex-ip.com", role = "fnd"),
   person("Tobias", "Ahlin", role = "cph", comment = "SpinKit CSS"),
   person("Epicmax", role = "cph", comment = "Epic-spinners CSS"),
   person("Chris", "Antonellis", role = "cph", comment = "freezeframe.js"),
-  person("Jacobo", "Tabernero", role = "cph", comment = "nanobar.js"))
+  person("Jacobo", "Tabernero", role = "cph", comment = "nanobar.js"),
+  person("Kimmo", "Brunfeldt", role = "cph", comment = "progressbar.js"))
 Description: Add a global indicator (spinner, progress bar, gif) in your 'shiny' applications to show the user that the server is busy.
 License: GPL-3 | file LICENSE
 Encoding: UTF-8
@@ -16,7 +17,8 @@ Imports:
     htmltools,
     shiny,
     jsonlite,
-    shinyWidgets
+    shinyWidgets,
+    htmlwidgets
 RoxygenNote: 6.1.1
 URL: https://github.com/dreamRs/shinybusy
 BugReports: https://github.com/dreamRs/shinybusy/issues
