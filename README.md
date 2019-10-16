@@ -74,6 +74,13 @@ Shinythemes:
 
 
 
+## Other related packages
+
+These packages provide cool alternative to add progress indicator in shiny application :
+
+* [{waiter}](https://github.com/JohnCoene/waiter) : Loading screens for Shiny
+* [{shinycssloaders}](https://github.com/andrewsali/shinycssloaders) : Add CSS loader animations to Shiny outputs
+* [{shinycustomloader}](https://github.com/emitanaka/shinycustomloader) : Add a custom loader for R shiny
 
 
 

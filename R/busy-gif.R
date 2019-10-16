@@ -1,5 +1,5 @@
 
-#' @title Busy indicator (GIF)
+#' @title Automatic busy indicator (GIF)
 #'
 #' @description Make a GIF play when server is busy and stop when idle.
 #'
@@ -18,32 +18,7 @@
 #' @importFrom htmltools validateCssUnit attachDependencies tags
 #' @importFrom jsonlite toJSON
 #'
-#' @examples
-#' if (interactive()) {
-#'   library(shiny)
-#'   library(shinybusy)
-#'
-#'   ui <- fluidPage(
-#'
-#'     # Use this function somewhere in UI
-#'     add_busy_gif(
-#'       src = "https://jeroen.github.io/images/banana.gif",
-#'       height = 70, width = 70
-#'     ),
-#'
-#'     actionButton("sleep", "Long calculation")
-#'   )
-#'
-#'   server <- function(input, output, session) {
-#'
-#'     observeEvent(input$sleep, {
-#'       Sys.sleep(5)
-#'     })
-#'
-#'   }
-#'
-#'   shinyApp(ui, server)
-#' }
+#' @example examples/add_busy_gif.R
 add_busy_gif <- function(src, timeout = 100,
                          position = c("top-right", "top-left", "bottom-right", "bottom-left", "full-page", "free"),
                          margins = c(10, 10), overlay_color = "rgba(0, 0, 0, 0.5)", overlay_css = NULL,

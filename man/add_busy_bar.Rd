@@ -2,9 +2,10 @@
 % Please edit documentation in R/busy-bar.R
 \name{add_busy_bar}
 \alias{add_busy_bar}
-\title{Busy indicator (Progress bar)}
+\title{Automatic busy indicator (Progress bar)}
 \usage{
-add_busy_bar(timeout = 1000, color = "#112446", centered = FALSE)
+add_busy_bar(timeout = 1000, color = "#112446", centered = FALSE,
+  height = "8px")
 }
 \arguments{
 \item{timeout}{Number of milliseconds after the server is busy to display the progress bar.}
@@ -12,6 +13,8 @@ add_busy_bar(timeout = 1000, color = "#112446", centered = FALSE)
 \item{color}{Progress bar color.}
 
 \item{centered}{Center the progress bar or not.}
+
+\item{height}{Height of the bar.}
 }
 \description{
 Make a progress bar appear on top of the page.
@@ -29,8 +32,8 @@ if (interactive()) {
     headerPanel('Iris k-means clustering'),
 
     tags$br(),
-    actionButton("quick", "Quick calculation"),
-    actionButton("sleep", "Long calculation")
+    actionButton("quick", "Quick calculation (nothing happens)"),
+    actionButton("sleep", "Long calculation (progress bar on top)")
   )
 
   server <- function(input, output, session) {

@@ -2,7 +2,7 @@
 % Please edit documentation in R/busy-gif.R
 \name{add_busy_gif}
 \alias{add_busy_gif}
-\title{Busy indicator (GIF)}
+\title{Automatic busy indicator (GIF)}
 \usage{
 add_busy_gif(src, timeout = 100, position = c("top-right", "top-left",
   "bottom-right", "bottom-left", "full-page", "free"), margins = c(10,

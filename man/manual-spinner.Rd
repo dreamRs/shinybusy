@@ -5,7 +5,7 @@
 \alias{use_busy_spinner}
 \alias{show_spinner}
 \alias{hide_spinner}
-\title{Manual spinner}
+\title{Manual busy indicator (spinner)}
 \usage{
 use_busy_spinner(spin = "double-bounce", color = "#112446",
   position = c("top-right", "top-left", "bottom-right", "bottom-left",
@@ -19,8 +19,8 @@ hide_spinner(spin_id = NULL,
   session = shiny::getDefaultReactiveDomain())
 }
 \arguments{
-\item{spin}{Style of the spinner, choice between : \code{circle}, \code{bounce}, \code{folding-cube},
-\code{rotating-plane}, \code{cube-grid}, \code{fading-circle}, \code{double-bounce}, \code{dots}, \code{cube}.}
+\item{spin}{Style of the spinner, see \code{\link{spin_epic}} or \code{\link{spin_kit}}
+for possible choices. Note that for \code{spin_epic}, height and width are ignored.}
 
 \item{color}{Color for the spinner, in a valid CSS format.}
 
@@ -32,7 +32,9 @@ second element distance from right/left.}
 
 \item{spin_id}{An explicit id for the spinner, useful if you want to use multiple spinners.}
 
-\item{height, width}{Height and width of the spinner, default to \code{'50px'} for both, must be specified.}
+\item{height}{Height and width of the spinner, default to \code{'50px'} for both, must be specified.}
+
+\item{width}{Height and width of the spinner, default to \code{'50px'} for both, must be specified.}
 
 \item{session}{Shiny session.}
 }
@@ -79,7 +81,8 @@ if (interactive()) {
 
     output$plot1 <- renderPlot({
       palette(c("#E41A1C", "#377EB8", "#4DAF4A", "#984EA3",
-                "#FF7F00", "#FFFF33", "#A65628", "#F781BF", "#999999"))
+                "#FF7F00", "#FFFF33", "#A65628", "#F781BF",
+                "#999999"))
 
       par(mar = c(5.1, 4.1, 0, 1))
       plot(selectedData(),

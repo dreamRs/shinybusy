@@ -4,9 +4,9 @@
 \alias{manual-progressbar}
 \alias{use_busy_bar}
 \alias{update_busy_bar}
-\title{Manual progress bar}
+\title{Manual busy indicator (progress bar)}
 \usage{
-use_busy_bar(color = "#112446", centered = FALSE)
+use_busy_bar(color = "#112446", centered = FALSE, height = "8px")
 
 update_busy_bar(value, session = shiny::getDefaultReactiveDomain())
 }
@@ -14,6 +14,8 @@ update_busy_bar(value, session = shiny::getDefaultReactiveDomain())
 \item{color}{Progress bar color.}
 
 \item{centered}{Center the progress bar or not.}
+
+\item{height}{Height of the bar.}
 
 \item{value}{The new value for the progress bar.}
 
@@ -29,24 +31,26 @@ if (interactive()) {
 
   ui <- fluidPage(
     tags$h2("Manual nanobar"),
-    use_busy_bar(),
-    actionButton(inputId = "go", label = "Go")
+    use_busy_bar(color = "#01DF01", height = "15px"),
+    actionButton(inputId = "go", label = "Go"),
+    sliderInput(
+      inputId = "set", label = "Set progress",
+      min = 0, value = 0, max = 100
+    )
   )
 
   server <- function(input, output, session) {
 
     observeEvent(input$go, {
-      update_busy_bar(10)
-      Sys.sleep(1)
-      update_busy_bar(20)
-      Sys.sleep(1)
-      update_busy_bar(40)
-      Sys.sleep(1)
-      update_busy_bar(60)
-      Sys.sleep(1)
-      update_busy_bar(80)
-      Sys.sleep(1)
-      update_busy_bar(100)
+      update_busy_bar(0)
+      for (i in 1:100) {
+        Sys.sleep(0.1)
+        update_busy_bar(i)
+      }
+    })
+
+    observeEvent(input$set, {
+      update_busy_bar(input$set)
     })
 
   }
