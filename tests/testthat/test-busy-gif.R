@@ -1,4 +1,4 @@
-context("test-busy-gif")
+context("busy-gif")
 
 test_that("add_busy_gif works", {
 

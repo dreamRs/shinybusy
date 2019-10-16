@@ -1,8 +1,18 @@
-context("test-busy-spinner")
+context("busy-spinner")
 
 test_that("busy_spinner works", {
 
   tag_busy_spinner <- busy_spinner()
+
+  expect_is(tag_busy_spinner, "shiny.tag.list")
+  expect_true(length(htmltools::findDependencies(tag_busy_spinner)) > 0)
+
+  tag_busy_spinner <- use_busy_spinner()
+
+  expect_is(tag_busy_spinner, "shiny.tag.list")
+  expect_true(length(htmltools::findDependencies(tag_busy_spinner)) > 0)
+
+  tag_busy_spinner <- add_busy_spinner()
 
   expect_is(tag_busy_spinner, "shiny.tag.list")
   expect_true(length(htmltools::findDependencies(tag_busy_spinner)) > 0)

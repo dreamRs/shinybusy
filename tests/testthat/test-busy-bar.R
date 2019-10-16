@@ -1,4 +1,4 @@
-context("test-busy-bar")
+context("busy-bar")
 
 test_that("busy_bar works", {
 

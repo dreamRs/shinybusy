@@ -2,11 +2,13 @@
 
 > Automated (or not) busy indicator for Shiny apps
 
+<!-- badges: start -->
 [![Travis build status](https://travis-ci.org/dreamRs/shinybusy.svg?branch=master)](https://travis-ci.org/dreamRs/shinybusy)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![version](http://www.r-pkg.org/badges/version/shinybusy)](https://CRAN.R-project.org/package=shinybusy)
 [![cranlogs](http://cranlogs.r-pkg.org/badges/shinybusy)](https://CRAN.R-project.org/package=shinybusy)
-
+[![Codecov test coverage](https://codecov.io/gh/dreamRs/shinybusy/branch/master/graph/badge.svg)](https://codecov.io/gh/dreamRs/shinybusy?branch=master)
+<!-- badges: end -->
 
 ## Installation
 
