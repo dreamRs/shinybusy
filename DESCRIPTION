@@ -17,7 +17,6 @@ Imports:
     htmltools,
     shiny,
     jsonlite,
-    shinyWidgets,
     htmlwidgets
 RoxygenNote: 6.1.1
 URL: https://github.com/dreamRs/shinybusy

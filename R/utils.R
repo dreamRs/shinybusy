@@ -8,7 +8,7 @@ dropNulls <- function(x) {
 }
 
 #' @importFrom htmltools tags HTML
-js_center_modal <- function() {
+js_center_modal <- function(translateX = "-50%", translateY = "-100%") {
   tags$script(HTML(
     # "$('.shinybusy-modal').parent().css('margin-top', '40vh');"
     paste(
@@ -19,7 +19,7 @@ js_center_modal <- function() {
       "css('position', 'fixed')",
       "css('top', '50%')",
       "css('left', '50%')",
-      "css('transform', 'translate(-50%, -100%)');"
+      sprintf("css('transform', 'translate(%s, %s)');", translateX, translateY)
     )
   ))
 }

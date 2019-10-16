@@ -59,15 +59,15 @@ progress_js <- function(value = 0,
   )
 }
 
-progress_js_html <- function(id, style, class, ...) {
-  tags$div(
-    id = id,
-    class = class,
-    style = style,
-    style = "margin-bottom:25px;",
-    ...
-  )
-}
+# progress_js_html <- function(id, style, class, ...) {
+#   tags$div(
+#     id = id,
+#     class = class,
+#     style = style,
+#     style = "margin-bottom:25px;",
+#     ...
+#   )
+# }
 
 
 
@@ -80,11 +80,13 @@ progress_js_html <- function(id, style, class, ...) {
 #' @param value Initial value or new value to set.
 #' @param color Main color.
 #' @param stroke_width Main width.
-#' @param easing Animation to use.
-#' @param duration Animation duration.
+#' @param easing CSS animation to use, ex.: \code{"linear"},
+#'  \code{"easeIn"}, \code{"easeOut"}, \code{"easeInOut"}.
+#' @param duration Animation duration (in milliseconds).
 #' @param trail_color Color of shape behind the main bar.
 #' @param trail_width Width of shape behind the main bar.
 #' @param text Text to display.
+#' @param text_color TExt color.
 #' @param width Container width.
 #' @param height Container height.
 #' @param shiny_id Id to use in Shiny application.
@@ -97,11 +99,12 @@ progress_js_html <- function(id, style, class, ...) {
 progress_line <- function(value = 0,
                          color = "#112446",
                          stroke_width = 4,
-                         easing = "easeInOut",
-                         duration = 1400,
+                         easing = "linear",
+                         duration = 1000,
                          trail_color = "#eee",
                          trail_width = 1,
                          text = "auto",
+                         text_color = "#000",
                          width = "100%", height = "15px",
                          shiny_id = NULL) {
 
@@ -133,6 +136,7 @@ progress_line <- function(value = 0,
     text = list(
       value = text_value,
       style = list(
+        color = text_color,
         padding = 0,
         margin = 0
       )
@@ -146,15 +150,16 @@ progress_line <- function(value = 0,
 #'
 #' @export
 progress_circle <- function(value = 0,
-                          color = "#112446",
-                          stroke_width = 4,
-                          easing = "easeInOut",
-                          duration = 1400,
-                          trail_color = "#eee",
-                          trail_width = 1,
-                          text = "auto",
-                          width = "200px", height = "200px",
-                          shiny_id = NULL) {
+                            color = "#112446",
+                            stroke_width = 4,
+                            easing = "easeInOut",
+                            duration = 1400,
+                            trail_color = "#eee",
+                            trail_width = 1,
+                            text = "auto",
+                            text_color = "#000",
+                            width = "200px", height = "200px",
+                            shiny_id = NULL) {
 
   if (is.null(text)) {
     set_text <- NULL
@@ -179,9 +184,78 @@ progress_circle <- function(value = 0,
     trail_color = trail_color,
     trail_width = trail_width,
     width = width, height = height,
-    elementId = shiny_id
+    elementId = shiny_id,
+    set_text = set_text,
+    text = list(
+      value = text_value,
+      style = list(
+        color = text_color,
+        position = "absolute",
+        left = "50%",
+        top = "50%",
+        margin = 0,
+        transform = "translate(-50%, -50%)"
+      )
+    )
   )
 }
+
+
+#' @rdname progress
+#'
+#' @export
+progress_semicircle <- function(value = 0,
+                                color = "#112446",
+                                stroke_width = 4,
+                                easing = "easeInOut",
+                                duration = 1400,
+                                trail_color = "#eee",
+                                trail_width = 1,
+                                text = "auto",
+                                text_color = "#000",
+                                width = "200px", height = "100px",
+                                shiny_id = NULL) {
+
+  if (is.null(text)) {
+    set_text <- NULL
+    text_value <- NULL
+  } else {
+    if (identical(text, "auto")) {
+      set_text <- "Math.round(bar.value() * 100) + ' %'"
+      text_value <- NULL
+    } else {
+      set_text <- NULL
+      text_value <- text
+    }
+  }
+
+  progress_js(
+    type = "SemiCircle",
+    value = value,
+    color = color,
+    stroke_width = stroke_width,
+    easing = easing,
+    duration = duration,
+    trail_color = trail_color,
+    trail_width = trail_width,
+    width = width, height = height,
+    elementId = shiny_id,
+    set_text = set_text,
+    text = list(
+      value = text_value,
+      style = list(
+        color = text_color,
+        position = "absolute",
+        left = "50%",
+        top = "auto",
+        bottom = "0px",
+        margin = 0,
+        transform = "translate(-50%, 0px)"
+      )
+    )
+  )
+}
+
 
 
 #' @param session Shiny session.

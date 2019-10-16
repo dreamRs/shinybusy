@@ -4,18 +4,24 @@
 \alias{progress}
 \alias{progress_line}
 \alias{progress_circle}
+\alias{progress_semicircle}
 \alias{update_progress}
 \title{Create progress indicator}
 \usage{
 progress_line(value = 0, color = "#112446", stroke_width = 4,
-  easing = "easeInOut", duration = 1400, trail_color = "#eee",
-  trail_width = 1, text = "auto", width = "100\%", height = "15px",
-  shiny_id = NULL)
+  easing = "linear", duration = 1000, trail_color = "#eee",
+  trail_width = 1, text = "auto", text_color = "#000",
+  width = "100\%", height = "15px", shiny_id = NULL)
 
 progress_circle(value = 0, color = "#112446", stroke_width = 4,
   easing = "easeInOut", duration = 1400, trail_color = "#eee",
-  trail_width = 1, text = "auto", width = "200px",
-  height = "200px", shiny_id = NULL)
+  trail_width = 1, text = "auto", text_color = "#000",
+  width = "200px", height = "200px", shiny_id = NULL)
+
+progress_semicircle(value = 0, color = "#112446", stroke_width = 4,
+  easing = "easeInOut", duration = 1400, trail_color = "#eee",
+  trail_width = 1, text = "auto", text_color = "#000",
+  width = "200px", height = "100px", shiny_id = NULL)
 
 update_progress(shiny_id, value, text = NULL,
   session = shiny::getDefaultReactiveDomain())
@@ -27,15 +33,18 @@ update_progress(shiny_id, value, text = NULL,
 
 \item{stroke_width}{Main width.}
 
-\item{easing}{Animation to use.}
+\item{easing}{CSS animation to use, ex.: \code{"linear"},
+\code{"easeIn"}, \code{"easeOut"}, \code{"easeInOut"}.}
 
-\item{duration}{Animation duration.}
+\item{duration}{Animation duration (in milliseconds).}
 
 \item{trail_color}{Color of shape behind the main bar.}
 
 \item{trail_width}{Width of shape behind the main bar.}
 
 \item{text}{Text to display.}
+
+\item{text_color}{TExt color.}
 
 \item{width}{Container width.}
 

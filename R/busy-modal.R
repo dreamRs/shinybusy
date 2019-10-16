@@ -15,42 +15,7 @@
 #'
 #' @name modal-spinner
 #'
-#' @examples
-#' if (interactive()) {
-#'
-#'   library(shiny)
-#'   library(shinybusy)
-#'
-#'   ui <- fluidPage(
-#'
-#'     tags$h1("Modal with spinner"),
-#'     actionButton("sleep1", "Launch a long calculation"),
-#'     actionButton("sleep2", "And another one")
-#'   )
-#'
-#'   server <- function(input, output, session) {
-#'
-#'     observeEvent(input$sleep1, {
-#'       show_modal_spinner()
-#'       Sys.sleep(5)
-#'       remove_modal_spinner()
-#'     })
-#'
-#'     observeEvent(input$sleep2, {
-#'       show_modal_spinner(
-#'         spin = "cube-grid",
-#'         color = "firebrick",
-#'         text = "Please wait..."
-#'       )
-#'       Sys.sleep(5)
-#'       remove_modal_spinner()
-#'     })
-#'
-#'   }
-#'
-#'   shinyApp(ui, server)
-#'
-#' }
+#' @example examples/modal_spinner.R
 show_modal_spinner <- function(spin = "double-bounce",
                                color = "#112446",
                                text = NULL,
@@ -95,78 +60,39 @@ remove_modal_spinner <- shiny::removeModal
 #' @description Make a pop-up window appear from the server
 #'  with a spinner during long computation, remove it when finished.
 #'
-#' @inheritParams shinyWidgets::progressBar
+#' @inheritParams progress
 #' @param session The \code{session} object passed to function given to \code{shinyServer}.
 #'
 #' @export
 #'
 #' @importFrom shiny showModal modalDialog getDefaultReactiveDomain
-#' @importFrom shinyWidgets progressBar
 #'
 #' @name modal-progress
 #'
-#' @examples
-#' if (interactive()) {
-#'
-#'   library(shiny)
-#'   library(shinybusy)
-#'
-#'   ui <- fluidPage(
-#'
-#'     tags$h1("Modal with progress bar"),
-#'     actionButton("sleep1", "Launch a long calculation"),
-#'     actionButton("sleep2", "And another one")
-#'   )
-#'
-#'   server <- function(input, output, session) {
-#'
-#'     observeEvent(input$sleep1, {
-#'       show_modal_progress()
-#'       for (i in 1:100) {
-#'         update_modal_progress(
-#'           value = i
-#'         )
-#'         Sys.sleep(0.1)
-#'       }
-#'       remove_modal_progress()
-#'     })
-#'
-#'     observeEvent(input$sleep2, {
-#'       show_modal_progress(
-#'         display_pct = TRUE,
-#'         status = "success",
-#'         title = ""
-#'       )
-#'       for (i in 1:100) {
-#'         update_modal_progress(
-#'           value = i,
-#'           title = paste("Process", trunc(i/10))
-#'         )
-#'         Sys.sleep(0.1)
-#'       }
-#'       remove_modal_progress()
-#'     })
-#'
-#'   }
-#'
-#'   shinyApp(ui, server)
-#'
-#' }
-show_modal_progress <- function(title = NULL, total = NULL, display_pct = FALSE,
-                                size = NULL, status = NULL, striped = FALSE,
-                                range_value = NULL, unit_mark = "%",
-                                session = shiny::getDefaultReactiveDomain()) {
+#' @example examples/modal_progress.R
+show_modal_progress_line <- function(value = 0, text = "auto",
+                                     color = "#112446",
+                                     stroke_width = 4,
+                                     easing = "linear",
+                                     duration = 1000,
+                                     trail_color = "#eee",
+                                     trail_width = 1,
+                                     height = "15px",
+                                     session = shiny::getDefaultReactiveDomain()) {
   showModal(modalDialog(
     class = "shinybusy-modal",
-    style = if (is.null(title)) "margin-top: 20px;",
     js_center_modal(),
-    progressBar(
-      id = session$ns("shinybusy-progress"),
-      value = 0, total = total,
-      display_pct = display_pct, size = size,
-      status = status, striped = striped,
-      title = title, range_value = range_value,
-      unit_mark = unit_mark
+    progress_line(
+      value = value,
+      text = text,
+      color = color,
+      stroke_width = stroke_width,
+      easing = easing,
+      duration = duration,
+      trail_color = trail_color,
+      trail_width = trail_width,
+      height = height,
+      shiny_id = session$ns("shinybusy-modal-progress")
     ),
     footer = NULL,
     easyClose = FALSE,
@@ -176,22 +102,54 @@ show_modal_progress <- function(title = NULL, total = NULL, display_pct = FALSE,
 }
 
 #' @export
+#' @rdname modal-progress
+show_modal_progress_circle <- function(value = 0, text = "auto",
+                                       color = "#112446",
+                                       stroke_width = 4,
+                                       easing = "linear",
+                                       duration = 1000,
+                                       trail_color = "#eee",
+                                       trail_width = 1,
+                                       height = "200px",
+                                       session = shiny::getDefaultReactiveDomain()) {
+  showModal(modalDialog(
+    class = "shinybusy-modal",
+    js_center_modal(translateY = "-60%"),
+    progress_circle(
+      value = value,
+      text = text,
+      color = color,
+      stroke_width = stroke_width,
+      easing = easing,
+      duration = duration,
+      trail_color = trail_color,
+      trail_width = trail_width,
+      height = height, width = height,
+      shiny_id = session$ns("shinybusy-modal-progress")
+    ),
+    footer = NULL,
+    easyClose = FALSE,
+    fade = FALSE,
+    size = "m"
+  ), session = session)
+}
+
+
+#' @export
 #' @importFrom shiny removeModal
 #' @rdname modal-progress
 remove_modal_progress <- shiny::removeModal
 
+
 #' @export
-#' @importFrom shinyWidgets updateProgressBar
 #' @rdname modal-progress
-update_modal_progress <- function(value, total = NULL,
-                                  title = NULL, status = NULL,
-                                  range_value = NULL, unit_mark = "%",
+update_modal_progress <- function(value, text = NULL,
                                   session = shiny::getDefaultReactiveDomain()) {
-  updateProgressBar(
-    session = session, id = "shinybusy-progress",
-    value = value, total = total, title = title,
-    status = status, range_value = range_value,
-    unit_mark = unit_mark
+  update_progress(
+    shiny_id = "shinybusy-modal-progress",
+    value = value,
+    text = text,
+    session = session
   )
 }
 

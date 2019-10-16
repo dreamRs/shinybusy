@@ -2,41 +2,48 @@
 % Please edit documentation in R/busy-modal.R
 \name{modal-progress}
 \alias{modal-progress}
-\alias{show_modal_progress}
+\alias{show_modal_progress_line}
+\alias{show_modal_progress_circle}
 \alias{remove_modal_progress}
 \alias{update_modal_progress}
 \title{Show a modal with a progress bar}
 \usage{
-show_modal_progress(title = NULL, total = NULL, display_pct = FALSE,
-  size = NULL, status = NULL, striped = FALSE, range_value = NULL,
-  unit_mark = "\%", session = shiny::getDefaultReactiveDomain())
+show_modal_progress_line(value = 0, text = "auto", color = "#112446",
+  stroke_width = 4, easing = "linear", duration = 1000,
+  trail_color = "#eee", trail_width = 1, height = "15px",
+  session = shiny::getDefaultReactiveDomain())
+
+show_modal_progress_circle(value = 0, text = "auto",
+  color = "#112446", stroke_width = 4, easing = "linear",
+  duration = 1000, trail_color = "#eee", trail_width = 1,
+  height = "200px", session = shiny::getDefaultReactiveDomain())
 
 remove_modal_progress(session = getDefaultReactiveDomain())
 
-update_modal_progress(value, total = NULL, title = NULL,
-  status = NULL, range_value = NULL, unit_mark = "\%",
+update_modal_progress(value, text = NULL,
   session = shiny::getDefaultReactiveDomain())
 }
 \arguments{
-\item{title}{character, optional title.}
+\item{value}{Initial value or new value to set.}
 
-\item{total}{Used to calculate percentage if value > 100, force an indicator to appear on top right of the progress bar.}
+\item{text}{Text to display.}
 
-\item{display_pct}{logical, display percentage on the progress bar.}
+\item{color}{Main color.}
 
-\item{size}{Size, `NULL` by default or a value in 'xxs', 'xs', 'sm', only work with package `shinydashboard`.}
+\item{stroke_width}{Main width.}
 
-\item{status}{Color, must be a valid Bootstrap status : primary, info, success, warning, danger.}
+\item{easing}{CSS animation to use, ex.: \code{"linear"},
+\code{"easeIn"}, \code{"easeOut"}, \code{"easeInOut"}.}
 
-\item{striped}{logical, add a striped effect.}
+\item{duration}{Animation duration (in milliseconds).}
 
-\item{range_value}{Default is to display percentage (\code{[0, 100]}), but you can specify a custom range, e.g. \code{-50, 50}.}
+\item{trail_color}{Color of shape behind the main bar.}
 
-\item{unit_mark}{Unit for value displayed on the progress bar, default to \code{"\%"}.}
+\item{trail_width}{Width of shape behind the main bar.}
+
+\item{height}{Container height.}
 
 \item{session}{The \code{session} object passed to function given to \code{shinyServer}.}
-
-\item{value}{Value of the progress bar between 0 and 100, if >100 you must provide total.}
 }
 \description{
 Make a pop-up window appear from the server
@@ -52,16 +59,19 @@ if (interactive()) {
 
     tags$h1("Modal with progress bar"),
     actionButton("sleep1", "Launch a long calculation"),
-    actionButton("sleep2", "And another one")
+    actionButton("sleep2", "And another one (different line options)"),
+    tags$br(),
+    actionButton("sleep3", "With a circle progress bar"),
+    actionButton("sleep4", "With different circle options)")
   )
 
   server <- function(input, output, session) {
 
     observeEvent(input$sleep1, {
-      show_modal_progress()
+      show_modal_progress_line()
       for (i in 1:100) {
         update_modal_progress(
-          value = i
+          value = i / 100
         )
         Sys.sleep(0.1)
       }
@@ -69,17 +79,50 @@ if (interactive()) {
     })
 
     observeEvent(input$sleep2, {
-      show_modal_progress(
-        display_pct = TRUE,
-        status = "success",
-        title = ""
+      show_modal_progress_line(
+        color = "#DF0101",
+        duration = 900,
+        easing = "easeOut",
+        text = "Starting computation"
       )
+      Sys.sleep(0.1)
       for (i in 1:100) {
         update_modal_progress(
-          value = i,
-          title = paste("Process", trunc(i/10))
+          value = i / 100,
+          text = paste("Process", trunc(i/10), sprintf("(\%02d\%\%)", i))
+        )
+        Sys.sleep(0.15)
+      }
+      remove_modal_progress()
+    })
+
+
+    observeEvent(input$sleep3, {
+      show_modal_progress_circle()
+      for (i in 1:100) {
+        update_modal_progress(
+          value = i / 100
         )
         Sys.sleep(0.1)
+      }
+      remove_modal_progress()
+    })
+
+    observeEvent(input$sleep4, {
+      show_modal_progress_circle(
+        color = "#DF0101",
+        duration = 900,
+        easing = "easeOut",
+        text = "Starting computation",
+        height = "300px"
+      )
+      Sys.sleep(0.1)
+      for (i in 1:100) {
+        update_modal_progress(
+          value = i / 100,
+          text = paste("Process", trunc(i/10), sprintf("(\%02d\%\%)", i))
+        )
+        Sys.sleep(0.15)
       }
       remove_modal_progress()
     })

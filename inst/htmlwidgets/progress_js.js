@@ -10,8 +10,13 @@ HTMLWidgets.widget({
     return {
       renderValue: function(x) {
 
+        if (x.type == "Line") {
+          el.style.marginBottom = "25px";
+        } else {
+          el.style.margin = "auto";
+        }
+
         var config = x.config;
-        console.log(config);
         if (x.hasOwnProperty("set_text")) {
           config.step = function(state, bar) {
             bar.setText(x.set_text(state, bar));

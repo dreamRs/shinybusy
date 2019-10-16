@@ -25,6 +25,12 @@ if (interactive()) {
           label = "Update:",
           min = 0, max = 1,
           value = 0, step = 0.1
+        ),
+        tags$p("Set custom text:"),
+        progress_line(value = 0.5, text = "To update", shiny_id = "text"),
+        textInput(
+          inputId = "update_text",
+          label = "Update:"
         )
       ),
       column(
@@ -35,16 +41,20 @@ if (interactive()) {
           inputId = "update_circle",
           label = "Update:",
           min = 0, max = 1,
-          value = 0, step = 0.1
+          value = 0, step = 0.1,
+          width = "100%"
         )
       ),
       column(
         width = 4,
-        tags$p("Set custom text:"),
-        progress_line(value = 0.5, text = "To update", shiny_id = "text"),
-        textInput(
-          inputId = "update_text",
-          label = "Update:"
+        tags$p("Default semi-circle:"),
+        progress_semicircle(value = 0, shiny_id = "semicircle"),
+        sliderInput(
+          inputId = "update_semicircle",
+          label = "Update:",
+          min = 0, max = 1,
+          value = 0, step = 0.1,
+          width = "100%"
         )
       )
     )
@@ -58,6 +68,10 @@ if (interactive()) {
 
     observe({
       update_progress("circle", input$update_circle)
+    })
+
+    observe({
+      update_progress("semicircle", input$update_semicircle)
     })
 
     observe({
