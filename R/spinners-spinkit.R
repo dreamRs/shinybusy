@@ -1,8 +1,11 @@
 
-#' SpinKit spinners
+#' @title SpinKit spinners
+#'
+#' @description Via \url{https://tobiasahlin.com/spinkit/}.
 #'
 #' @param spin Name of the spinner.
 #' @param color Color of the spinner.
+#' @param style If not \code{NULL}, add a div container with specified style.
 #'
 #' @return an HTML tag.
 #' @export
@@ -43,7 +46,7 @@
 spin_kit <- function(spin = c("double-bounce", "circle", "bounce",
                               "folding-cube", "rotating-plane", "cube-grid",
                               "fading-circle", "dots", "cube"),
-                     color = "#112446") {
+                     color = "#112446", style = NULL) {
   spin <- match.arg(arg = spin)
   alea <- paste(sample(letters, 12, T), collapse = "")
   if (spin == "circle") {
@@ -164,6 +167,12 @@ spin_kit <- function(spin = c("double-bounce", "circle", "bounce",
         style = sprintf("background-color: %s;", color),
         class="cube2"
       )
+    )
+  }
+
+  if (!is.null(style)) {
+    tagSpin <- tags$div(
+      style = style, tagSpin
     )
   }
 

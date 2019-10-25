@@ -6,18 +6,20 @@
 \usage{
 spin_kit(spin = c("double-bounce", "circle", "bounce", "folding-cube",
   "rotating-plane", "cube-grid", "fading-circle", "dots", "cube"),
-  color = "#112446")
+  color = "#112446", style = NULL)
 }
 \arguments{
 \item{spin}{Name of the spinner.}
 
 \item{color}{Color of the spinner.}
+
+\item{style}{If not \code{NULL}, add a div container with specified style.}
 }
 \value{
 an HTML tag.
 }
 \description{
-SpinKit spinners
+Via \url{https://tobiasahlin.com/spinkit/}.
 }
 \examples{
 if (interactive()) {

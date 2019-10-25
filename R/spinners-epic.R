@@ -1,5 +1,7 @@
 
-#' Epic spinners
+#' @title Epic spinners
+#'
+#' @description Via \url{https://epic-spinners.epicmax.co/}.
 #'
 #' @param spin Name of the spinner.
 #' @param color Color of the spinner.

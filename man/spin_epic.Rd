@@ -21,7 +21,7 @@ spin_epic(spin = c("flower", "pixel", "hollow-dots",
 an HTML tag.
 }
 \description{
-Epic spinners
+Via \url{https://epic-spinners.epicmax.co/}.
 }
 \examples{
 if (interactive()) {
