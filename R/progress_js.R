@@ -49,7 +49,7 @@ progress_js <- function(value = 0,
 
   # create widget
   createWidget(
-    name = "progress_js",
+    name = "progressbar",
     x = dropNulls(x),
     width = width,
     height = height,

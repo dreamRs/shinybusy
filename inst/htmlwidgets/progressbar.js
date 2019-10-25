@@ -1,15 +1,13 @@
 HTMLWidgets.widget({
-  name: "progress_js",
+  name: "progressbar",
 
   type: "output",
 
   factory: function(el, width, height) {
-
     var prgr;
 
     return {
       renderValue: function(x) {
-
         if (x.type == "Line") {
           el.style.marginBottom = "25px";
         } else {

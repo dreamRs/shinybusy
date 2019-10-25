@@ -8,19 +8,20 @@
  * @version 0.1.4
  */
 
-
-var findOne = function (haystack, arr) {
+var findOne = function(haystack, arr) {
   arr = [].slice.apply(arr);
-  return arr.some(function (v) {
-      return haystack.indexOf(v) >= 0;
+  return arr.some(function(v) {
+    return haystack.indexOf(v) >= 0;
   });
 };
-var idIn, idOut, outputClass = ["shiny-plot-output", "html-widget-output"];
-
+var idIn,
+  idOut,
+  outputClass = ["shiny-plot-output", "html-widget-output"];
 
 $(function() {
-
-  var config = document.querySelector('script[data-for="shinybusy-autospinner"]');
+  var config = document.querySelector(
+    'script[data-for="shinybusy-autospinner"]'
+  );
   config = JSON.parse(config.innerHTML);
   if (config) {
     outputClass = config.class_in;
@@ -29,7 +30,6 @@ $(function() {
   }
 
   $(document).on("shiny:outputinvalidated", function(event) {
-
     var elIdIn = false;
     if (idIn.length === 0) {
       elIdIn = true;
@@ -48,8 +48,7 @@ $(function() {
       elClassIn = true;
     }
 
-    if ( elIdIn & elClassIn ) {
-
+    if (elIdIn & elClassIn) {
       var children = $(event.target).children();
       event.target.innerHTML = "";
       $(event.target).addClass("shinybusy-recalculating");
@@ -62,8 +61,7 @@ $(function() {
         .addClass("recalculating")
         .appendTo(event.target);
       children.appendTo(
-        $(event.target)
-          .find(".shinybusy-auto-recalculating" + event.target.id)
+        $(event.target).find(".shinybusy-auto-recalculating" + event.target.id)
       );
       $(event.target).removeClass("recalculating");
       $(".shinybusy-auto-spinner")
@@ -71,12 +69,9 @@ $(function() {
         .removeClass("shinybusy-auto-spinner")
         .prependTo(event.target);
     }
-
   });
 
-
   $(document).on("shiny:recalculating", function(event) {
-
     var elIdIn = false;
     if (idIn === undefined) {
       elIdIn = true;
@@ -95,14 +90,12 @@ $(function() {
       elClassIn = true;
     }
 
-    if ( elIdIn & elClassIn ) {
+    if (elIdIn & elClassIn) {
       $(event.target).removeClass("recalculating");
     }
-
   });
 
   $(document).on("shiny:recalculated", function(event) {
-
     var elIdIn = false;
     if (idIn === undefined) {
       elIdIn = true;
@@ -121,11 +114,9 @@ $(function() {
       elClassIn = true;
     }
 
-    if ( elIdIn & elClassIn ) {
+    if (elIdIn & elClassIn) {
       $(event.target).removeClass("shinybusy-recalculating");
     }
-
   });
-
 });
 
