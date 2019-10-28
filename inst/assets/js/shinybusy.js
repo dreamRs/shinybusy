@@ -87,24 +87,33 @@ $(function() {
         if (busypos !== "full-page") {
           gifbusy.capture().setup();
         }
-        $(document).on("shiny:busy", function(event) {
-          if (busypos == "full-page") {
-            $(".shinybusy").removeClass("shinybusy-ready");
-            $(".shinybusy").addClass("shinybusy-busy");
-          }
-          timingbusy = setTimeout(function() {
-            gifbusy.trigger();
-          }, busytimeout);
-        });
+        if (busytype == "auto") {
+          $(document).on("shiny:busy", function(event) {
+            if (busypos == "full-page") {
+              $(".shinybusy").removeClass("shinybusy-ready");
+              $(".shinybusy").addClass("shinybusy-busy");
+            }
+            timingbusy = setTimeout(function() {
+              gifbusy.trigger();
+            }, busytimeout);
+          });
 
-        $(document).on("shiny:idle", function(event) {
-          if (busypos == "full-page") {
-            $(".shinybusy").removeClass("shinybusy-busy");
-            $(".shinybusy").addClass("shinybusy-ready");
-          }
-          clearTimeout(timingbusy);
-          gifbusy.release();
-        });
+          $(document).on("shiny:idle", function(event) {
+            if (busypos == "full-page") {
+              $(".shinybusy").removeClass("shinybusy-busy");
+              $(".shinybusy").addClass("shinybusy-ready");
+            }
+            clearTimeout(timingbusy);
+            gifbusy.release();
+          });
+        } else {
+          Shiny.addCustomMessageHandler("shinybusy-play-gif", function(data) {
+            gifbusy.trigger();
+          });
+          Shiny.addCustomMessageHandler("shinybusy-stop-gif", function(data) {
+            gifbusy.release();
+          });
+        }
       } else {
         $(document).on("shiny:busy", function(event) {
           timingbusy = setTimeout(function() {
