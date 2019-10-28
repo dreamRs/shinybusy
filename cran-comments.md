@@ -7,6 +7,7 @@
 
 0 errors | 0 warnings | 0 note
 
-* Fix a bug in Internet Explorer.
+* New update with more functionnalities and documentation.
+  No reverse dependencies.
   Thanks! Victor
 

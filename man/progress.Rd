@@ -44,7 +44,7 @@ update_progress(shiny_id, value, text = NULL,
 
 \item{text}{Text to display.}
 
-\item{text_color}{TExt color.}
+\item{text_color}{Text color.}
 
 \item{width}{Container width.}
 

@@ -83,7 +83,7 @@ knitr::include_graphics(path = "figures/add_busy_gif.png")
 
 ## Manual indicators
 
-The same types of indicators are avaible than for automatic indicators, but this time functions starts with `use_*` and you have to explicitly trigger the indicator server-side.
+The same types of indicators are available than for automatic indicators, but this time functions starts with `use_*` and you have to explicitly trigger the indicator server-side.
 
 
 * spinner : with `use_busy_spinner()` :

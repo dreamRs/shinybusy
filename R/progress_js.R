@@ -86,7 +86,7 @@ progress_js <- function(value = 0,
 #' @param trail_color Color of shape behind the main bar.
 #' @param trail_width Width of shape behind the main bar.
 #' @param text Text to display.
-#' @param text_color TExt color.
+#' @param text_color Text color.
 #' @param width Container width.
 #' @param height Container height.
 #' @param shiny_id Id to use in Shiny application.
