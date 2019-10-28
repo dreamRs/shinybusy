@@ -1,0 +1,8 @@
+
+.shinybusy-nanobar-centered {
+  position: relative;
+  margin-bottom: 2em;
+}
+.shinybusy-nanobar-centered > .bar {
+  margin: 0 auto;
+}

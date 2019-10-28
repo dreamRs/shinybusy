@@ -7,3 +7,6 @@ imgs/
 ^CRAN-RELEASE$
 ^examples$
 ^codecov\.yml$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
