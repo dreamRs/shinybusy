@@ -133,7 +133,8 @@ busy_spinner <- function(spin = "double-bounce", color = "#112446", timeout = 10
     spin_tag <- tagList(
       tags$div(
         id = paste0(spin_id, "_overlay"),
-        class = "shinybusy shinybusy-busy shinybusy-overlay"
+        class = "shinybusy shinybusy-overlay",
+        class = if (isTRUE(onstart)) "shinybusy-busy" else "shinybusy-ready",
       ),
       spin_tag
     )
