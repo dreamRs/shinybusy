@@ -4,13 +4,14 @@
 \alias{spin_epic}
 \title{Epic spinners}
 \usage{
-spin_epic(spin = c("flower", "pixel", "hollow-dots",
-  "intersecting-circles", "orbit", "radar", "scaling-squares",
-  "half-circle", "trinity-rings", "fulfilling-square",
-  "circles-to-rhombuses", "semipolar", "self-building-square",
-  "swapping-squares", "fulfilling-bouncing-circle", "fingerprint",
-  "spring", "atom", "looping-rhombuses", "breeding-rhombus"),
-  color = "#112446")
+spin_epic(
+  spin = c("flower", "pixel", "hollow-dots", "intersecting-circles", "orbit", "radar",
+    "scaling-squares", "half-circle", "trinity-rings", "fulfilling-square",
+    "circles-to-rhombuses", "semipolar", "self-building-square", "swapping-squares",
+    "fulfilling-bouncing-circle", "fingerprint", "spring", "atom", "looping-rhombuses",
+    "breeding-rhombus"),
+  color = "#112446"
+)
 }
 \arguments{
 \item{spin}{Name of the spinner.}

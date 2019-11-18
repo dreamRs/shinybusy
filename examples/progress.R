@@ -27,7 +27,11 @@ if (interactive()) {
           value = 0, step = 0.1
         ),
         tags$p("Set custom text:"),
-        progress_line(value = 0.5, text = "To update", shiny_id = "text"),
+        progress_line(
+          value = 0.5,
+          text = "To update",
+          shiny_id = "text"
+        ),
         textInput(
           inputId = "update_text",
           label = "Update:"

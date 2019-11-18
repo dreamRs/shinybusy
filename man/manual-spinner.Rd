@@ -7,16 +7,19 @@
 \alias{hide_spinner}
 \title{Manual busy indicator (spinner)}
 \usage{
-use_busy_spinner(spin = "double-bounce", color = "#112446",
-  position = c("top-right", "top-left", "bottom-right", "bottom-left",
-  "full-page"), margins = c(10, 10), spin_id = NULL, height = "50px",
-  width = "50px")
+use_busy_spinner(
+  spin = "double-bounce",
+  color = "#112446",
+  position = c("top-right", "top-left", "bottom-right", "bottom-left", "full-page"),
+  margins = c(10, 10),
+  spin_id = NULL,
+  height = "50px",
+  width = "50px"
+)
 
-show_spinner(spin_id = NULL,
-  session = shiny::getDefaultReactiveDomain())
+show_spinner(spin_id = NULL, session = shiny::getDefaultReactiveDomain())
 
-hide_spinner(spin_id = NULL,
-  session = shiny::getDefaultReactiveDomain())
+hide_spinner(spin_id = NULL, session = shiny::getDefaultReactiveDomain())
 }
 \arguments{
 \item{spin}{Style of the spinner, see \code{\link{spin_epic}} or \code{\link{spin_kit}}

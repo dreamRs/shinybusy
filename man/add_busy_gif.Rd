@@ -4,10 +4,17 @@
 \alias{add_busy_gif}
 \title{Automatic busy indicator (GIF)}
 \usage{
-add_busy_gif(src, timeout = 100, position = c("top-right", "top-left",
-  "bottom-right", "bottom-left", "full-page", "free"), margins = c(10,
-  10), overlay_color = "rgba(0, 0, 0, 0.5)", overlay_css = NULL,
-  height = "50px", width = "50px")
+add_busy_gif(
+  src,
+  timeout = 100,
+  position = c("top-right", "top-left", "bottom-right", "bottom-left", "full-page",
+    "free"),
+  margins = c(10, 10),
+  overlay_color = "rgba(0, 0, 0, 0.5)",
+  overlay_css = NULL,
+  height = "50px",
+  width = "50px"
+)
 }
 \arguments{
 \item{src}{Path to the GIF, an URL or a file in www/ folder.}

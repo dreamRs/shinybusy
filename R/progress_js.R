@@ -96,6 +96,7 @@ progress_js <- function(value = 0,
 #'
 #' @export
 #'
+#' @example examples/progress.R
 progress_line <- function(value = 0,
                          color = "#112446",
                          stroke_width = 4,

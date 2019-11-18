@@ -6,8 +6,12 @@
 \alias{remove_modal_spinner}
 \title{Show a modal with a spinner}
 \usage{
-show_modal_spinner(spin = "double-bounce", color = "#112446",
-  text = NULL, session = shiny::getDefaultReactiveDomain())
+show_modal_spinner(
+  spin = "double-bounce",
+  color = "#112446",
+  text = NULL,
+  session = shiny::getDefaultReactiveDomain()
+)
 
 remove_modal_spinner(session = getDefaultReactiveDomain())
 }

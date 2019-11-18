@@ -4,8 +4,12 @@
 \alias{add_busy_bar}
 \title{Automatic busy indicator (Progress bar)}
 \usage{
-add_busy_bar(timeout = 1000, color = "#112446", centered = FALSE,
-  height = "8px")
+add_busy_bar(
+  timeout = 1000,
+  color = "#112446",
+  centered = FALSE,
+  height = "8px"
+)
 }
 \arguments{
 \item{timeout}{Number of milliseconds after the server is busy to display the progress bar.}

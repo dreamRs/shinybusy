@@ -4,10 +4,16 @@
 \alias{add_busy_spinner}
 \title{Automatic busy indicator (spinner)}
 \usage{
-add_busy_spinner(spin = "double-bounce", color = "#112446",
-  timeout = 100, position = c("top-right", "top-left", "bottom-right",
-  "bottom-left", "full-page"), onstart = TRUE, margins = c(10, 10),
-  height = "50px", width = "50px")
+add_busy_spinner(
+  spin = "double-bounce",
+  color = "#112446",
+  timeout = 100,
+  position = c("top-right", "top-left", "bottom-right", "bottom-left", "full-page"),
+  onstart = TRUE,
+  margins = c(10, 10),
+  height = "50px",
+  width = "50px"
+)
 }
 \arguments{
 \item{spin}{Style of the spinner, see \code{\link{spin_epic}} or \code{\link{spin_kit}}
