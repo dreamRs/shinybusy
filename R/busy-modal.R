@@ -29,7 +29,8 @@ show_modal_spinner <- function(spin = "double-bounce",
   showModal(modalDialog(
     class = "shinybusy-modal",
     js_center_modal(),
-    spinkit_dependencies(),
+    html_dependency_spinkit(),
+    html_dependency_epic(),
     tags$div(
       style = "width: 60px; height: 60px; position: relative; margin: auto;",
       tag_spin

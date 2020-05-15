@@ -3,12 +3,15 @@
 > Automated (or not) busy indicator for Shiny apps
 
 <!-- badges: start -->
-[![Travis build status](https://travis-ci.org/dreamRs/shinybusy.svg?branch=master)](https://travis-ci.org/dreamRs/shinybusy)
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![version](http://www.r-pkg.org/badges/version/shinybusy)](https://CRAN.R-project.org/package=shinybusy)
 [![cranlogs](http://cranlogs.r-pkg.org/badges/shinybusy)](https://CRAN.R-project.org/package=shinybusy)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![Travis build status](https://travis-ci.org/dreamRs/shinybusy.svg?branch=master)](https://travis-ci.org/dreamRs/shinybusy)
 [![Codecov test coverage](https://codecov.io/gh/dreamRs/shinybusy/branch/master/graph/badge.svg)](https://codecov.io/gh/dreamRs/shinybusy?branch=master)
+[![R build status](https://github.com/dreamRs/shinybusy/workflows/R-CMD-check/badge.svg)](https://github.com/dreamRs/shinybusy/actions)
 <!-- badges: end -->
+
+
 
 ## Installation
 
@@ -20,7 +23,7 @@ install.packages("shinybusy")
 
 You can install dev version of `shinybusy` from GitHub:
 
-``` r
+```r
 remotes::install_github("dreamRs/shinybusy")
 ```
 

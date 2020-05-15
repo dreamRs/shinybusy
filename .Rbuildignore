@@ -10,3 +10,4 @@ imgs/
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
+^\.github$

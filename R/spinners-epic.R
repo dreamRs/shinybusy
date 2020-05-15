@@ -532,7 +532,7 @@ spin_epic <- function(spin = c("flower", "pixel", "hollow-dots",
       )
     )
   }
-  attachDependencies(epic, epic_spinners_dependencies())
+  attachDependencies(epic, html_dependency_epic())
 }
 
 

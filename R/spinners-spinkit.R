@@ -176,7 +176,7 @@ spin_kit <- function(spin = c("double-bounce", "circle", "bounce",
     )
   }
 
-  attachDependencies(tagSpin, spinkit_dependencies())
+  attachDependencies(tagSpin, html_dependency_spinkit())
 }
 
 

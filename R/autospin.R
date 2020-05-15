@@ -29,6 +29,6 @@ autospin <- function(spin = "radar", color = "#112446",
         ), auto_unbox = TRUE, json_verbatim = TRUE)
       )
     ),
-    value = autospin_dependencies()
+    value = html_dependency_autospin()
   )
 }

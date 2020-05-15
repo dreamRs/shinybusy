@@ -128,8 +128,8 @@ busy_gif <- function(src, timeout = 100,
   attachDependencies(
     x = gif_tag,
     value = list(
-      freezeframe_dependencies(),
-      shinybusy_dependencies()
+      html_dependency_freezeframe(),
+      html_dependency_shinybusy()
     )
   )
 }
