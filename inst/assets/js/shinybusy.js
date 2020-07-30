@@ -186,8 +186,9 @@ $(function() {
         $("#" + event.target.id).addClass("shinybusy-block");
       });
       $(config.selector).on("shiny:value", function(event) {
-        if ($(this).hasClass("notiflix-block")) {
+        if ($(this).hasClass("shinybusy-block")) {
           Notiflix.Block.Remove("#" + event.target.id, config.timeout);
+          $("#" + event.target.id).removeClass("shinybusy-block");
         }
       });
     });
