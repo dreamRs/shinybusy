@@ -44,19 +44,6 @@ html_dependency_shinybusy <- function() {
 
 #' @export
 #' @rdname html-dependencies
-html_dependency_autospin <- function() {
-  htmlDependency(
-    name = "shinybusy-autospin",
-    version = packageVersion("shinybusy"),
-    src = list(href = "shinybusy", file = "assets"),
-    package = "shinybusy",
-    script = "js/autospin.js",
-    stylesheet = "css/autospin.css"
-  )
-}
-
-#' @export
-#' @rdname html-dependencies
 html_dependency_freezeframe <- function() {
   htmlDependency(
     name = "freezeframe", version = "3.0.10",
@@ -77,6 +64,19 @@ html_dependency_nanobar <- function() {
     package = "shinybusy",
     script = "nanobar/nanobar.min.js",
     stylesheet = "nanobar/nanobar-styles.css"
+  )
+}
+
+#' @export
+#' @rdname html-dependencies
+html_dependency_notiflix <- function() {
+  htmlDependency(
+    name = "notiflix",
+    version = "2.2.3",
+    src = list(href = "shinybusy", file = "assets"),
+    package = "shinybusy",
+    script = "notiflix/notiflix-2.3.3.min.js",
+    stylesheet = "notiflix/notiflix-2.3.3.min.css"
   )
 }
 

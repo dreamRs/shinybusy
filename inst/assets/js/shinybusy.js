@@ -151,6 +151,7 @@ $(function() {
     }
   });
 
+
   // Spin handlers
   Shiny.addCustomMessageHandler("show-spinner", function(data) {
     if (data.hasOwnProperty("spin_id")) {
@@ -169,6 +170,27 @@ $(function() {
       $(".shinybusy").removeClass("shinybusy-busy");
       $(".shinybusy").addClass("shinybusy-ready");
     }
+  });
+
+
+  // Loading state
+  $(document).on("shiny:bound", function(event) {
+    var configs = document.querySelectorAll(
+      "script[data-for='shinybusy-loading-state']"
+    );
+    configs.forEach(function(el) {
+      var config = JSON.parse(el.innerHTML);
+      Notiflix.Block.Init(config.options);
+      $(config.selector).on("shiny:outputinvalidated shiny:bound", function(event) {
+        Notiflix.Block[config.spinner]("#" + event.target.id, config.text);
+        $("#" + event.target.id).addClass("shinybusy-block");
+      });
+      $(config.selector).on("shiny:value", function(event) {
+        if ($(this).hasClass("notiflix-block")) {
+          Notiflix.Block.Remove("#" + event.target.id, config.timeout);
+        }
+      });
+    });
   });
 });
 

@@ -5,9 +5,9 @@
 \alias{html_dependency_spinkit}
 \alias{html_dependency_epic}
 \alias{html_dependency_shinybusy}
-\alias{html_dependency_autospin}
 \alias{html_dependency_freezeframe}
 \alias{html_dependency_nanobar}
+\alias{html_dependency_notiflix}
 \title{HTML dependencies used by shinybusy}
 \usage{
 html_dependency_spinkit()
@@ -16,11 +16,11 @@ html_dependency_epic()
 
 html_dependency_shinybusy()
 
-html_dependency_autospin()
-
 html_dependency_freezeframe()
 
 html_dependency_nanobar()
+
+html_dependency_notiflix()
 }
 \value{
 an \code{\link[htmltools]{htmlDependency}}.

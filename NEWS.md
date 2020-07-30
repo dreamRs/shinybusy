@@ -1,3 +1,9 @@
+# shinybusy 0.2.1
+
+* New function `add_loading_state()` to add loading state to several outputs.
+* HTML dependencies used in package are now exported, see `html_dependency_*` functions.
+
+
 # shinybusy 0.2.0
 
 * New htmlwidgets for `progressbar.js` : see functions `progress_line()` and `progress_circle()`.
