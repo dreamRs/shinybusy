@@ -5,6 +5,7 @@ if (interactive()) {
   ui <- fluidPage(
 
     # Use this function somewhere in UI
+    # with navBarPage use the "header" argument
     add_busy_gif(
       src = "https://jeroen.github.io/images/banana.gif",
       height = 70, width = 70
