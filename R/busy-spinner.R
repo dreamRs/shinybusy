@@ -67,7 +67,7 @@ use_busy_spinner <- function(spin = "double-bounce", color = "#112446",
 #' @rdname manual-spinner
 show_spinner <- function(spin_id = NULL, session = shiny::getDefaultReactiveDomain()) {
   session$sendCustomMessage(
-    type =  "show-spinner",
+    type =  "shinybusy-show-spinner",
     message = dropNulls(list(spin_id = spin_id))
   )
 }
@@ -78,7 +78,7 @@ show_spinner <- function(spin_id = NULL, session = shiny::getDefaultReactiveDoma
 #' @rdname manual-spinner
 hide_spinner <- function(spin_id = NULL, session = shiny::getDefaultReactiveDomain()) {
   session$sendCustomMessage(
-    type =  "hide-spinner",
+    type =  "shinybusy-hide-spinner",
     message = dropNulls(list(spin_id = spin_id))
   )
 }
@@ -122,7 +122,8 @@ busy_spinner <- function(spin = "double-bounce", color = "#112446", timeout = 10
     spin_ <- spin_epic(spin = spin, color = color)
   }
   spin_tag <- tags$div(
-    class = "shinybusy", id = spin_id,
+    class = "shinybusy",
+    id = spin_id,
     class = if (isTRUE(onstart)) "shinybusy-busy" else "shinybusy-ready",
     style = style,
     style = paste0("height:", validateCssUnit(height), ";"),

@@ -41,7 +41,7 @@ use_busy_bar <- function(color = "#112446", centered = FALSE, height = "8px") {
 #'
 update_busy_bar <- function(value, session = shiny::getDefaultReactiveDomain()) {
   session$sendCustomMessage(
-    type =  "update-nanobar",
+    type =  "shinybusy-update-nanobar",
     message = list(value = value)
   )
 }

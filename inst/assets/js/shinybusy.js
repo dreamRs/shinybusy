@@ -133,7 +133,7 @@ $(function() {
       var nanobar = new Nanobar({ classname: busyclassname });
 
       if (busytype == "manual") {
-        Shiny.addCustomMessageHandler("update-nanobar", function(data) {
+        Shiny.addCustomMessageHandler("shinybusy-update-nanobar", function(data) {
           nanobar.go(data.value);
         });
       }
@@ -151,9 +151,8 @@ $(function() {
     }
   });
 
-
   // Spin handlers
-  Shiny.addCustomMessageHandler("show-spinner", function(data) {
+  Shiny.addCustomMessageHandler("shinybusy-show-spinner", function(data) {
     if (data.hasOwnProperty("spin_id")) {
       $("#" + data.spin_id).removeClass("shinybusy-ready");
       $("#" + data.spin_id).addClass("shinybusy-busy");
@@ -162,7 +161,7 @@ $(function() {
       $(".shinybusy").addClass("shinybusy-busy");
     }
   });
-  Shiny.addCustomMessageHandler("hide-spinner", function(data) {
+  Shiny.addCustomMessageHandler("shinybusy-hide-spinner", function(data) {
     if (data.hasOwnProperty("spin_id")) {
       $("#" + data.spin_id).removeClass("shinybusy-busy");
       $("#" + data.spin_id).addClass("shinybusy-ready");
@@ -172,7 +171,6 @@ $(function() {
     }
   });
 
-
   // Loading state
   $(document).on("shiny:bound", function(event) {
     var configs = document.querySelectorAll(
@@ -181,7 +179,9 @@ $(function() {
     configs.forEach(function(el) {
       var config = JSON.parse(el.innerHTML);
       Notiflix.Block.Init(config.options);
-      $(config.selector).on("shiny:outputinvalidated shiny:bound", function(event) {
+      $(config.selector).on("shiny:outputinvalidated shiny:bound", function(
+        event
+      ) {
         Notiflix.Block[config.spinner]("#" + event.target.id, config.text);
         $("#" + event.target.id).addClass("shinybusy-block");
       });
