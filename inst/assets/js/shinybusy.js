@@ -8,6 +8,17 @@
  * @version 0.0.3
  */
 
+/*jshint
+  undef:true,
+  browser:true,
+  devel: true,
+  jquery:true,
+  strict:false,
+  curly:false,
+  indent:2
+*/
+/*global freezeframe, Nanobar, Notiflix, Shiny */
+
 // forEach polyfill for IE (https://developer.mozilla.org/fr/docs/Web/API/NodeList/forEach)
 if (window.NodeList && !NodeList.prototype.forEach) {
   NodeList.prototype.forEach = function(callback, thisArg) {
@@ -133,7 +144,9 @@ $(function() {
       var nanobar = new Nanobar({ classname: busyclassname });
 
       if (busytype == "manual") {
-        Shiny.addCustomMessageHandler("shinybusy-update-nanobar", function(data) {
+        Shiny.addCustomMessageHandler("shinybusy-update-nanobar", function(
+          data
+        ) {
           nanobar.go(data.value);
         });
       }
@@ -192,6 +205,39 @@ $(function() {
         }
       });
     });
+  });
+
+  // Start-up
+  var configsStartUp = document.querySelectorAll(
+    "script[data-for='shinybusy-start-up']"
+  );
+  var startup = document.getElementsByClassName("shinybusy-startup");
+  configsStartUp.forEach(function(el) {
+    var config = JSON.parse(el.innerHTML);
+    if (config.mode == "timeout") {
+      setTimeout(function() {
+        while (startup[0]) {
+          startup[0].parentNode.removeChild(startup[0]);
+        }
+      }, config.timeout);
+    }
+    if (config.mode == "auto") {
+      $(document).on("shiny:idle", function(event) {
+        setTimeout(function() {
+          while (startup[0]) {
+            startup[0].parentNode.removeChild(startup[0]);
+          }
+        }, config.timeout);
+      });
+    }
+  });
+  Shiny.addCustomMessageHandler("shinybusy-remove-start-up", function(data) {
+    var startup = document.getElementsByClassName("shinybusy-startup");
+    setTimeout(function() {
+      while (startup[0]) {
+        startup[0].parentNode.removeChild(startup[0]);
+      }
+    }, data.timeout);
   });
 });
 
