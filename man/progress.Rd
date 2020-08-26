@@ -93,8 +93,8 @@ an \code{htmlwidget} object.
 }
 \description{
 Bar, circle or semicircle to show progress.
- Can be used outside Shiny. In Shiny you can set
- progress value server-side.
+Can be used outside Shiny. In Shiny you can set
+progress value server-side.
 }
 \examples{
 # Default usage

@@ -46,11 +46,11 @@ An HTML tag that you can use in Shiny UI.
 }
 \description{
 Call this function once in your UI to automatically
- add loading indicators to several outputs when they are being regenerated.
+add loading indicators to several outputs when they are being regenerated.
 }
 \note{
 This function is experimental, if you encounter bugs or bad behavior,
- please report issue here : \url{https://github.com/dreamRs/shinybusy/issues}.
+please report issue here : \url{https://github.com/dreamRs/shinybusy/issues}.
 }
 \examples{
 library(shinybusy)

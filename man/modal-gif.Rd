@@ -30,7 +30,7 @@ remove_modal_gif(session = getDefaultReactiveDomain())
 }
 \description{
 Make a pop-up window appear from the server
- with a GIF during long computation, remove it when finished.
+with a GIF during long computation, remove it when finished.
 }
 \examples{
 if (interactive()) {

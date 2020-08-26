@@ -19,6 +19,7 @@ Imports:
     jsonlite,
     htmlwidgets
 RoxygenNote: 7.1.1
+Roxygen: list(markdown = TRUE)
 URL: https://github.com/dreamRs/shinybusy
 BugReports: https://github.com/dreamRs/shinybusy/issues
 Suggests: 

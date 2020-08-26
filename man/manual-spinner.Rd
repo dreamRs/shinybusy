@@ -43,7 +43,7 @@ second element distance from right/left.}
 }
 \description{
 Declare \code{use_busy_spinner} in your UI and show/hide
- server-side with \code{show_spinner}/\code{hide_spinner}.
+server-side with \code{show_spinner}/\code{hide_spinner}.
 }
 \examples{
 if (interactive()) {

@@ -26,7 +26,7 @@ remove_modal_spinner(session = getDefaultReactiveDomain())
 }
 \description{
 Make a pop-up window appear from the server
- with a spinner during long computation, remove it when finished.
+with a spinner during long computation, remove it when finished.
 }
 \examples{
 if (interactive()) {
