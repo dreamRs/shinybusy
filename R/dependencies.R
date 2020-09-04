@@ -72,11 +72,11 @@ html_dependency_nanobar <- function() {
 html_dependency_notiflix <- function() {
   htmlDependency(
     name = "notiflix",
-    version = "2.2.3",
+    version = "2.4.0",
     src = list(href = "shinybusy", file = "assets"),
     package = "shinybusy",
-    script = "notiflix/notiflix-2.3.3.min.js",
-    stylesheet = "notiflix/notiflix-2.3.3.min.css"
+    script = "notiflix/notiflix-2.4.0.min.js",
+    stylesheet = "notiflix/notiflix-2.4.0.min.css"
   )
 }
 

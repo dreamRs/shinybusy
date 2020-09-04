@@ -185,25 +185,27 @@ $(function() {
   });
 
   // Loading state
-  $(document).on("shiny:bound", function(event) {
-    var configs = document.querySelectorAll(
-      "script[data-for='shinybusy-loading-state']"
-    );
-    configs.forEach(function(el) {
-      var config = JSON.parse(el.innerHTML);
-      Notiflix.Block.Init(config.options);
-      $(config.selector).on("shiny:outputinvalidated shiny:bound", function(
-        event
-      ) {
+  var configsLoadState = document.querySelectorAll(
+    "script[data-for='shinybusy-loading-state']"
+  );
+  configsLoadState.forEach(function(el) {
+    var config = JSON.parse(el.innerHTML);
+    Notiflix.Block.Init(config.options);
+    $(document).on(
+      "shiny:outputinvalidated shiny:bound",
+      config.selector,
+      function(event) {
         Notiflix.Block[config.spinner]("#" + event.target.id, config.text);
-        $("#" + event.target.id).addClass("shinybusy-block");
-      });
-      $(config.selector).on("shiny:value", function(event) {
-        if ($(this).hasClass("shinybusy-block")) {
-          Notiflix.Block.Remove("#" + event.target.id, config.timeout);
-          $("#" + event.target.id).removeClass("shinybusy-block");
+        if (!$("#" + event.target.id).hasClass("shinybusy-block")) {
+          $("#" + event.target.id).addClass("shinybusy-block");
         }
-      });
+      }
+    );
+    $(document).on("shiny:value", config.selector, function(event) {
+      if ($("#" + event.target.id).hasClass("shinybusy-block")) {
+        $("#" + event.target.id).removeClass("shinybusy-block");
+        Notiflix.Block.Remove("#" + event.target.id, config.timeout);
+      }
     });
   });
 
