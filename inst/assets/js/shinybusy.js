@@ -201,7 +201,7 @@ $(function() {
         }
       }
     );
-    $(document).on("shiny:value", config.selector, function(event) {
+    $(document).on("shiny:value shiny:visualchange", config.selector, function(event) {
       if ($("#" + event.target.id).hasClass("shinybusy-block")) {
         $("#" + event.target.id).removeClass("shinybusy-block");
         Notiflix.Block.Remove("#" + event.target.id, config.timeout);
