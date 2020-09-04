@@ -11,3 +11,4 @@ imgs/
 ^docs$
 ^pkgdown$
 ^\.github$
+^LICENSE\.md$
