@@ -1,6 +1,6 @@
 ## Test environments
-* local OS Windows 10 install, R 3.6.1
-* ubuntu 14.04 (on travis-ci), R 3.6.0
+* local OS Windows 10 install, R 3.6.3
+* ubuntu 16.04, Windows 10, macOS (on GitHub Actions), R 4.0.2
 * win-builder (devel and release)
 
 ## R CMD check results
@@ -8,6 +8,6 @@
 0 errors | 0 warnings | 0 note
 
 * New update with more functionnalities and documentation.
-  No reverse dependencies.
+  4 reverse dependencies checked, no new problems.
   Thanks! Victor
 
