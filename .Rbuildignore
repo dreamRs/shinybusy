@@ -12,3 +12,4 @@ imgs/
 ^pkgdown$
 ^\.github$
 ^LICENSE\.md$
+revdep/
