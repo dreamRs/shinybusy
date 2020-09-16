@@ -44,7 +44,7 @@ if (interactive()) {
   ui <- fluidPage(
 
     # Use this function somewhere in UI
-    add_busy_spinner(spin = "double-bounce"),
+    add_busy_spinner(spin = "cube-grid"),
     # or use a different spinner
     # add_busy_spinner(spin = "radar", margins = c(10, 20)),
 

@@ -18,10 +18,14 @@
 #'
 #'
 #' @example examples/add_busy_spinner.R
-add_busy_spinner <- function(spin = "double-bounce", color = "#112446", timeout = 100,
+add_busy_spinner <- function(spin = "double-bounce",
+                             color = "#112446",
+                             timeout = 100,
                              position = c("top-right", "top-left", "bottom-right", "bottom-left", "full-page"),
-                             onstart = TRUE, margins = c(10, 10),
-                             height = "50px", width = "50px") {
+                             onstart = TRUE,
+                             margins = c(10, 10),
+                             height = "50px",
+                             width = "50px") {
   busy_spinner(
     spin = spin, color = color, timeout = timeout,
     position = position, onstart = onstart,
@@ -47,10 +51,13 @@ add_busy_spinner <- function(spin = "double-bounce", color = "#112446", timeout 
 #' @name manual-spinner
 #'
 #' @example examples/use_busy_spinner.R
-use_busy_spinner <- function(spin = "double-bounce", color = "#112446",
+use_busy_spinner <- function(spin = "double-bounce",
+                             color = "#112446",
                              position = c("top-right", "top-left", "bottom-right", "bottom-left", "full-page"),
-                             margins = c(10, 10), spin_id = NULL,
-                             height = "50px", width = "50px") {
+                             margins = c(10, 10),
+                             spin_id = NULL,
+                             height = "50px",
+                             width = "50px") {
   busy_spinner(
     spin = spin, color = color, timeout = 1000,
     position = position, onstart = FALSE,
@@ -96,10 +103,16 @@ spin_onstart <- function(spin = "double-bounce", color = "#112446",
 
 #' @importFrom htmltools validateCssUnit attachDependencies tags tagList
 #' @importFrom jsonlite toJSON
-busy_spinner <- function(spin = "double-bounce", color = "#112446", timeout = 100,
+busy_spinner <- function(spin = "double-bounce",
+                         color = "#112446",
+                         timeout = 100,
                          position = c("top-right", "top-left", "bottom-right", "bottom-left", "full-page"),
-                         onstart = TRUE, margins = c(10, 10),
-                         height = "50px", width = "50px", type = "auto", spin_id = NULL) {
+                         onstart = TRUE,
+                         margins = c(10, 10),
+                         height = "50px",
+                         width = "50px",
+                         type = "auto",
+                         spin_id = NULL) {
   spin <- match.arg(arg = spin, choices = c(spinkit_spinners(), epic_spinners()))
   stopifnot(length(margins) == 2)
   marg1 <- validateCssUnit(margins[1])
