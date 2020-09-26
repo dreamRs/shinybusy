@@ -1,6 +1,6 @@
 Package: shinybusy
 Title: Busy Indicator for 'Shiny' Applications
-Version: 0.2.1.900
+Version: 0.2.2
 Authors@R: c(person("Fanny", "Meyer", role = "aut"),
   person("Victor", "Perrier", email = "victor.perrier@dreamrs.fr", role = c("aut", "cre")),
   person("Silex Technologies", comment = "https://www.silex-ip.com", role = "fnd"))

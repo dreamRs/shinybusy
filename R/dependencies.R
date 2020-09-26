@@ -11,7 +11,8 @@
 #'
 html_dependency_spinkit <- function() {
   htmlDependency(
-    name = "spinkit", version = "0.1.0",
+    name = "spinkit",
+    version = "0.1.0",
     src = list(href = "shinybusy", file = "assets"),
     package = "shinybusy",
     stylesheet = "spinkit/spin.min.css"
@@ -22,7 +23,8 @@ html_dependency_spinkit <- function() {
 #' @rdname html-dependencies
 html_dependency_epic <- function() {
   htmlDependency(
-    name = "epic-spinners", version = "1.1.0",
+    name = "epic-spinners",
+    version = "1.1.0",
     src = list(href = "shinybusy", file = "assets"),
     package = "shinybusy",
     stylesheet = "epic-spinners/epic-spinners.css"
@@ -46,7 +48,8 @@ html_dependency_shinybusy <- function() {
 #' @rdname html-dependencies
 html_dependency_freezeframe <- function() {
   htmlDependency(
-    name = "freezeframe", version = "3.0.10",
+    name = "freezeframe",
+    version = "3.0.10",
     src = list(href = "shinybusy", file = "assets"),
     package = "shinybusy",
     script = "freezeframe/freezeframe.pkgd.min.js",

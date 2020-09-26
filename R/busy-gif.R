@@ -4,16 +4,18 @@
 #' @description Make a GIF play when server is busy and stop when idle.
 #'
 #' @param src Path to the GIF, an URL or a file in www/ folder.
-#' @param timeout Number of milliseconds after the server is busy to display the Gif
-#' @param position Where to display the spinner: \code{'top-right'}, \code{'top-left'}, \code{'bottom-right'},
+#' @param timeout Number of milliseconds after the server is busy to display the GIF.
+#' @param position Where to display the GIF: \code{'top-right'}, \code{'top-left'}, \code{'bottom-right'},
 #'  \code{'bottom-left'}, \code{'full-page'}.
 #' @param margins Distance from margins, a vector of length two, where first element is distance from top/bottom,
 #'  second element distance from right/left.
 #' @param overlay_color Background color for the overlay if \code{position = "full-page"}.
-#' @param overlay_css Additional CSS for the overlay, for example \code{"z-index: 1000;"} to make it appear of everything.
+#' @param overlay_css Additional CSS for the overlay, for example \code{"z-index: 1000;"} to make it appear above everything.
 #' @param height,width Height and width of the spinner, default to \code{'50px'} for both, must be specified.
 #'
 #' @export
+#'
+#' @return An HTML tag that should be used in UI.
 #'
 #' @importFrom htmltools validateCssUnit attachDependencies tags
 #' @importFrom jsonlite toJSON
@@ -21,13 +23,21 @@
 #' @example examples/add_busy_gif.R
 add_busy_gif <- function(src, timeout = 100,
                          position = c("top-right", "top-left", "bottom-right", "bottom-left", "full-page", "free"),
-                         margins = c(10, 10), overlay_color = "rgba(0, 0, 0, 0.5)", overlay_css = NULL,
-                         height = "50px", width = "50px") {
+                         margins = c(10, 10),
+                         overlay_color = "rgba(0, 0, 0, 0.5)",
+                         overlay_css = NULL,
+                         height = "50px",
+                         width = "50px") {
   busy_gif(
-    src = src, timeout = timeout,
-    position = position, margins = margins,
-    overlay_color = overlay_color, overlay_css = overlay_css,
-    height = height, width = width, type = "auto"
+    src = src,
+    timeout = timeout,
+    position = position,
+    margins = margins,
+    overlay_color = overlay_color,
+    overlay_css = overlay_css,
+    height = height,
+    width = width,
+    type = "auto"
   )
 }
 
@@ -38,18 +48,28 @@ add_busy_gif <- function(src, timeout = 100,
 #'
 #' @export
 #'
+#' @return An HTML tag that should be used in UI.
+#'
 #' @name manual-gif
 #'
 #' @example examples/use_busy_gif.R
 use_busy_gif <- function(src, timeout = 100,
                          position = c("top-right", "top-left", "bottom-right", "bottom-left", "full-page", "free"),
-                         margins = c(10, 10), overlay_color = "rgba(0, 0, 0, 0.5)", overlay_css = NULL,
-                         height = "50px", width = "50px") {
+                         margins = c(10, 10),
+                         overlay_color = "rgba(0, 0, 0, 0.5)",
+                         overlay_css = NULL,
+                         height = "50px",
+                         width = "50px") {
   busy_gif(
-    src = src, timeout = timeout,
-    position = position, margins = margins,
-    overlay_color = overlay_color, overlay_css = overlay_css,
-    height = height, width = width, type = "manual"
+    src = src,
+    timeout = timeout,
+    position = position,
+    margins = margins,
+    overlay_color = overlay_color,
+    overlay_css = overlay_css,
+    height = height,
+    width = width,
+    type = "manual"
   )
 }
 
@@ -77,10 +97,15 @@ stop_gif <- function(session = shiny::getDefaultReactiveDomain()) {
 }
 
 
-busy_gif <- function(src, timeout = 100,
+busy_gif <- function(src,
+                     timeout = 100,
                      position = c("top-right", "top-left", "bottom-right", "bottom-left", "full-page", "free"),
-                     margins = c(10, 10), overlay_color = "rgba(0, 0, 0, 0.5)", overlay_css = NULL,
-                     height = "50px", width = "50px", type = "auto") {
+                     margins = c(10, 10),
+                     overlay_color = "rgba(0, 0, 0, 0.5)",
+                     overlay_css = NULL,
+                     height = "50px",
+                     width = "50px",
+                     type = "auto") {
   stopifnot(length(margins) == 2)
   marg1 <- validateCssUnit(margins[1])
   marg2 <- validateCssUnit(margins[2])
@@ -120,8 +145,10 @@ busy_gif <- function(src, timeout = 100,
       type = "application/json",
       `data-for` = "shinybusy",
       toJSON(list(
-        timeout = timeout, mode = "gif",
-        position = position, type = type
+        timeout = timeout,
+        mode = "gif",
+        position = position,
+        type = type
       ), auto_unbox = TRUE, json_verbatim = TRUE)
     )
   )

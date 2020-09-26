@@ -1,3 +1,9 @@
+# shinybusy 0.2.2
+
+* Fixed a bug in `spin_kit()` ([#12](https://github.com/dreamRs/shinybusy/issues/12)).
+
+
+
 # shinybusy 0.2.1
 
 * New function `add_loading_state()` to add loading state to several outputs.

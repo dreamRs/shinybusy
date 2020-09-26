@@ -19,9 +19,9 @@ add_busy_gif(
 \arguments{
 \item{src}{Path to the GIF, an URL or a file in www/ folder.}
 
-\item{timeout}{Number of milliseconds after the server is busy to display the Gif}
+\item{timeout}{Number of milliseconds after the server is busy to display the GIF.}
 
-\item{position}{Where to display the spinner: \code{'top-right'}, \code{'top-left'}, \code{'bottom-right'},
+\item{position}{Where to display the GIF: \code{'top-right'}, \code{'top-left'}, \code{'bottom-right'},
 \code{'bottom-left'}, \code{'full-page'}.}
 
 \item{margins}{Distance from margins, a vector of length two, where first element is distance from top/bottom,
@@ -29,9 +29,12 @@ second element distance from right/left.}
 
 \item{overlay_color}{Background color for the overlay if \code{position = "full-page"}.}
 
-\item{overlay_css}{Additional CSS for the overlay, for example \code{"z-index: 1000;"} to make it appear of everything.}
+\item{overlay_css}{Additional CSS for the overlay, for example \code{"z-index: 1000;"} to make it appear above everything.}
 
 \item{height, width}{Height and width of the spinner, default to \code{'50px'} for both, must be specified.}
+}
+\value{
+An HTML tag that should be used in UI.
 }
 \description{
 Make a GIF play when server is busy and stop when idle.
