@@ -8,6 +8,17 @@
  * @version 0.0.3
  */
 
+/*jshint
+  undef:true,
+  browser:true,
+  devel: true,
+  jquery:true,
+  strict:false,
+  curly:false,
+  indent:2
+*/
+/*global freezeframe, Nanobar, Notiflix, Shiny */
+
 // forEach polyfill for IE (https://developer.mozilla.org/fr/docs/Web/API/NodeList/forEach)
 if (window.NodeList && !NodeList.prototype.forEach) {
   NodeList.prototype.forEach = function(callback, thisArg) {
@@ -133,7 +144,9 @@ $(function() {
       var nanobar = new Nanobar({ classname: busyclassname });
 
       if (busytype == "manual") {
-        Shiny.addCustomMessageHandler("update-nanobar", function(data) {
+        Shiny.addCustomMessageHandler("shinybusy-update-nanobar", function(
+          data
+        ) {
           nanobar.go(data.value);
         });
       }
@@ -152,7 +165,7 @@ $(function() {
   });
 
   // Spin handlers
-  Shiny.addCustomMessageHandler("show-spinner", function(data) {
+  Shiny.addCustomMessageHandler("shinybusy-show-spinner", function(data) {
     if (data.hasOwnProperty("spin_id")) {
       $("#" + data.spin_id).removeClass("shinybusy-ready");
       $("#" + data.spin_id).addClass("shinybusy-busy");
@@ -161,7 +174,7 @@ $(function() {
       $(".shinybusy").addClass("shinybusy-busy");
     }
   });
-  Shiny.addCustomMessageHandler("hide-spinner", function(data) {
+  Shiny.addCustomMessageHandler("shinybusy-hide-spinner", function(data) {
     if (data.hasOwnProperty("spin_id")) {
       $("#" + data.spin_id).removeClass("shinybusy-busy");
       $("#" + data.spin_id).addClass("shinybusy-ready");
@@ -169,6 +182,64 @@ $(function() {
       $(".shinybusy").removeClass("shinybusy-busy");
       $(".shinybusy").addClass("shinybusy-ready");
     }
+  });
+
+  // Loading state
+  var configsLoadState = document.querySelectorAll(
+    "script[data-for='shinybusy-loading-state']"
+  );
+  configsLoadState.forEach(function(el) {
+    var config = JSON.parse(el.innerHTML);
+    Notiflix.Block.Init(config.options);
+    $(document).on(
+      "shiny:outputinvalidated shiny:bound",
+      config.selector,
+      function(event) {
+        Notiflix.Block[config.spinner]("#" + event.target.id, config.text);
+        if (!$("#" + event.target.id).hasClass("shinybusy-block")) {
+          $("#" + event.target.id).addClass("shinybusy-block");
+        }
+      }
+    );
+    $(document).on("shiny:value shiny:visualchange", config.selector, function(event) {
+      if ($("#" + event.target.id).hasClass("shinybusy-block")) {
+        $("#" + event.target.id).removeClass("shinybusy-block");
+        Notiflix.Block.Remove("#" + event.target.id, config.timeout);
+      }
+    });
+  });
+
+  // Start-up
+  var configsStartUp = document.querySelectorAll(
+    "script[data-for='shinybusy-start-up']"
+  );
+  var startup = document.getElementsByClassName("shinybusy-startup");
+  configsStartUp.forEach(function(el) {
+    var config = JSON.parse(el.innerHTML);
+    if (config.mode == "timeout") {
+      setTimeout(function() {
+        while (startup[0]) {
+          startup[0].parentNode.removeChild(startup[0]);
+        }
+      }, config.timeout);
+    }
+    if (config.mode == "auto") {
+      $(document).on("shiny:idle", function(event) {
+        setTimeout(function() {
+          while (startup[0]) {
+            startup[0].parentNode.removeChild(startup[0]);
+          }
+        }, config.timeout);
+      });
+    }
+  });
+  Shiny.addCustomMessageHandler("shinybusy-remove-start-up", function(data) {
+    var startup = document.getElementsByClassName("shinybusy-startup");
+    setTimeout(function() {
+      while (startup[0]) {
+        startup[0].parentNode.removeChild(startup[0]);
+      }
+    }, data.timeout);
   });
 });
 

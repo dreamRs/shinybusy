@@ -10,23 +10,27 @@
 
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -37,7 +41,6 @@
 
 <meta property="og:title" content="Epic spinners — spin_epic" />
 <meta property="og:description" content="Via https://epic-spinners.epicmax.co/." />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -55,7 +58,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -69,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">shinybusy</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.2</span>
       </span>
     </div>
 
@@ -105,7 +108,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/dreamRs/shinybusy">
+  <a href="https://github.com/dreamRs/shinybusy/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -132,13 +135,14 @@
     <p>Via <a href='https://epic-spinners.epicmax.co/'>https://epic-spinners.epicmax.co/</a>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>spin_epic</span>(<span class='kw'>spin</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"flower"</span>, <span class='st'>"pixel"</span>, <span class='st'>"hollow-dots"</span>,
-  <span class='st'>"intersecting-circles"</span>, <span class='st'>"orbit"</span>, <span class='st'>"radar"</span>, <span class='st'>"scaling-squares"</span>,
-  <span class='st'>"half-circle"</span>, <span class='st'>"trinity-rings"</span>, <span class='st'>"fulfilling-square"</span>,
-  <span class='st'>"circles-to-rhombuses"</span>, <span class='st'>"semipolar"</span>, <span class='st'>"self-building-square"</span>,
-  <span class='st'>"swapping-squares"</span>, <span class='st'>"fulfilling-bouncing-circle"</span>, <span class='st'>"fingerprint"</span>,
-  <span class='st'>"spring"</span>, <span class='st'>"atom"</span>, <span class='st'>"looping-rhombuses"</span>, <span class='st'>"breeding-rhombus"</span>),
-  <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"#112446"</span>)</pre>
+    <pre class="usage"><span class='fu'>spin_epic</span>(
+  spin = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"flower"</span>, <span class='st'>"pixel"</span>, <span class='st'>"hollow-dots"</span>, <span class='st'>"intersecting-circles"</span>, <span class='st'>"orbit"</span>, <span class='st'>"radar"</span>,
+    <span class='st'>"scaling-squares"</span>, <span class='st'>"half-circle"</span>, <span class='st'>"trinity-rings"</span>, <span class='st'>"fulfilling-square"</span>,
+    <span class='st'>"circles-to-rhombuses"</span>, <span class='st'>"semipolar"</span>, <span class='st'>"self-building-square"</span>, <span class='st'>"swapping-squares"</span>,
+    <span class='st'>"fulfilling-bouncing-circle"</span>, <span class='st'>"fingerprint"</span>, <span class='st'>"spring"</span>, <span class='st'>"atom"</span>, <span class='st'>"looping-rhombuses"</span>,
+    <span class='st'>"breeding-rhombus"</span>),
+  color = <span class='st'>"#112446"</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -158,59 +162,56 @@
     <p>an HTML tag.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
-  <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>shiny</span>)
-  <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>shinybusy</span>)
+    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
+  <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://shiny.rstudio.com'>shiny</a></span>)
+  <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://github.com/dreamRs/shinybusy'>shinybusy</a></span>)
 
-  <span class='no'>ui</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/fluidPage.html'>fluidPage</a></span>(
-    <span class='no'>tags</span>$<span class='fu'><a href='https://rdrr.io/pkg/shiny/man/builder.html'>h2</a></span>(<span class='st'>"Epic spinner demo"</span>),
+  <span class='kw'>ui</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html'>fluidPage</a></span>(
+    <span class='kw'>tags</span><span class='op'>$</span><span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>h2</a></span>(<span class='st'>"Epic spinner demo"</span>),
     <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span>(
-      <span class='kw'>X</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(
+      X = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(
         <span class='st'>"flower"</span>, <span class='st'>"pixel"</span>, <span class='st'>"hollow-dots"</span>,
         <span class='st'>"intersecting-circles"</span>, <span class='st'>"orbit"</span>, <span class='st'>"radar"</span>,
         <span class='st'>"scaling-squares"</span>, <span class='st'>"half-circle"</span>,
         <span class='st'>"fulfilling-square"</span>, <span class='st'>"circles-to-rhombuses"</span>
       ),
-      <span class='kw'>FUN</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>x</span>) {
-        <span class='no'>tags</span>$<span class='fu'><a href='https://rdrr.io/pkg/shiny/man/builder.html'>div</a></span>(
-          <span class='kw'>style</span> <span class='kw'>=</span> <span class='st'>"display: table-cell; width: 150px; height: 100px; margin: 10px;"</span>,
-          <span class='no'>tags</span>$<span class='fu'>b</span>(<span class='no'>x</span>),
-          <span class='fu'>spin_epic</span>(<span class='no'>x</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"#08298A"</span>)
+      FUN = <span class='fu'>function</span>(<span class='kw'>x</span>) {
+        <span class='kw'>tags</span><span class='op'>$</span><span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>div</a></span>(
+          style = <span class='st'>"display: table-cell; width: 150px; height: 100px; margin: 10px;"</span>,
+          <span class='kw'>tags</span><span class='op'>$</span><span class='fu'>b</span>(<span class='kw'>x</span>),
+          <span class='fu'>spin_epic</span>(<span class='kw'>x</span>, color = <span class='st'>"#08298A"</span>)
         )
       }
     ),
-    <span class='no'>tags</span>$<span class='fu'><a href='https://rdrr.io/pkg/shiny/man/builder.html'>hr</a></span>(),
+    <span class='kw'>tags</span><span class='op'>$</span><span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>hr</a></span>(),
     <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span>(
-      <span class='kw'>X</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(
+      X = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(
         <span class='st'>"semipolar"</span>, <span class='st'>"self-building-square"</span>, <span class='st'>"swapping-squares"</span>,
         <span class='st'>"fulfilling-bouncing-circle"</span>, <span class='st'>"fingerprint"</span>, <span class='st'>"spring"</span>,
         <span class='st'>"atom"</span>, <span class='st'>"looping-rhombuses"</span>, <span class='st'>"breeding-rhombus"</span>, <span class='st'>"trinity-rings"</span>
       ),
-      <span class='kw'>FUN</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>x</span>) {
-        <span class='no'>tags</span>$<span class='fu'><a href='https://rdrr.io/pkg/shiny/man/builder.html'>div</a></span>(
-          <span class='kw'>style</span> <span class='kw'>=</span> <span class='st'>"display: table-cell; width: 150px; height: 100px; margin: 10px;"</span>,
-          <span class='no'>tags</span>$<span class='fu'>b</span>(<span class='no'>x</span>),
-          <span class='fu'>spin_epic</span>(<span class='no'>x</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"#08298A"</span>)
+      FUN = <span class='fu'>function</span>(<span class='kw'>x</span>) {
+        <span class='kw'>tags</span><span class='op'>$</span><span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>div</a></span>(
+          style = <span class='st'>"display: table-cell; width: 150px; height: 100px; margin: 10px;"</span>,
+          <span class='kw'>tags</span><span class='op'>$</span><span class='fu'>b</span>(<span class='kw'>x</span>),
+          <span class='fu'>spin_epic</span>(<span class='kw'>x</span>, color = <span class='st'>"#08298A"</span>)
         )
       }
     )
   )
 
-  <span class='no'>server</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>input</span>, <span class='no'>output</span>, <span class='no'>session</span>) {
+  <span class='kw'>server</span> <span class='op'>&lt;-</span> <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>, <span class='kw'>session</span>) {
 
   }
 
-  <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span>(<span class='no'>ui</span>, <span class='no'>server</span>)
-}</div></pre>
+  <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(<span class='kw'>ui</span>, <span class='kw'>server</span>)
+}
+</div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -221,7 +222,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>
