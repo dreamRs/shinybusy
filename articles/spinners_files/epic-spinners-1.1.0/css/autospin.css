@@ -1,0 +1,18 @@
+
+.shinybusy-recalculating {
+  position: relative;
+  opacity: 1 !important;
+  background-color: rgba(255,255,255,0.8);
+}
+
+.shinybusy-auto-recalculating {
+  opacity: 0.3;
+}
+
+.shinybusy-auto-spinner-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); z-index: 20;
+}
+
