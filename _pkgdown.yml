@@ -1,8 +1,17 @@
-destination: docs
+url: https://dreamrs.github.io/shinybusy/
 
 template:
-  params:
-    bootswatch: flatly
+  bootstrap: 4
+  bootswatch: cosmo
+  bslib:
+    primary: "#112446"
+
+navbar:
+  type: dark
+  bg: primary
+
+toc:
+  depth: 3
 
 authors:
   Victor Perrier:
@@ -11,3 +20,4 @@ authors:
   Fanny Meyer:
     href: https://twitter.com/_mfaan
     html: <img src="https://pbs.twimg.com/profile_images/912313931326218240/o1-wvA18_normal.jpg" /> Fanny Meyer
+
