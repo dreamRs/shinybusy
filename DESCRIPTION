@@ -7,7 +7,6 @@ Authors@R: c(person("Fanny", "Meyer", role = "aut"),
 Description: Add indicators (spinner, progress bar, gif) in your 'shiny' applications to show the user that the server is busy.
 License: GPL-3
 Encoding: UTF-8
-LazyData: true
 Imports: 
     htmltools,
     shiny,
