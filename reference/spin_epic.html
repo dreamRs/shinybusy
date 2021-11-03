@@ -162,51 +162,51 @@
     <p>an HTML tag.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
-  <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://shiny.rstudio.com/'>shiny</a></span><span class='op'>)</span>
-  <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/dreamRs/shinybusy'>shinybusy</a></span><span class='op'>)</span>
-
-  <span class='va'>ui</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/fluidPage.html'>fluidPage</a></span><span class='op'>(</span>
-    <span class='va'>tags</span><span class='op'>$</span><span class='fu'>h2</span><span class='op'>(</span><span class='st'>"Epic spinner demo"</span><span class='op'>)</span>,
-    <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span><span class='op'>(</span>
-      X <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>
-        <span class='st'>"flower"</span>, <span class='st'>"pixel"</span>, <span class='st'>"hollow-dots"</span>,
-        <span class='st'>"intersecting-circles"</span>, <span class='st'>"orbit"</span>, <span class='st'>"radar"</span>,
-        <span class='st'>"scaling-squares"</span>, <span class='st'>"half-circle"</span>,
-        <span class='st'>"fulfilling-square"</span>, <span class='st'>"circles-to-rhombuses"</span>
-      <span class='op'>)</span>,
-      FUN <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>{</span>
-        <span class='va'>tags</span><span class='op'>$</span><span class='fu'>div</span><span class='op'>(</span>
-          style <span class='op'>=</span> <span class='st'>"display: table-cell; width: 150px; height: 100px; margin: 10px;"</span>,
-          <span class='va'>tags</span><span class='op'>$</span><span class='fu'>b</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
-          <span class='fu'>spin_epic</span><span class='op'>(</span><span class='va'>x</span>, color <span class='op'>=</span> <span class='st'>"#08298A"</span><span class='op'>)</span>
-        <span class='op'>)</span>
-      <span class='op'>}</span>
-    <span class='op'>)</span>,
-    <span class='va'>tags</span><span class='op'>$</span><span class='fu'>hr</span><span class='op'>(</span><span class='op'>)</span>,
-    <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span><span class='op'>(</span>
-      X <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>
-        <span class='st'>"semipolar"</span>, <span class='st'>"self-building-square"</span>, <span class='st'>"swapping-squares"</span>,
-        <span class='st'>"fulfilling-bouncing-circle"</span>, <span class='st'>"fingerprint"</span>, <span class='st'>"spring"</span>,
-        <span class='st'>"atom"</span>, <span class='st'>"looping-rhombuses"</span>, <span class='st'>"breeding-rhombus"</span>, <span class='st'>"trinity-rings"</span>
-      <span class='op'>)</span>,
-      FUN <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>{</span>
-        <span class='va'>tags</span><span class='op'>$</span><span class='fu'>div</span><span class='op'>(</span>
-          style <span class='op'>=</span> <span class='st'>"display: table-cell; width: 150px; height: 100px; margin: 10px;"</span>,
-          <span class='va'>tags</span><span class='op'>$</span><span class='fu'>b</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
-          <span class='fu'>spin_epic</span><span class='op'>(</span><span class='va'>x</span>, color <span class='op'>=</span> <span class='st'>"#08298A"</span><span class='op'>)</span>
-        <span class='op'>)</span>
-      <span class='op'>}</span>
-    <span class='op'>)</span>
-  <span class='op'>)</span>
-
-  <span class='va'>server</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>input</span>, <span class='va'>output</span>, <span class='va'>session</span><span class='op'>)</span> <span class='op'>{</span>
-
-  <span class='op'>}</span>
-
-  <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span><span class='va'>ui</span>, <span class='va'>server</span><span class='op'>)</span>
-<span class='op'>}</span>
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'>  <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://shiny.rstudio.com/'>shiny</a></span><span class='op'>)</span></span>
+<span class='r-in'>  <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/dreamRs/shinybusy'>shinybusy</a></span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'>  <span class='va'>ui</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/fluidPage.html'>fluidPage</a></span><span class='op'>(</span></span>
+<span class='r-in'>    <span class='va'>tags</span><span class='op'>$</span><span class='fu'>h2</span><span class='op'>(</span><span class='st'>"Epic spinner demo"</span><span class='op'>)</span>,</span>
+<span class='r-in'>    <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span><span class='op'>(</span></span>
+<span class='r-in'>      X <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
+<span class='r-in'>        <span class='st'>"flower"</span>, <span class='st'>"pixel"</span>, <span class='st'>"hollow-dots"</span>,</span>
+<span class='r-in'>        <span class='st'>"intersecting-circles"</span>, <span class='st'>"orbit"</span>, <span class='st'>"radar"</span>,</span>
+<span class='r-in'>        <span class='st'>"scaling-squares"</span>, <span class='st'>"half-circle"</span>,</span>
+<span class='r-in'>        <span class='st'>"fulfilling-square"</span>, <span class='st'>"circles-to-rhombuses"</span></span>
+<span class='r-in'>      <span class='op'>)</span>,</span>
+<span class='r-in'>      FUN <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'>        <span class='va'>tags</span><span class='op'>$</span><span class='fu'>div</span><span class='op'>(</span></span>
+<span class='r-in'>          style <span class='op'>=</span> <span class='st'>"display: table-cell; width: 150px; height: 100px; margin: 10px;"</span>,</span>
+<span class='r-in'>          <span class='va'>tags</span><span class='op'>$</span><span class='fu'>b</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,</span>
+<span class='r-in'>          <span class='fu'>spin_epic</span><span class='op'>(</span><span class='va'>x</span>, color <span class='op'>=</span> <span class='st'>"#08298A"</span><span class='op'>)</span></span>
+<span class='r-in'>        <span class='op'>)</span></span>
+<span class='r-in'>      <span class='op'>}</span></span>
+<span class='r-in'>    <span class='op'>)</span>,</span>
+<span class='r-in'>    <span class='va'>tags</span><span class='op'>$</span><span class='fu'>hr</span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span class='r-in'>    <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span><span class='op'>(</span></span>
+<span class='r-in'>      X <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
+<span class='r-in'>        <span class='st'>"semipolar"</span>, <span class='st'>"self-building-square"</span>, <span class='st'>"swapping-squares"</span>,</span>
+<span class='r-in'>        <span class='st'>"fulfilling-bouncing-circle"</span>, <span class='st'>"fingerprint"</span>, <span class='st'>"spring"</span>,</span>
+<span class='r-in'>        <span class='st'>"atom"</span>, <span class='st'>"looping-rhombuses"</span>, <span class='st'>"breeding-rhombus"</span>, <span class='st'>"trinity-rings"</span></span>
+<span class='r-in'>      <span class='op'>)</span>,</span>
+<span class='r-in'>      FUN <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'>        <span class='va'>tags</span><span class='op'>$</span><span class='fu'>div</span><span class='op'>(</span></span>
+<span class='r-in'>          style <span class='op'>=</span> <span class='st'>"display: table-cell; width: 150px; height: 100px; margin: 10px;"</span>,</span>
+<span class='r-in'>          <span class='va'>tags</span><span class='op'>$</span><span class='fu'>b</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,</span>
+<span class='r-in'>          <span class='fu'>spin_epic</span><span class='op'>(</span><span class='va'>x</span>, color <span class='op'>=</span> <span class='st'>"#08298A"</span><span class='op'>)</span></span>
+<span class='r-in'>        <span class='op'>)</span></span>
+<span class='r-in'>      <span class='op'>}</span></span>
+<span class='r-in'>    <span class='op'>)</span></span>
+<span class='r-in'>  <span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'>  <span class='va'>server</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>input</span>, <span class='va'>output</span>, <span class='va'>session</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'></span>
+<span class='r-in'>  <span class='op'>}</span></span>
+<span class='r-in'></span>
+<span class='r-in'>  <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span><span class='va'>ui</span>, <span class='va'>server</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
