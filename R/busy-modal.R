@@ -32,11 +32,14 @@ show_modal_spinner <- function(spin = "double-bounce",
     html_dependency_spinkit(),
     html_dependency_epic(),
     tags$div(
+      class = "shinybusy-modal-spinner",
       style = "width: 60px; height: 60px; position: relative; margin: auto;",
       tag_spin
     ),
     tags$div(
-      style = "text-align: center;", text
+      class = "shinybusy-modal-text",
+      style = "text-align: center;", 
+      text
     ),
     footer = NULL,
     easyClose = FALSE,
@@ -50,8 +53,23 @@ show_modal_spinner <- function(spin = "double-bounce",
 #' @rdname modal-spinner
 remove_modal_spinner <- shiny::removeModal
 
-
-
+#' @export
+#' @importFrom shiny getDefaultReactiveDomain removeUI insertUI
+#' @rdname modal-spinner
+update_modal_spinner <- function(text, session = shiny::getDefaultReactiveDomain()) {
+  removeUI(selector = ".shinybusy-modal-text", immediate = TRUE, session = session)
+  insertUI(
+    selector = ".shinybusy-modal", 
+    where = "beforeEnd",
+    immediate = TRUE, 
+    session = session,
+    ui = tags$div(
+      class = "shinybusy-modal-text",
+      style = "text-align: center;", 
+      text
+    )
+  )
+}
 
 
 
@@ -144,7 +162,8 @@ remove_modal_progress <- shiny::removeModal
 
 #' @export
 #' @rdname modal-progress
-update_modal_progress <- function(value, text = NULL,
+update_modal_progress <- function(value, 
+                                  text = NULL,
                                   session = shiny::getDefaultReactiveDomain()) {
   update_progress(
     shiny_id = "shinybusy-modal-progress",
@@ -227,12 +246,15 @@ show_modal_gif <- function(src,
     style = "text-align: center;",
     js_center_modal(),
     tags$img(
+      class = "shinybusy-modal-gif",
       style = paste0("height:", validateCssUnit(height), ";"),
       style = paste0("width:", validateCssUnit(width), ";"),
       src = src
     ),
     tags$div(
-      style = "text-align: center;", text
+      class = "shinybusy-modal-text",
+      style = "text-align: center;",
+      text
     ),
     footer = NULL,
     easyClose = FALSE,

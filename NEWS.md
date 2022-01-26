@@ -1,7 +1,11 @@
+# shinybusy (unreleased)
+
+* New function `update_modal_spinner()` to update modal spinner text ([#19](https://github.com/dreamRs/shinybusy/issues/19)).
+
+
 # shinybusy 0.2.2
 
 * Fixed a bug in `spin_kit()` ([#12](https://github.com/dreamRs/shinybusy/issues/12)).
-
 
 
 # shinybusy 0.2.1
