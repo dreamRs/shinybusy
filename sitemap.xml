@@ -1,60 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://dreamrs.github.io/shinybusy//index.html</loc>
+    <loc>https://dreamrs.github.io/shinybusy/404.html</loc>
   </url>
   <url>
-    <loc>https://dreamrs.github.io/shinybusy//reference/add_busy_bar.html</loc>
+    <loc>https://dreamrs.github.io/shinybusy/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://dreamrs.github.io/shinybusy//reference/add_busy_gif.html</loc>
+    <loc>https://dreamrs.github.io/shinybusy/articles/index.html</loc>
   </url>
   <url>
-    <loc>https://dreamrs.github.io/shinybusy//reference/add_busy_spinner.html</loc>
+    <loc>https://dreamrs.github.io/shinybusy/articles/shinybusy-usage.html</loc>
   </url>
   <url>
-    <loc>https://dreamrs.github.io/shinybusy//reference/add_loading_state.html</loc>
+    <loc>https://dreamrs.github.io/shinybusy/articles/spinners.html</loc>
   </url>
   <url>
-    <loc>https://dreamrs.github.io/shinybusy//reference/busy-start-up.html</loc>
+    <loc>https://dreamrs.github.io/shinybusy/authors.html</loc>
   </url>
   <url>
-    <loc>https://dreamrs.github.io/shinybusy//reference/html-dependencies.html</loc>
+    <loc>https://dreamrs.github.io/shinybusy/index.html</loc>
   </url>
   <url>
-    <loc>https://dreamrs.github.io/shinybusy//reference/logo_silex.html</loc>
+    <loc>https://dreamrs.github.io/shinybusy/news/index.html</loc>
   </url>
   <url>
-    <loc>https://dreamrs.github.io/shinybusy//reference/manual-gif.html</loc>
+    <loc>https://dreamrs.github.io/shinybusy/reference/add_busy_bar.html</loc>
   </url>
   <url>
-    <loc>https://dreamrs.github.io/shinybusy//reference/manual-progressbar.html</loc>
+    <loc>https://dreamrs.github.io/shinybusy/reference/add_busy_gif.html</loc>
   </url>
   <url>
-    <loc>https://dreamrs.github.io/shinybusy//reference/manual-spinner.html</loc>
+    <loc>https://dreamrs.github.io/shinybusy/reference/add_busy_spinner.html</loc>
   </url>
   <url>
-    <loc>https://dreamrs.github.io/shinybusy//reference/modal-gif.html</loc>
+    <loc>https://dreamrs.github.io/shinybusy/reference/add_loading_state.html</loc>
   </url>
   <url>
-    <loc>https://dreamrs.github.io/shinybusy//reference/modal-progress.html</loc>
+    <loc>https://dreamrs.github.io/shinybusy/reference/busy-start-up.html</loc>
   </url>
   <url>
-    <loc>https://dreamrs.github.io/shinybusy//reference/modal-spinner.html</loc>
+    <loc>https://dreamrs.github.io/shinybusy/reference/html-dependencies.html</loc>
   </url>
   <url>
-    <loc>https://dreamrs.github.io/shinybusy//reference/progress.html</loc>
+    <loc>https://dreamrs.github.io/shinybusy/reference/index.html</loc>
   </url>
   <url>
-    <loc>https://dreamrs.github.io/shinybusy//reference/spin_epic.html</loc>
+    <loc>https://dreamrs.github.io/shinybusy/reference/logo_silex.html</loc>
   </url>
   <url>
-    <loc>https://dreamrs.github.io/shinybusy//reference/spin_kit.html</loc>
+    <loc>https://dreamrs.github.io/shinybusy/reference/manual-gif.html</loc>
   </url>
   <url>
-    <loc>https://dreamrs.github.io/shinybusy//articles/shinybusy-usage.html</loc>
+    <loc>https://dreamrs.github.io/shinybusy/reference/manual-progressbar.html</loc>
   </url>
   <url>
-    <loc>https://dreamrs.github.io/shinybusy//articles/spinners.html</loc>
+    <loc>https://dreamrs.github.io/shinybusy/reference/manual-spinner.html</loc>
+  </url>
+  <url>
+    <loc>https://dreamrs.github.io/shinybusy/reference/modal-gif.html</loc>
+  </url>
+  <url>
+    <loc>https://dreamrs.github.io/shinybusy/reference/modal-progress.html</loc>
+  </url>
+  <url>
+    <loc>https://dreamrs.github.io/shinybusy/reference/modal-spinner.html</loc>
+  </url>
+  <url>
+    <loc>https://dreamrs.github.io/shinybusy/reference/progress.html</loc>
+  </url>
+  <url>
+    <loc>https://dreamrs.github.io/shinybusy/reference/spin_epic.html</loc>
+  </url>
+  <url>
+    <loc>https://dreamrs.github.io/shinybusy/reference/spin_kit.html</loc>
   </url>
 </urlset>
