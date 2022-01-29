@@ -96,7 +96,15 @@ html_dependency_startup <- function() {
     script = "startup.js"
   )
 }
-
+html_dependency_loading <- function() {
+  htmlDependency(
+    name = "shinybusy-loading",
+    version = packageVersion("shinybusy"),
+    src = list(file = "packer"),
+    package = "shinybusy",
+    script = "loading.js"
+  )
+}
 
 
 

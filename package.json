@@ -27,10 +27,11 @@
   },
   "homepage": "https://github.com/dreamRs/shinybusy#readme",
   "devDependencies": {
+    "css-loader": "^6.5.1",
+    "notiflix": "^3.2.4",
+    "style-loader": "^3.3.1",
     "webpack": "^5.67.0",
     "webpack-cli": "^4.9.2",
-    "webpack-merge": "^5.8.0",
-    "css-loader": "^6.5.1",
-    "style-loader": "^3.3.1"
+    "webpack-merge": "^5.8.0"
   }
 }
