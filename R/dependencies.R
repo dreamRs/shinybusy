@@ -34,6 +34,7 @@ html_dependency_epic <- function() {
 #' @export
 #' @rdname html-dependencies
 html_dependency_shinybusy <- function() {
+  warning("`html_dependency_shinybusy` is deprecated and will be removed in next release.")
   htmlDependency(
     name = "shinybusy",
     version = packageVersion("shinybusy"),
@@ -47,6 +48,7 @@ html_dependency_shinybusy <- function() {
 #' @export
 #' @rdname html-dependencies
 html_dependency_freezeframe <- function() {
+  warning("`html_dependency_freezeframe` is deprecated and will be removed in next release.")
   htmlDependency(
     name = "freezeframe",
     version = "3.0.10",
@@ -60,6 +62,7 @@ html_dependency_freezeframe <- function() {
 #' @export
 #' @rdname html-dependencies
 html_dependency_nanobar <- function() {
+  warning("`html_dependency_nanobar` is deprecated and will be removed in next release.")
   htmlDependency(
     name = "nanobar",
     version = "0.4.2",
@@ -73,6 +76,7 @@ html_dependency_nanobar <- function() {
 #' @export
 #' @rdname html-dependencies
 html_dependency_notiflix <- function() {
+  warning("`html_dependency_notiflix` is deprecated and will be removed in next release.")
   htmlDependency(
     name = "notiflix",
     version = "2.7.0",
