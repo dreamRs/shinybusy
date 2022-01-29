@@ -83,3 +83,20 @@ html_dependency_notiflix <- function() {
   )
 }
 
+
+
+#' @importFrom htmltools htmlDependency
+#' @importFrom utils packageVersion
+html_dependency_startup <- function() {
+  htmlDependency(
+    name = "shinybusy-startup",
+    version = packageVersion("shinybusy"),
+    src = list(file = "packer"),
+    package = "shinybusy",
+    script = "startup.js"
+  )
+}
+
+
+
+
