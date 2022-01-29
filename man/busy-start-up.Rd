@@ -104,9 +104,10 @@ ui <- fluidPage(
 
 server <- function(input, output, session) {
 
+  # Remove after 3 seconds (+timeout)
   observe({
     Sys.sleep(3)
-    remove_start_up()
+    remove_start_up(timeout = 200)
   })
 
 }

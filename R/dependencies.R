@@ -118,5 +118,13 @@ html_dependency_busy <- function() {
     script = "busy.js"
   )
 }
-
+html_dependency_notify <- function() {
+  htmlDependency(
+    name = "shinybusy-notify",
+    version = packageVersion("shinybusy"),
+    src = list(file = "packer"),
+    package = "shinybusy",
+    script = "notify.js"
+  )
+}
 
