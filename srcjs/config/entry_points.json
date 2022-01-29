@@ -1,4 +1,5 @@
 {
   "startup": "./srcjs/exts/startup.js",
-  "loading": "./srcjs/exts/loading.js"
+  "loading": "./srcjs/exts/loading.js",
+  "busy": "./srcjs/exts/busy.js"
 }

@@ -28,6 +28,8 @@
   "homepage": "https://github.com/dreamRs/shinybusy#readme",
   "devDependencies": {
     "css-loader": "^6.5.1",
+    "freezeframe": "^5.0.2",
+    "nanobar": "^0.4.2",
     "notiflix": "^3.2.4",
     "style-loader": "^3.3.1",
     "webpack": "^5.67.0",
