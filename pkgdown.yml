@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   shinybusy-usage: shinybusy-usage.html
   spinners: spinners.html
-last_built: 2022-01-26T15:22Z
+last_built: 2022-01-30T18:27Z
 urls:
   reference: https://dreamrs.github.io/shinybusy/reference
   article: https://dreamrs.github.io/shinybusy/articles
