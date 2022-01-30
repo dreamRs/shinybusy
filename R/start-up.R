@@ -50,7 +50,7 @@ busy_start_up <- function(loader,
     loader, style = "margin: auto;"
   )
   tagList(
-    html_dependency_shinybusy(),
+    html_dependency_startup(),
     tags$div(
       class = "shinybusy-startup",
       style = paste0("background-color:", background, ";"),

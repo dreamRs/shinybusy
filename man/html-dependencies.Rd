@@ -23,7 +23,7 @@ html_dependency_nanobar()
 html_dependency_notiflix()
 }
 \value{
-an \code{\link[htmltools]{htmlDependency}}.
+an \code{\link[htmltools:htmlDependency]{htmltools::htmlDependency()}}.
 }
 \description{
 HTML dependencies used by shinybusy

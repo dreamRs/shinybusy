@@ -1,0 +1,39 @@
+{
+  "name": "shinybusy",
+  "version": "1.0.0",
+  "description": "> Automated (or not) busy indicator for Shiny apps",
+  "main": "index.js",
+  "directories": {
+    "example": "examples",
+    "man": "man",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "none": "webpack --config webpack.dev.js --mode=none",
+    "development": "webpack --config webpack.dev.js",
+    "production": "webpack --config webpack.prod.js",
+    "watch": "webpack --config webpack.dev.js -d --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dreamRs/shinybusy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dreamRs/shinybusy/issues"
+  },
+  "homepage": "https://github.com/dreamRs/shinybusy#readme",
+  "devDependencies": {
+    "css-loader": "^6.5.1",
+    "freezeframe": "^5.0.2",
+    "nanobar": "^0.4.2",
+    "notiflix": "^3.2.4",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.67.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-merge": "^5.8.0"
+  }
+}

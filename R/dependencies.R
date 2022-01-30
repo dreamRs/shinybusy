@@ -1,7 +1,7 @@
 
 #' HTML dependencies used by shinybusy
 #'
-#' @return an \code{\link[htmltools]{htmlDependency}}.
+#' @return an [htmltools::htmlDependency()].
 #' @export
 #'
 #' @importFrom utils packageVersion
@@ -34,6 +34,7 @@ html_dependency_epic <- function() {
 #' @export
 #' @rdname html-dependencies
 html_dependency_shinybusy <- function() {
+  warning("`html_dependency_shinybusy` is deprecated and will be removed in next release.")
   htmlDependency(
     name = "shinybusy",
     version = packageVersion("shinybusy"),
@@ -47,6 +48,7 @@ html_dependency_shinybusy <- function() {
 #' @export
 #' @rdname html-dependencies
 html_dependency_freezeframe <- function() {
+  warning("`html_dependency_freezeframe` is deprecated and will be removed in next release.")
   htmlDependency(
     name = "freezeframe",
     version = "3.0.10",
@@ -60,6 +62,7 @@ html_dependency_freezeframe <- function() {
 #' @export
 #' @rdname html-dependencies
 html_dependency_nanobar <- function() {
+  warning("`html_dependency_nanobar` is deprecated and will be removed in next release.")
   htmlDependency(
     name = "nanobar",
     version = "0.4.2",
@@ -73,6 +76,7 @@ html_dependency_nanobar <- function() {
 #' @export
 #' @rdname html-dependencies
 html_dependency_notiflix <- function() {
+  warning("`html_dependency_notiflix` is deprecated and will be removed in next release.")
   htmlDependency(
     name = "notiflix",
     version = "2.7.0",
@@ -80,6 +84,47 @@ html_dependency_notiflix <- function() {
     package = "shinybusy",
     script = "notiflix/notiflix-2.7.0.min.js",
     stylesheet = "notiflix/notiflix-2.7.0.min.css"
+  )
+}
+
+
+
+#' @importFrom htmltools htmlDependency
+#' @importFrom utils packageVersion
+html_dependency_startup <- function() {
+  htmlDependency(
+    name = "shinybusy-startup",
+    version = packageVersion("shinybusy"),
+    src = list(file = "packer"),
+    package = "shinybusy",
+    script = "startup.js"
+  )
+}
+html_dependency_loading <- function() {
+  htmlDependency(
+    name = "shinybusy-loading",
+    version = packageVersion("shinybusy"),
+    src = list(file = "packer"),
+    package = "shinybusy",
+    script = "loading.js"
+  )
+}
+html_dependency_busy <- function() {
+  htmlDependency(
+    name = "shinybusy-busy",
+    version = packageVersion("shinybusy"),
+    src = list(file = "packer"),
+    package = "shinybusy",
+    script = "busy.js"
+  )
+}
+html_dependency_notify <- function() {
+  htmlDependency(
+    name = "shinybusy-notify",
+    version = packageVersion("shinybusy"),
+    src = list(file = "packer"),
+    package = "shinybusy",
+    script = "notify.js"
   )
 }
 

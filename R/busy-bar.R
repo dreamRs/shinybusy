@@ -19,7 +19,7 @@ add_busy_bar <- function(timeout = 1000, color = "#112446", centered = FALSE, he
 
 #' @title Manual busy indicator (progress bar)
 #'
-#' @description Declare \code{use_busy_bar} in your UI and update value server-side with \code{update_busy_bar}.
+#' @description Declare `use_busy_bar()` in your UI and update value server-side with `update_busy_bar()`.
 #'
 #' @inheritParams add_busy_bar
 #'

@@ -51,7 +51,7 @@ add_loading_state <- function(selector,
       `data-for` = "shinybusy-loading-state",
       toJSON(list(
         selector = paste(selector, collapse = ", "),
-        spinner = tools::toTitleCase(spinner),
+        spinner = spinner,
         text = text,
         timeout = timeout,
         options = dropNulls(list(
@@ -64,7 +64,6 @@ add_loading_state <- function(selector,
         ))
       ), auto_unbox = TRUE, json_verbatim = TRUE)
     ),
-    html_dependency_notiflix(),
-    html_dependency_shinybusy()
+    html_dependency_loading()
   )
 }
