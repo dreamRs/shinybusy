@@ -22,7 +22,7 @@ update_busy_bar(value, session = shiny::getDefaultReactiveDomain())
 \item{session}{Shiny session.}
 }
 \description{
-Declare \code{use_busy_bar} in your UI and update value server-side with \code{update_busy_bar}.
+Declare \code{use_busy_bar()} in your UI and update value server-side with \code{update_busy_bar()}.
 }
 \examples{
 if (interactive()) {

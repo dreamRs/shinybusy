@@ -4,10 +4,10 @@
 #' @description Make a pop-up window appear from the server
 #'  with a spinner during long computation, remove it when finished.
 #'
-#' @param spin Style of the spinner, see \link{spin_epic} or \link{spin_kit} for possible choices.
+#' @param spin Style of the spinner, see [spin_epic()] or [spin_kit()] for possible choices.
 #' @param color Color for the spinner, in a valid CSS format.
 #' @param text Additional text to appear under the spinner.
-#' @param session The \code{session} object passed to function given to \code{shinyServer}.
+#' @param session The `session` object passed to function given to `shinyServer`.
 #'
 #' @export
 #'
@@ -38,7 +38,7 @@ show_modal_spinner <- function(spin = "double-bounce",
     ),
     tags$div(
       class = "shinybusy-modal-text",
-      style = "text-align: center;", 
+      style = "text-align: center;",
       text
     ),
     footer = NULL,
@@ -59,13 +59,13 @@ remove_modal_spinner <- shiny::removeModal
 update_modal_spinner <- function(text, session = shiny::getDefaultReactiveDomain()) {
   removeUI(selector = ".shinybusy-modal-text", immediate = TRUE, session = session)
   insertUI(
-    selector = ".shinybusy-modal", 
+    selector = ".shinybusy-modal",
     where = "beforeEnd",
-    immediate = TRUE, 
+    immediate = TRUE,
     session = session,
     ui = tags$div(
       class = "shinybusy-modal-text",
-      style = "text-align: center;", 
+      style = "text-align: center;",
       text
     )
   )
@@ -80,7 +80,7 @@ update_modal_spinner <- function(text, session = shiny::getDefaultReactiveDomain
 #'  with a spinner during long computation, remove it when finished.
 #'
 #' @inheritParams progress
-#' @param session The \code{session} object passed to function given to \code{shinyServer}.
+#' @param session The `session` object passed to function given to `shinyServer`.
 #'
 #' @export
 #'
@@ -162,7 +162,7 @@ remove_modal_progress <- shiny::removeModal
 
 #' @export
 #' @rdname modal-progress
-update_modal_progress <- function(value, 
+update_modal_progress <- function(value,
                                   text = NULL,
                                   session = shiny::getDefaultReactiveDomain()) {
   update_progress(
@@ -186,9 +186,9 @@ update_modal_progress <- function(value,
 #'
 #' @param src Path to the GIF, an URL or a file in www/ folder.
 #' @param text Additional text to appear under the spinner.
-#' @param height,width Height and width of the spinner, default to \code{'50px'} for both, must be specified.
-#' @param modal_size One of \code{"s"} for small (the default) , \code{"m"} for medium, or \code{"l"} for large.
-#' @param session The \code{session} object passed to function given to \code{shinyServer}.
+#' @param height,width Height and width of the spinner, default to `'50px'` for both, must be specified.
+#' @param modal_size One of `"s"` for small (the default), `"m"` for medium, or `"l"` for large.
+#' @param session The `session` object passed to function given to `shinyServer`.
 #'
 #' @export
 #'

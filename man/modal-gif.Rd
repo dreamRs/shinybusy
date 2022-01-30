@@ -24,7 +24,7 @@ remove_modal_gif(session = getDefaultReactiveDomain())
 
 \item{height, width}{Height and width of the spinner, default to \code{'50px'} for both, must be specified.}
 
-\item{modal_size}{One of \code{"s"} for small (the default) , \code{"m"} for medium, or \code{"l"} for large.}
+\item{modal_size}{One of \code{"s"} for small (the default), \code{"m"} for medium, or \code{"l"} for large.}
 
 \item{session}{The \code{session} object passed to function given to \code{shinyServer}.}
 }
