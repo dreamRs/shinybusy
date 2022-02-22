@@ -61,19 +61,19 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">report</span><span class="op">(</span>
   <span class="va">title</span>,
   <span class="va">text</span>,
-  button <span class="op">=</span> <span class="st">"Ok"</span>,
   <span class="va">...</span>,
+  button <span class="op">=</span> <span class="st">"Ok"</span>,
   type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"success"</span>, <span class="st">"failure"</span>, <span class="st">"info"</span>, <span class="st">"warning"</span><span class="op">)</span>,
   session <span class="op">=</span> <span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/domains.html" class="external-link">getDefaultReactiveDomain</a></span><span class="op">(</span><span class="op">)</span>
 <span class="op">)</span>
 
-<span class="fu">report_success</span><span class="op">(</span><span class="va">title</span>, <span class="va">text</span>, button <span class="op">=</span> <span class="st">"Ok"</span>, <span class="va">...</span><span class="op">)</span>
+<span class="fu">report_success</span><span class="op">(</span><span class="va">title</span>, <span class="va">text</span>, <span class="va">...</span>, button <span class="op">=</span> <span class="st">"Ok"</span><span class="op">)</span>
 
-<span class="fu">report_failure</span><span class="op">(</span><span class="va">title</span>, <span class="va">text</span>, button <span class="op">=</span> <span class="st">"Ok"</span>, <span class="va">...</span><span class="op">)</span>
+<span class="fu">report_failure</span><span class="op">(</span><span class="va">title</span>, <span class="va">text</span>, <span class="va">...</span>, button <span class="op">=</span> <span class="st">"Ok"</span><span class="op">)</span>
 
-<span class="fu">report_info</span><span class="op">(</span><span class="va">title</span>, <span class="va">text</span>, button <span class="op">=</span> <span class="st">"Ok"</span>, <span class="va">...</span><span class="op">)</span>
+<span class="fu">report_info</span><span class="op">(</span><span class="va">title</span>, <span class="va">text</span>, <span class="va">...</span>, button <span class="op">=</span> <span class="st">"Ok"</span><span class="op">)</span>
 
-<span class="fu">report_warning</span><span class="op">(</span><span class="va">title</span>, <span class="va">text</span>, button <span class="op">=</span> <span class="st">"Ok"</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+<span class="fu">report_warning</span><span class="op">(</span><span class="va">title</span>, <span class="va">text</span>, <span class="va">...</span>, button <span class="op">=</span> <span class="st">"Ok"</span><span class="op">)</span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -82,11 +82,10 @@
 <dd><p>Title of the report.</p></dd>
 <dt>text</dt>
 <dd><p>Text to be displayed.</p></dd>
+<dt>...</dt>
+<dd><p>Options passed to JavaScript method, see <code><a href="config_report.html">config_report()</a></code>.</p></dd>
 <dt>button</dt>
 <dd><p>Label for the button.</p></dd>
-<dt>...</dt>
-<dd><p>Options passed to JavaScript method, see
-<a href="https://notiflix.github.io/documentation" class="external-link">https://notiflix.github.io/documentation</a>.</p></dd>
 <dt>type</dt>
 <dd><p>Type of notification: <code>success</code>, <code>failure</code>, <code>info</code> or <code>warning</code>.</p></dd>
 <dt>session</dt>
@@ -106,9 +105,10 @@ More documentation and examples are available on the official website:
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/" class="external-link">shiny</a></span><span class="op">)</span></span>
+<span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/dreamRs/shinybusy" class="external-link">shinybusy</a></span><span class="op">)</span></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html" class="external-link">fluidPage</a></span><span class="op">(</span></span>
-<span class="r-in">  <span class="va">tags</span><span class="op">$</span><span class="fu">h2</span><span class="op">(</span><span class="st">"report examples"</span><span class="op">)</span>,</span>
+<span class="r-in">  <span class="va">tags</span><span class="op">$</span><span class="fu">h2</span><span class="op">(</span><span class="st">"Report examples"</span><span class="op">)</span>,</span>
 <span class="r-in">  <span class="va">tags</span><span class="op">$</span><span class="fu">p</span><span class="op">(</span></span>
 <span class="r-in">    <span class="st">"More examples available on the official website:"</span>,</span>
 <span class="r-in">    <span class="va">tags</span><span class="op">$</span><span class="fu">a</span><span class="op">(</span><span class="st">"https://notiflix.github.io/report"</span><span class="op">)</span></span>
