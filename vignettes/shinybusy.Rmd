@@ -161,3 +161,20 @@ Don't forget to remove the modal window when computation is finished !
 
 
 
+## Notifications
+
+Show notifications and reports to user through JavaScript library [Notiflix](https://notiflix.github.io/). Four appearance are available: success, failure, info and warning. Notifications are fully configurable.
+
+```{r notifications, eval=FALSE}
+# success notification
+notify_success("Well done!")
+
+# report failure
+report_failure(
+  "Oups...",
+  "Something went wrong"
+)
+```
+
+
+

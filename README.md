@@ -30,8 +30,9 @@ remotes::install_github("dreamRs/shinybusy")
 
 ## Examples
 
+### Automated busy indicators
 
-### Gif
+#### Gif
 
 Animate a Gif when server is busy and pause animation when server is idle :
 
@@ -43,7 +44,7 @@ add_busy_gif(src = "https://jeroen.github.io/images/banana.gif", height = 70, wi
 
 
 
-### Progress bar
+#### Progress bar
 
 Make an infinite progress bar appear on top of the page when server is busy :
 
@@ -56,26 +57,21 @@ add_busy_bar(color = "#FF0000")
 
 
 
-### Spinner
+#### Spinner
 
 Add a spinner when server is busy on top-right corner of the page with:
 
-
 ```r
-# UI
 add_busy_spinner(spin = "fading-circle")
 ```
 
-Classic Shiny:
 ![](man/figures/shinybusy-spin.gif)
 
 
-Shinydashboard:
-![](man/figures/spin-dash.png)
 
-Shinythemes:
-![](man/figures/spin-theme.png)
+### Other functionalities
 
+Display a loading indicator at the start of the application until it is ready to be used, block application interaction until a calculation is done, send notifications to user, ... See vignette or [online website](https://dreamrs.github.io/shinybusy/) for more.
 
 
 

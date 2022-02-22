@@ -1,4 +1,4 @@
-# shinybusy (unreleased)
+# shinybusy 0.3.0
 
 * Internal: use [{packer}](https://github.com/JohnCoene/packer) to manage JavaScript assets.
 * New function `update_modal_spinner()` to update modal spinner text ([#19](https://github.com/dreamRs/shinybusy/issues/19)).
