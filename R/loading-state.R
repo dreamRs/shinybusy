@@ -4,8 +4,8 @@
 #' @description Call this function once in your UI to automatically
 #'  add loading indicators to several outputs when they are being regenerated.
 #'
-#' @param selector CSS selector to match outputs, for example use \code{".shiny-plot-output"}
-#'  to select all \code{plotOutput()} in your application, or \code{"#my_chart"} to select
+#' @param selector CSS selector to match outputs, for example use `".shiny-plot-output"`
+#'  to select all [shiny::plotOutput()] in your application, or `"#my_chart"` to select
 #'  a specific output. You can use a vector to select multiple outputs.
 #' @param spinner Name of the spinner to use.
 #' @param text An optional text to be displayed under the spinner.
@@ -15,12 +15,12 @@
 #' @param messageColor Changes the color of the message text.
 #' @param messageFontSize Changes the font-size of the message text.
 #' @param backgroundColor Changes the background color. You can use HEX, RGB or RGBA.
-#' @param ... Other options passed to the JavaScript method, see this link
-#'  for all available options: \url{https://www.notiflix.com/documentation/}.
+#' @param ... Other options passed to the JavaScript method, see [this link](https://notiflix.github.io/documentation)
+#'  for all available options.
 #'
 #'
 #' @note This function is experimental, if you encounter bugs or bad behavior,
-#'  please report issue here : \url{https://github.com/dreamRs/shinybusy/issues}.
+#'  please report [issue here](https://github.com/dreamRs/shinybusy/issues).
 #'
 #' @return An HTML tag that you can use in Shiny UI.
 #' @export

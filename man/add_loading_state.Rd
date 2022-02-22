@@ -19,7 +19,7 @@ add_loading_state(
 }
 \arguments{
 \item{selector}{CSS selector to match outputs, for example use \code{".shiny-plot-output"}
-to select all \code{plotOutput()} in your application, or \code{"#my_chart"} to select
+to select all \code{\link[shiny:plotOutput]{shiny::plotOutput()}} in your application, or \code{"#my_chart"} to select
 a specific output. You can use a vector to select multiple outputs.}
 
 \item{spinner}{Name of the spinner to use.}
@@ -38,8 +38,8 @@ a specific output. You can use a vector to select multiple outputs.}
 
 \item{backgroundColor}{Changes the background color. You can use HEX, RGB or RGBA.}
 
-\item{...}{Other options passed to the JavaScript method, see this link
-for all available options: \url{https://www.notiflix.com/documentation/}.}
+\item{...}{Other options passed to the JavaScript method, see \href{https://notiflix.github.io/documentation}{this link}
+for all available options.}
 }
 \value{
 An HTML tag that you can use in Shiny UI.
@@ -50,7 +50,7 @@ add loading indicators to several outputs when they are being regenerated.
 }
 \note{
 This function is experimental, if you encounter bugs or bad behavior,
-please report issue here : \url{https://github.com/dreamRs/shinybusy/issues}.
+please report \href{https://github.com/dreamRs/shinybusy/issues}{issue here}.
 }
 \examples{
 library(shinybusy)
