@@ -2,6 +2,8 @@
 
 * Internal: use [{packer}](https://github.com/JohnCoene/packer) to manage JavaScript assets.
 * New function `update_modal_spinner()` to update modal spinner text ([#19](https://github.com/dreamRs/shinybusy/issues/19)).
+* New function `notify()` to send notifications (success, error, info or warning).
+* New function `report()` to send extended notifications (success, error, info or warning).
 
 
 # shinybusy 0.2.2

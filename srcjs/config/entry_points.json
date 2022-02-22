@@ -2,5 +2,6 @@
   "startup": "./srcjs/exts/startup.js",
   "loading": "./srcjs/exts/loading.js",
   "busy": "./srcjs/exts/busy.js",
-  "notify": "./srcjs/exts/notify.js"
+  "notify": "./srcjs/exts/notify.js",
+  "report": "./srcjs/exts/report.js"
 }

@@ -24,12 +24,13 @@ notify_failure(text, timeout = 3000, position = "right-top", ...)
 
 notify_info(text, timeout = 3000, position = "right-top", ...)
 
-notify_warning(text, timeout = 1000, position = "right-top", ...)
+notify_warning(text, timeout = 3000, position = "right-top", ...)
 }
 \arguments{
 \item{text}{Text to be displayed.}
 
-\item{...}{Options passed to JavaScript method, see https://notiflix.github.io/documentation.}
+\item{...}{Options passed to JavaScript method, see
+\url{https://notiflix.github.io/documentation}.}
 
 \item{timeout}{The delay in milliseconds to hide and remove the notifications.}
 
@@ -85,5 +86,6 @@ if (interactive())
 }
 \references{
 Notify module from \href{https://github.com/notiflix/Notiflix}{Notiflix} library.
-More documentation and examples are available on the official website: \url{https://notiflix.github.io/notify}.
+More documentation and examples are available on the official website:
+\url{https://notiflix.github.io/notify}.
 }

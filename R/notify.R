@@ -4,7 +4,8 @@
 #' @description Send notifications to the user.
 #'
 #' @param text Text to be displayed.
-#' @param ... Options passed to JavaScript method, see https://notiflix.github.io/documentation.
+#' @param ... Options passed to JavaScript method, see
+#'  [https://notiflix.github.io/documentation](https://notiflix.github.io/documentation).
 #' @param timeout The delay in milliseconds to hide and remove the notifications.
 #' @param position Position where to display the notification.
 #' @param type Type of notification: `success`, `failure`, `info` or `warning`.
@@ -14,7 +15,8 @@
 #'
 #' @references
 #' Notify module from [Notiflix](https://github.com/notiflix/Notiflix) library.
-#' More documentation and examples are available on the official website: [https://notiflix.github.io/notify](https://notiflix.github.io/notify).
+#' More documentation and examples are available on the official website:
+#'  [https://notiflix.github.io/notify](https://notiflix.github.io/notify).
 #'
 #' @export
 #'
@@ -101,7 +103,7 @@ notify_info <- function(text,
 #'
 #' @rdname notify
 notify_warning <- function(text,
-                           timeout = 1000,
+                           timeout = 3000,
                            position = "right-top",
                            ...) {
   notify(
