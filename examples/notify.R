@@ -1,4 +1,5 @@
 library(shiny)
+library(shinybusy)
 
 ui <- fluidPage(
   tags$h2("notify examples"),

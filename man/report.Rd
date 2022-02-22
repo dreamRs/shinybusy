@@ -11,29 +11,28 @@
 report(
   title,
   text,
-  button = "Ok",
   ...,
+  button = "Ok",
   type = c("success", "failure", "info", "warning"),
   session = shiny::getDefaultReactiveDomain()
 )
 
-report_success(title, text, button = "Ok", ...)
+report_success(title, text, ..., button = "Ok")
 
-report_failure(title, text, button = "Ok", ...)
+report_failure(title, text, ..., button = "Ok")
 
-report_info(title, text, button = "Ok", ...)
+report_info(title, text, ..., button = "Ok")
 
-report_warning(title, text, button = "Ok", ...)
+report_warning(title, text, ..., button = "Ok")
 }
 \arguments{
 \item{title}{Title of the report.}
 
 \item{text}{Text to be displayed.}
 
-\item{button}{Label for the button.}
+\item{...}{Options passed to JavaScript method, see \code{\link[=config_report]{config_report()}}.}
 
-\item{...}{Options passed to JavaScript method, see
-\url{https://notiflix.github.io/documentation}.}
+\item{button}{Label for the button.}
 
 \item{type}{Type of notification: \code{success}, \code{failure}, \code{info} or \code{warning}.}
 
@@ -47,9 +46,10 @@ show extended notifications that contain a title, description to the user.
 }
 \examples{
 library(shiny)
+library(shinybusy)
 
 ui <- fluidPage(
-  tags$h2("report examples"),
+  tags$h2("Report examples"),
   tags$p(
     "More examples available on the official website:",
     tags$a("https://notiflix.github.io/report")

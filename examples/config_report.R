@@ -2,15 +2,10 @@ library(shiny)
 library(shinybusy)
 
 ui <- fluidPage(
-  tags$h2("Report examples"),
-  tags$p(
-    "More examples available on the official website:",
-    tags$a("https://notiflix.github.io/report")
-  ),
+  tags$h2("Config for report() examples"),
   actionButton("success", "Success"),
   actionButton("failure", "Failure"),
-  actionButton("info", "Info"),
-  actionButton("warning", "Warning")
+  actionButton("info", "Info")
 )
 
 server <- function(input, output, session) {
@@ -18,14 +13,22 @@ server <- function(input, output, session) {
   observeEvent(input$success, {
     report_success(
       "Well done!",
-      "All in order"
+      "All in order",
+      config_report(
+        svgColor = "#0431B4",
+        titleColor = "#0431B4"
+      )
     )
   })
 
   observeEvent(input$failure, {
     report_failure(
       "Oups...",
-      "Something went wrong"
+      "Something went wrong",
+      config_report(
+        svgColor = "#DF01D7",
+        titleColor = "#DF01D7"
+      )
     )
   })
 
@@ -35,14 +38,8 @@ server <- function(input, output, session) {
       tags$p(
         style = "font-style: italic;",
         "Lorem ipsum dolor sit amet"
-      )
-    )
-  })
-
-  observeEvent(input$warning, {
-    report_warning(
-      "Be careful!",
-      "There were 30 warnings (use warnings() to see them)"
+      ),
+      config_report(width = "560px", borderRadius = "5px")
     )
   })
 

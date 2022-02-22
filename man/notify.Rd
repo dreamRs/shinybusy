@@ -48,6 +48,7 @@ Send notifications to the user.
 }
 \examples{
 library(shiny)
+library(shinybusy)
 
 ui <- fluidPage(
   tags$h2("notify examples"),

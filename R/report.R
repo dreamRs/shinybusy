@@ -5,9 +5,8 @@
 #'
 #' @param title Title of the report.
 #' @param text Text to be displayed.
+#' @param ... Options passed to JavaScript method, see [config_report()].
 #' @param button Label for the button.
-#' @param ... Options passed to JavaScript method, see
-#'  [https://notiflix.github.io/documentation](https://notiflix.github.io/documentation).
 #' @param type Type of notification: `success`, `failure`, `info` or `warning`.
 #' @param session Default Shiny session.
 #'
@@ -27,8 +26,8 @@
 #' @example examples/report.R
 report <- function(title,
                    text,
-                   button = "Ok",
                    ...,
+                   button = "Ok",
                    type = c("success", "failure", "info", "warning"),
                    session = shiny::getDefaultReactiveDomain()) {
   stopifnot("'title' must be a character string" = is.character(title))
@@ -38,6 +37,8 @@ report <- function(title,
   stopifnot("'button' must be a character string" = is.character(button))
   type <- match.arg(type)
   config <- list(...)
+  idx <- vapply(X = config, FUN = inherits, what = "config_report", FUN.VALUE = logical(1))
+  config <- c(config[!idx], unlist(config[idx], recursive = FALSE))
   if (inherits(text, c("shiny.tag", "shiny.tag.list"))) {
     config$plainText <- FALSE
     text <- doRenderTags(text)
@@ -66,8 +67,8 @@ report <- function(title,
 #' @rdname report
 report_success <- function(title,
                            text,
-                           button = "Ok",
-                           ...) {
+                           ...,
+                           button = "Ok") {
   report(
     title = title,
     text = text,
@@ -83,8 +84,8 @@ report_success <- function(title,
 #' @rdname report
 report_failure <- function(title,
                            text,
-                           button = "Ok",
-                           ...) {
+                           ...,
+                           button = "Ok") {
   report(
     title = title,
     text = text,
@@ -99,8 +100,8 @@ report_failure <- function(title,
 #' @rdname report
 report_info <- function(title,
                         text,
-                        button = "Ok",
-                        ...) {
+                        ...,
+                        button = "Ok") {
   report(
     title = title,
     text = text,
@@ -115,8 +116,8 @@ report_info <- function(title,
 #' @rdname report
 report_warning <- function(title,
                            text,
-                           button = "Ok",
-                           ...) {
+                           ...,
+                           button = "Ok") {
   report(
     title = title,
     text = text,
@@ -125,4 +126,84 @@ report_warning <- function(title,
     ...
   )
 }
+
+
+
+
+
+#' @title Configure options for [report()] and others
+#'
+#' @description Options for [report()] functions, see
+#'  [online documentation](https://notiflix.github.io/documentation)
+#'  for default values and examples.
+#'
+#' @param svgColor Changes the built-in SVG icon color.
+#' @param titleColor Changes the title text color.
+#' @param messageColor Changes the message text color.
+#' @param buttonBackground Changes the button background color.
+#' @param buttonColor Changes the button text color.
+#' @param backOverlayColor Changes the color of the background overlay.
+#' @param className Changes the class name (attribute).
+#' @param width Changes the width.
+#' @param backgroundColor Changes the background color.
+#' @param borderRadius Changes the radius of the corners.
+#' @param rtl Specifies the text direction to "right-to-left".
+#' @param zindex Changes the z-index.
+#' @param backOverlay Adds a background overlay.
+#' @param fontFamily Changes the font-family.
+#' @param svgSize Changes the built-in SVG icons width and height. (Notiflix uses square scaled icons.)
+#' @param plainText Strips all HTML tags.
+#' @param titleFontSize Changes the font-size of the title text.
+#' @param titleMaxLength The maximum length of the title text.
+#' @param messageFontSize Changes the font-size of the message text.
+#' @param messageMaxLength The maximum length of the message text.
+#' @param buttonFontSize Changes the font-size of the button text.
+#' @param buttonMaxLength The maximum length of the button text.
+#' @param cssAnimation Enables/disables CSS animations to show/hide.
+#' @param cssAnimationDuration Changes the CSS animations duration as milliseconds.
+#' @param cssAnimationStyle 2 types of styles can be used: fade zoom.
+#' @param ... Other potential arguments.
+#'
+#' @return A config `list` that can be used in [report()] and other `report_*` functions.
+#' @export
+#'
+#' @example examples/config_report.R
+config_report <- function(svgColor = NULL,
+                          titleColor = NULL,
+                          messageColor = NULL,
+                          buttonBackground = NULL,
+                          buttonColor = NULL,
+                          backOverlayColor = NULL,
+                          className = NULL,
+                          width = NULL,
+                          backgroundColor = NULL,
+                          borderRadius = NULL,
+                          rtl = NULL,
+                          zindex = NULL,
+                          backOverlay = NULL,
+                          fontFamily = NULL,
+                          svgSize = NULL,
+                          plainText = NULL,
+                          titleFontSize = NULL,
+                          titleMaxLength = NULL,
+                          messageFontSize = NULL,
+                          messageMaxLength = NULL,
+                          buttonFontSize = NULL,
+                          buttonMaxLength = NULL,
+                          cssAnimation = NULL,
+                          cssAnimationDuration = NULL,
+                          cssAnimationStyle = NULL,
+                          ...) {
+  config <- c(as.list(environment()), list(...))
+  config$success <- config$failure <- dropNulls(config[1:6])
+  config$info <- config$warning <- dropNulls(config[1:6])
+  config[1:6] <- NULL
+  config <- dropNulls(config)
+  class(config) <- c(class(config), "config_report")
+  return(config)
+}
+
+
+
+
 
