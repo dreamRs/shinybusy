@@ -2,9 +2,9 @@ pandoc: 2.7.3
 pkgdown: 2.0.2
 pkgdown_sha: ~
 articles:
-  shinybusy-usage: shinybusy-usage.html
+  shinybusy: shinybusy.html
   spinners: spinners.html
-last_built: 2022-02-22T19:05Z
+last_built: 2022-02-22T20:36Z
 urls:
   reference: https://dreamrs.github.io/shinybusy/reference
   article: https://dreamrs.github.io/shinybusy/articles

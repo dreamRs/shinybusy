@@ -35,13 +35,15 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
+<li class="active nav-item">
+  <a class="nav-link" href="../articles/shinybusy.html">Get started</a>
+</li>
 <li class="nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
 </li>
-<li class="active nav-item dropdown">
+<li class="nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="../articles/shinybusy-usage.html">Busy indicator for shiny apps</a>
     <a class="dropdown-item" href="../articles/spinners.html">Spinners</a>
   </div>
 </li>
@@ -69,13 +71,13 @@
 
 
 
-<script src="shinybusy-usage_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+<script src="shinybusy_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <main id="main"><div class="page-header">
       <img src="" class="logo" alt=""><h1>Busy indicator for shiny apps</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/dreamRs/shinybusy/blob/HEAD/vignettes/shinybusy-usage.Rmd" class="external-link"><code>vignettes/shinybusy-usage.Rmd</code></a></small>
-      <div class="d-none name"><code>shinybusy-usage.Rmd</code></div>
+      <small class="dont-index">Source: <a href="https://github.com/dreamRs/shinybusy/blob/HEAD/vignettes/shinybusy.Rmd" class="external-link"><code>vignettes/shinybusy.Rmd</code></a></small>
+      <div class="d-none name"><code>shinybusy.Rmd</code></div>
     </div>
 
     
@@ -182,6 +184,20 @@ p > img {
 <span class="fu"><a href="../reference/modal-progress.html">remove_modal_progress</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># remove it when done</span></code></pre></div>
 <p><img src="figures/modal_progress.png"><!-- --></p>
 <p>Don’t forget to remove the modal window when computation is finished !</p>
+</div>
+<div class="section level2">
+<h2 id="notifications">Notifications<a class="anchor" aria-label="anchor" href="#notifications"></a>
+</h2>
+<p>Show notifications and reports to user through JavaScript library <a href="https://notiflix.github.io/" class="external-link">Notiflix</a>. Four appearance are available: success, failure, info and warning. Notifications are fully configurable.</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># success notification</span>
+<span class="fu"><a href="../reference/notify.html">notify_success</a></span><span class="op">(</span><span class="st">"Well done!"</span><span class="op">)</span>
+
+<span class="co"># report failure</span>
+<span class="fu"><a href="../reference/report.html">report_failure</a></span><span class="op">(</span>
+  <span class="st">"Oups..."</span>,
+  <span class="st">"Something went wrong"</span>
+<span class="op">)</span></code></pre></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>

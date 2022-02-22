@@ -40,12 +40,14 @@
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
 <li class="nav-item">
+  <a class="nav-link" href="articles/shinybusy.html">Get started</a>
+</li>
+<li class="nav-item">
   <a class="nav-link" href="reference/index.html">Reference</a>
 </li>
 <li class="nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="articles/shinybusy-usage.html">Busy indicator for shiny apps</a>
     <a class="dropdown-item" href="articles/spinners.html">Spinners</a>
   </div>
 </li>
@@ -93,32 +95,38 @@
 <h2 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a>
 </h2>
 <div class="section level3">
-<h3 id="gif">Gif<a class="anchor" aria-label="anchor" href="#gif"></a>
+<h3 id="automated-busy-indicators">Automated busy indicators<a class="anchor" aria-label="anchor" href="#automated-busy-indicators"></a>
 </h3>
+<div class="section level4">
+<h4 id="gif">Gif<a class="anchor" aria-label="anchor" href="#gif"></a>
+</h4>
 <p>Animate a Gif when server is busy and pause animation when server is idle :</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Somewhere in UI</span>
 <span class="fu"><a href="reference/add_busy_gif.html">add_busy_gif</a></span><span class="op">(</span>src <span class="op">=</span> <span class="st">"https://jeroen.github.io/images/banana.gif"</span>, height <span class="op">=</span> <span class="fl">70</span>, width <span class="op">=</span> <span class="fl">70</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/shinybusy-gif.gif"></p>
 </div>
-<div class="section level3">
-<h3 id="progress-bar">Progress bar<a class="anchor" aria-label="anchor" href="#progress-bar"></a>
-</h3>
+<div class="section level4">
+<h4 id="progress-bar">Progress bar<a class="anchor" aria-label="anchor" href="#progress-bar"></a>
+</h4>
 <p>Make an infinite progress bar appear on top of the page when server is busy :</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/add_busy_bar.html">add_busy_bar</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"#FF0000"</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/shinybusy-bar.gif"></p>
 </div>
-<div class="section level3">
-<h3 id="spinner">Spinner<a class="anchor" aria-label="anchor" href="#spinner"></a>
-</h3>
+<div class="section level4">
+<h4 id="spinner">Spinner<a class="anchor" aria-label="anchor" href="#spinner"></a>
+</h4>
 <p>Add a spinner when server is busy on top-right corner of the page with:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># UI</span>
-<span class="fu"><a href="reference/add_busy_spinner.html">add_busy_spinner</a></span><span class="op">(</span>spin <span class="op">=</span> <span class="st">"fading-circle"</span><span class="op">)</span></code></pre></div>
-<p>Classic Shiny: <img src="reference/figures/shinybusy-spin.gif"></p>
-<p>Shinydashboard: <img src="reference/figures/spin-dash.png"></p>
-<p>Shinythemes: <img src="reference/figures/spin-theme.png"></p>
+<code class="sourceCode R"><span class="fu"><a href="reference/add_busy_spinner.html">add_busy_spinner</a></span><span class="op">(</span>spin <span class="op">=</span> <span class="st">"fading-circle"</span><span class="op">)</span></code></pre></div>
+<p><img src="reference/figures/shinybusy-spin.gif"></p>
+</div>
+</div>
+<div class="section level3">
+<h3 id="other-functionalities">Other functionalities<a class="anchor" aria-label="anchor" href="#other-functionalities"></a>
+</h3>
+<p>Display a loading indicator at the start of the application until it is ready to be used, block application interaction until a calculation is done, send notifications to user, … See vignette or <a href="https://dreamrs.github.io/shinybusy/">online website</a> for more.</p>
 </div>
 </div>
 <div class="section level2">
