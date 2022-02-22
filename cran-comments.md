@@ -1,13 +1,12 @@
 ## Test environments
-* local OS Windows 10 install, R 3.6.3
-* ubuntu 16.04, Windows 10, macOS (on GitHub Actions), R 4.0.2
+* local OS Windows 10 install, R 4.1.2
+* ubuntu 20.04, Windows 10, macOS (on GitHub Actions), R 4.1.2
 * win-builder (devel and release)
 
 ## R CMD check results
 
 0 errors | 0 warnings | 0 note
 
-* New update with more functionnalities and documentation.
-  4 reverse dependencies checked, no new problems.
-  Thanks! Victor
+New functionalities and internal reorganization to manage Javascript code.
+Thanks! Victor
 

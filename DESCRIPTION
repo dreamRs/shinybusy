@@ -1,12 +1,12 @@
 Package: shinybusy
-Title: Busy Indicator for 'Shiny' Applications
-Version: 0.2.2.9300
+Title: Busy Indicators and Notifications for 'Shiny' Applications
+Version: 0.3.0
 Authors@R: c(person("Fanny", "Meyer", role = "aut"),
   person("Victor", "Perrier", email = "victor.perrier@dreamrs.fr", role = c("aut", "cre")),
   person("Silex Technologies", comment = "https://www.silex-ip.com", role = "fnd"))
 Description: Add indicators (spinner, progress bar, gif) in your 'shiny'
   applications to show the user that the server is busy. And other tools to let
-  your users know something is happening.
+  your users know something is happening (send notifications, reports, ...).
 License: GPL-3
 Encoding: UTF-8
 Imports: 
