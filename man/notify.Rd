@@ -18,19 +18,18 @@ notify(
   session = shiny::getDefaultReactiveDomain()
 )
 
-notify_success(text, timeout = 3000, position = "right-top", ...)
+notify_success(text, ..., timeout = 3000, position = "right-top")
 
-notify_failure(text, timeout = 3000, position = "right-top", ...)
+notify_failure(text, ..., timeout = 3000, position = "right-top")
 
-notify_info(text, timeout = 3000, position = "right-top", ...)
+notify_info(text, ..., timeout = 3000, position = "right-top")
 
-notify_warning(text, timeout = 3000, position = "right-top", ...)
+notify_warning(text, ..., timeout = 3000, position = "right-top")
 }
 \arguments{
 \item{text}{Text to be displayed.}
 
-\item{...}{Options passed to JavaScript method, see
-\url{https://notiflix.github.io/documentation}.}
+\item{...}{Options passed to JavaScript method, see \code{\link[=config_notify]{config_notify()}}.}
 
 \item{timeout}{The delay in milliseconds to hide and remove the notifications.}
 
