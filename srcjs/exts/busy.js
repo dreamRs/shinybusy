@@ -77,7 +77,7 @@ $(function() {
       if (busypos != "full-page") {
         var gifbusy = new Freezeframe(".shinybusy-freezeframe"); //
         if (busypos !== "full-page") {
-          gifbusy.capture().setup();
+          //gifbusy.capture().setup();
         }
         if (busytype == "auto") {
           $(document).on("shiny:busy", function(event) {
@@ -86,7 +86,7 @@ $(function() {
               $(".shinybusy").addClass("shinybusy-busy");
             }
             timingbusy = setTimeout(function() {
-              gifbusy.trigger();
+              gifbusy.start();
             }, busytimeout);
           });
 
@@ -96,14 +96,14 @@ $(function() {
               $(".shinybusy").addClass("shinybusy-ready");
             }
             clearTimeout(timingbusy);
-            gifbusy.release();
+            gifbusy.stop();
           });
         } else {
           Shiny.addCustomMessageHandler("shinybusy-play-gif", function(data) {
-            gifbusy.trigger();
+            gifbusy.start();
           });
           Shiny.addCustomMessageHandler("shinybusy-stop-gif", function(data) {
-            gifbusy.release();
+            gifbusy.stop();
           });
         }
       } else {

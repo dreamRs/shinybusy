@@ -72,8 +72,7 @@ busy_bar <- function(timeout = 1000, color = "#112446", height = "8px", centered
   attachDependencies(
     x = nanobar_tag,
     value = list(
-      html_dependency_nanobar(),
-      html_dependency_shinybusy()
+      html_dependency_busy()
     )
   )
 }

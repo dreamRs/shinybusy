@@ -155,8 +155,7 @@ busy_gif <- function(src,
   attachDependencies(
     x = gif_tag,
     value = list(
-      html_dependency_freezeframe(),
-      html_dependency_shinybusy()
+      html_dependency_busy()
     )
   )
 }
