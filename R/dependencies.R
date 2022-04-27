@@ -12,7 +12,7 @@
 html_dependency_spinkit <- function() {
   htmlDependency(
     name = "spinkit",
-    version = "0.1.0",
+    version = "0.1.1",
     src = list(href = "shinybusy", file = "assets"),
     package = "shinybusy",
     stylesheet = "spinkit/spin.min.css"
