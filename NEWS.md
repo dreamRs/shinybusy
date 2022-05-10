@@ -1,3 +1,9 @@
+# shinybusy 0.3.1
+
+* Use correct HTML dependencies.
+* Remove unnecessary CSS code in spinkit spinners.
+
+
 # shinybusy 0.3.0
 
 * Internal: use [{packer}](https://github.com/JohnCoene/packer) to manage JavaScript assets.
