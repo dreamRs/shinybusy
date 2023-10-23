@@ -150,3 +150,16 @@ html_dependency_report <- function() {
     script = "report.js"
   )
 }
+
+#' @export
+#' @rdname html-dependencies
+html_dependency_block <- function() {
+  htmlDependency(
+    name = "shinybusy-block",
+    version = packageVersion("shinybusy"),
+    src = list(file = "packer"),
+    package = "shinybusy",
+    script = "block.js",
+    head = "<style>.nx-block-temporary-position {opacity: 1!important;}</style>"
+  )
+}

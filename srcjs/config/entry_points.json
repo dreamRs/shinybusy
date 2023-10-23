@@ -3,5 +3,6 @@
   "loading": "./srcjs/exts/loading.js",
   "busy": "./srcjs/exts/busy.js",
   "notify": "./srcjs/exts/notify.js",
-  "report": "./srcjs/exts/report.js"
+  "report": "./srcjs/exts/report.js",
+  "block": "./srcjs/exts/block.js"
 }

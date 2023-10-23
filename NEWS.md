@@ -1,3 +1,8 @@
+# shinybusy 0.3.2
+
+* New functions `block()` and `unblock()` to block/unblock elements (like outputs) during a lonng calculation.
+
+
 # shinybusy 0.3.1
 
 * Use correct HTML dependencies.
