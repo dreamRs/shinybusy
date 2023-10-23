@@ -1,6 +1,6 @@
 Package: shinybusy
 Title: Busy Indicators and Notifications for 'Shiny' Applications
-Version: 0.3.1.9000
+Version: 0.3.1.9100
 Authors@R: c(person("Fanny", "Meyer", role = "aut"),
   person("Victor", "Perrier", email = "victor.perrier@dreamrs.fr", role = c("aut", "cre")),
   person("Silex Technologies", comment = "https://www.silex-ip.com", role = "fnd"))
@@ -14,7 +14,7 @@ Imports:
     shiny,
     jsonlite,
     htmlwidgets
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.3
 Roxygen: list(markdown = TRUE)
 URL: https://github.com/dreamRs/shinybusy
 BugReports: https://github.com/dreamRs/shinybusy/issues

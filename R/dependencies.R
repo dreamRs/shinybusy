@@ -91,6 +91,8 @@ html_dependency_notiflix <- function() {
 
 #' @importFrom htmltools htmlDependency
 #' @importFrom utils packageVersion
+#' @export
+#' @rdname html-dependencies
 html_dependency_startup <- function() {
   htmlDependency(
     name = "shinybusy-startup",
@@ -100,6 +102,9 @@ html_dependency_startup <- function() {
     script = "startup.js"
   )
 }
+
+#' @export
+#' @rdname html-dependencies
 html_dependency_loading <- function() {
   htmlDependency(
     name = "shinybusy-loading",
@@ -109,6 +114,9 @@ html_dependency_loading <- function() {
     script = "loading.js"
   )
 }
+
+#' @export
+#' @rdname html-dependencies
 html_dependency_busy <- function() {
   htmlDependency(
     name = "shinybusy-busy",
@@ -118,6 +126,9 @@ html_dependency_busy <- function() {
     script = "busy.js"
   )
 }
+
+#' @export
+#' @rdname html-dependencies
 html_dependency_notify <- function() {
   htmlDependency(
     name = "shinybusy-notify",
@@ -127,6 +138,9 @@ html_dependency_notify <- function() {
     script = "notify.js"
   )
 }
+
+#' @export
+#' @rdname html-dependencies
 html_dependency_report <- function() {
   htmlDependency(
     name = "shinybusy-report",
