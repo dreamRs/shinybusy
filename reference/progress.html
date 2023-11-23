@@ -6,7 +6,7 @@ Can be used outside Shiny. In Shiny you can set
 progress value server-side."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]--><!-- dependencies from examples --><script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script><script src="libs/progressbar.js-1.0.1/progressbar.min.js"></script><script src="libs/progressbar-binding-0.3.1.9100/progressbar.js"></script></head><body>
+<![endif]--><!-- dependencies from examples --><script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script><script src="libs/progressbar.js-1.0.1/progressbar.min.js"></script><script src="libs/progressbar-binding-0.3.2/progressbar.js"></script></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
@@ -14,7 +14,7 @@ progress value server-side."><!-- mathjax --><script src="https://cdnjs.cloudfla
     
     <a class="navbar-brand me-2" href="../index.html">shinybusy</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1.9100</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.2</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -185,16 +185,16 @@ progress value server-side.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Default usage</span></span></span>
 <span class="r-in"><span><span class="fu">progress_line</span><span class="op">(</span>value <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></span></span>
-<div id="htmlwidget-391e797e55106acc5fa7" style="width:100%;height:15px;" class="progressbar html-widget "></div>
-<script type="application/json" data-for="htmlwidget-391e797e55106acc5fa7">{"x":{"type":"Line","config":{"color":"#112446","strokeWidth":4,"easing":"linear","duration":1000,"trailColor":"#eee","trailWidth":1,"svgStyle":{"width":"100%","height":"100%"},"warnings":false,"text":{"value":null,"style":{"color":"#000","padding":0,"margin":0}}},"set_text":"function(state, bar) {return Math.round(bar.value() * 100) + ' %';}","value":0.5},"evals":["set_text"],"jsHooks":[]}</script><span class="r-in"><span></span></span>
+<div id="htmlwidget-d399dfebf48c3b3b5a37" style="width:100%;height:15px;" class="progressbar html-widget "></div>
+<script type="application/json" data-for="htmlwidget-d399dfebf48c3b3b5a37">{"x":{"type":"Line","config":{"color":"#112446","strokeWidth":4,"easing":"linear","duration":1000,"trailColor":"#eee","trailWidth":1,"svgStyle":{"width":"100%","height":"100%"},"warnings":false,"text":{"value":null,"style":{"color":"#000","padding":0,"margin":0}}},"set_text":"function(state, bar) {return Math.round(bar.value() * 100) + ' %';}","value":0.5},"evals":["set_text"],"jsHooks":[]}</script><span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># change color</span></span></span>
 <span class="r-in"><span><span class="fu">progress_line</span><span class="op">(</span>value <span class="op">=</span> <span class="fl">0.5</span>, color <span class="op">=</span> <span class="st">"firebrick"</span><span class="op">)</span></span></span>
-<div id="htmlwidget-312a402d3e20280a8163" style="width:100%;height:15px;" class="progressbar html-widget "></div>
-<script type="application/json" data-for="htmlwidget-312a402d3e20280a8163">{"x":{"type":"Line","config":{"color":"firebrick","strokeWidth":4,"easing":"linear","duration":1000,"trailColor":"#eee","trailWidth":1,"svgStyle":{"width":"100%","height":"100%"},"warnings":false,"text":{"value":null,"style":{"color":"#000","padding":0,"margin":0}}},"set_text":"function(state, bar) {return Math.round(bar.value() * 100) + ' %';}","value":0.5},"evals":["set_text"],"jsHooks":[]}</script><span class="r-in"><span></span></span>
+<div id="htmlwidget-e069cead7ade9ab647ac" style="width:100%;height:15px;" class="progressbar html-widget "></div>
+<script type="application/json" data-for="htmlwidget-e069cead7ade9ab647ac">{"x":{"type":"Line","config":{"color":"firebrick","strokeWidth":4,"easing":"linear","duration":1000,"trailColor":"#eee","trailWidth":1,"svgStyle":{"width":"100%","height":"100%"},"warnings":false,"text":{"value":null,"style":{"color":"#000","padding":0,"margin":0}}},"set_text":"function(state, bar) {return Math.round(bar.value() * 100) + ' %';}","value":0.5},"evals":["set_text"],"jsHooks":[]}</script><span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Circle</span></span></span>
 <span class="r-in"><span><span class="fu">progress_circle</span><span class="op">(</span>value <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></span></span>
-<div id="htmlwidget-6d7e91a46b347f5c2bfe" style="width:200px;height:200px;" class="progressbar html-widget "></div>
-<script type="application/json" data-for="htmlwidget-6d7e91a46b347f5c2bfe">{"x":{"type":"Circle","config":{"color":"#112446","strokeWidth":4,"easing":"easeInOut","duration":1400,"trailColor":"#eee","trailWidth":1,"svgStyle":{"width":"100%","height":"100%"},"warnings":false,"text":{"value":null,"style":{"color":"#000","position":"absolute","left":"50%","top":"50%","margin":0,"transform":"translate(-50%, -50%)"}}},"set_text":"function(state, bar) {return Math.round(bar.value() * 100) + ' %';}","value":0.5},"evals":["set_text"],"jsHooks":[]}</script><span class="r-in"><span></span></span>
+<div id="htmlwidget-f88ce5d3012b533dc64f" style="width:200px;height:200px;" class="progressbar html-widget "></div>
+<script type="application/json" data-for="htmlwidget-f88ce5d3012b533dc64f">{"x":{"type":"Circle","config":{"color":"#112446","strokeWidth":4,"easing":"easeInOut","duration":1400,"trailColor":"#eee","trailWidth":1,"svgStyle":{"width":"100%","height":"100%"},"warnings":false,"text":{"value":null,"style":{"color":"#000","position":"absolute","left":"50%","top":"50%","margin":0,"transform":"translate(-50%, -50%)"}}},"set_text":"function(state, bar) {return Math.round(bar.value() * 100) + ' %';}","value":0.5},"evals":["set_text"],"jsHooks":[]}</script><span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Shiny usage</span></span></span>
 <span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
