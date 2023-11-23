@@ -1,6 +1,7 @@
 # shinybusy 0.3.2
 
 * New functions `block()` and `unblock()` to block/unblock elements (like outputs) during a lonng calculation.
+* Notiflix related dependencies are now exported (`notify()`, `report()`, `block()`).
 
 
 # shinybusy 0.3.1
