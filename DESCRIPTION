@@ -16,7 +16,7 @@ Imports:
     htmlwidgets
 RoxygenNote: 7.2.3
 Roxygen: list(markdown = TRUE)
-URL: https://github.com/dreamRs/shinybusy
+URL: https://github.com/dreamRs/shinybusy, https://dreamrs.github.io/shinybusy/
 BugReports: https://github.com/dreamRs/shinybusy/issues
 Suggests: 
     testthat,
