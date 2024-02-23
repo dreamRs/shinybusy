@@ -2,7 +2,7 @@
 #' Block / unblock an UI element
 #'
 #' @param id Id of the element to block, for exemple an `outputId`.
-#' @param text Text displayed below the blocking indicator.
+#' @param text Text displayed below the blocking indicator. Must be a single character string.
 #' @param type Type of blocking indicator.
 #' @param ... Other configuration option, see [online documentation](https://notiflix.github.io/documentation#DocsBlock).
 #' @param selector Custom CSS selector, if used `id` is ignored.
@@ -20,6 +20,7 @@ block <- function(id,
                   ...,
                   selector = NULL,
                   session = shiny::getDefaultReactiveDomain()) {
+  if (!(is.character(text) && length(text) == 1L)) stop("\"text\" must be a character of length 1\"")
   type <- match.arg(type)
   insertUI(
     selector = "html",
