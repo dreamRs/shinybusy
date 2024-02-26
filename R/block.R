@@ -61,3 +61,52 @@ unblock <- function(id,
   )
 }
 
+
+#' Block an output
+#'
+#' Block an output until it is recalculated.
+#'
+#' @param output An output element.
+#' @inheritParams block
+#' @inheritParams unblock
+#' @param minHeight Set a minimal height to the ouptut element.
+#'
+#' @return A `shiny.tag` or `shiny.tag.list` object (the `output` element modified).
+#' @export
+#'
+#' @importFrom htmltools tagAppendAttributes attachDependencies css validateCssUnit
+#'
+#' @example examples/block_output.R
+block_output <- function(output,
+                         type = c("standard", "hourglass", "circle", "arrows", "dots", "pulse"),
+                         text = "Loading...",
+                         timeout = 0,
+                         ...,
+                         minHeight = NULL) {
+  type <- match.arg(type)
+  stopifnot("\"text\" must be a character of length 1\"" = is.character(text) && length(text) == 1L)
+  if (inherits(output, "shiny.tag")) {
+    output <- tagAppendAttributes(
+      output,
+      class = "shinybusy-block-element",
+      `data-shinybusy-block-type` = type,
+      `data-shinybusy-block-text` = text,
+      `data-shinybusy-block-timeout` = timeout,
+      `data-shinybusy-block-config` = jsonlite::toJSON(list(...)),
+      style = css(minHeight = validateCssUnit(minHeight))
+    )
+  } else if (inherits(output, "shiny.tag.list")) {
+    output[[1]] <- tagAppendAttributes(
+      output[[1]],
+      class = "shinybusy-block-element",
+      `data-shinybusy-block-type` = type,
+      `data-shinybusy-block-text` = text,
+      `data-shinybusy-block-timeout` = timeout,
+      `data-shinybusy-block-config` = jsonlite::toJSON(list(...)),
+      style = css(minHeight = validateCssUnit(minHeight))
+    )
+  }
+  attachDependencies(output, html_dependency_block(), append = TRUE)
+}
+
+

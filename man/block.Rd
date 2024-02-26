@@ -47,10 +47,7 @@ library(shinybusy)
 library(shiny)
 
 ui <- fluidPage(
-
   tags$h3("Block Output"),
-
-
   fluidRow(
     column(
       width = 6,
@@ -63,7 +60,6 @@ ui <- fluidPage(
       actionButton("block_reac", "Block when calculating in reactive()")
     )
   )
-
 )
 
 server <- function(input, output, session) {

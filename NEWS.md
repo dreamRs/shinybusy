@@ -1,3 +1,8 @@
+# shinybusy 0.3.3
+
+* New function `block_output()` to block an output until it is recalculated directly in the UI.
+
+
 # shinybusy 0.3.2
 
 * New functions `block()` and `unblock()` to block/unblock elements (like outputs) during a lonng calculation.

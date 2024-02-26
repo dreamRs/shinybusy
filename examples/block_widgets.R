@@ -1,13 +1,19 @@
 library(shinybusy)
 library(shiny)
+library(apexcharter)
+library(reactable)
 
 ui <- fluidPage(
+
   tags$h3("Block Output"),
+
   fluidRow(
     column(
       width = 6,
+      actionButton("block_manually", "Block / unblock"),
       plotOutput(outputId = "plot1"),
-      actionButton("block_manually", "Block / unblock")
+      apexchartOutput(outputId = "apex1"),
+      reactableOutput(outputId = "react1")
     ),
     column(
       width = 6,
@@ -15,6 +21,7 @@ ui <- fluidPage(
       actionButton("block_reac", "Block when calculating in reactive()")
     )
   )
+
 )
 
 server <- function(input, output, session) {
@@ -23,11 +30,25 @@ server <- function(input, output, session) {
     barplot(table(floor(runif(100) * 6)))
   })
 
+  output$apex1 <- renderApexchart({
+    input$refresh
+    apex(data = mtcars, type = "scatter", mapping = aes(x = wt, y = mpg))
+  })
+
+  output$react1 <- renderReactable({
+    input$refresh
+    reactable(data = mtcars)
+  })
+
   observeEvent(input$block_manually, {
     if (input$block_manually %% 2 == 1) {
       block(id = "plot1", type = "pulse", svgColor = "#5ea4d8")
+      block(id = "apex1", type = "pulse", svgColor = "#5ea4d8")
+      block(id = "react1", type = "pulse", svgColor = "#5ea4d8")
     } else {
       unblock(id = "plot1")
+      unblock(id = "apex1")
+      unblock(id = "react1")
     }
   })
 
@@ -55,4 +76,3 @@ server <- function(input, output, session) {
 
 if (interactive())
   shinyApp(ui, server)
-
