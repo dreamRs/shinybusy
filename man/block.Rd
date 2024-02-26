@@ -24,7 +24,7 @@ unblock(
 \arguments{
 \item{id}{Id of the element to block, for exemple an \code{outputId}.}
 
-\item{text}{Text displayed below the blocking indicator.}
+\item{text}{Text displayed below the blocking indicator. Must be a single character string.}
 
 \item{type}{Type of blocking indicator.}
 
