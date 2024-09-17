@@ -3,8 +3,8 @@
 > Automated (or not) busy indicator for Shiny apps & other progress / notifications tools
 
 <!-- badges: start -->
-[![version](http://www.r-pkg.org/badges/version/shinybusy)](https://CRAN.R-project.org/package=shinybusy)
-[![cranlogs](http://cranlogs.r-pkg.org/badges/shinybusy)](https://CRAN.R-project.org/package=shinybusy)
+[![version](https://www.r-pkg.org/badges/version/shinybusy)](https://CRAN.R-project.org/package=shinybusy)
+[![cranlogs](https://cranlogs.r-pkg.org/badges/shinybusy)](https://CRAN.R-project.org/package=shinybusy)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![R-CMD-check](https://github.com/dreamRs/shinybusy/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/dreamRs/shinybusy/actions/workflows/R-CMD-check.yaml)
 [![Codecov test coverage](https://codecov.io/gh/dreamRs/shinybusy/branch/master/graph/badge.svg)](https://app.codecov.io/gh/dreamRs/shinybusy?branch=master)
