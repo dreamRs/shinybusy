@@ -4,5 +4,6 @@
   "busy": "./srcjs/exts/busy.js",
   "notify": "./srcjs/exts/notify.js",
   "report": "./srcjs/exts/report.js",
-  "block": "./srcjs/exts/block.js"
+  "block": "./srcjs/exts/block.js",
+  "loading-overlay": "./srcjs/exts/loading-overlay.js"
 }

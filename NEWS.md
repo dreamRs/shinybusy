@@ -1,3 +1,8 @@
+# shinybusy (development version)
+
+* New functions `show_loading()`, `update_loading()` and `remove_loading()` to display a full-page loading indicator from the server, using the Notiflix Loading module.
+
+
 # shinybusy 0.3.3
 
 * New function `block_output()` to block an output until it is recalculated directly in the UI.

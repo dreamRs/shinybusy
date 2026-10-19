@@ -163,3 +163,15 @@ html_dependency_block <- function() {
     head = "<style>.nx-block-temporary-position {opacity: 1!important;}</style>"
   )
 }
+
+#' @export
+#' @rdname html-dependencies
+html_dependency_loading_overlay <- function() {
+  htmlDependency(
+    name = "shinybusy-loading-overlay",
+    version = packageVersion("shinybusy"),
+    src = list(file = "packer"),
+    package = "shinybusy",
+    script = "loading-overlay.js"
+  )
+}

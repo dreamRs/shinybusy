@@ -14,6 +14,7 @@
 \alias{html_dependency_notify}
 \alias{html_dependency_report}
 \alias{html_dependency_block}
+\alias{html_dependency_loading_overlay}
 \title{HTML dependencies used by shinybusy}
 \usage{
 html_dependency_spinkit()
@@ -39,6 +40,8 @@ html_dependency_notify()
 html_dependency_report()
 
 html_dependency_block()
+
+html_dependency_loading_overlay()
 }
 \value{
 an \code{\link[htmltools:htmlDependency]{htmltools::htmlDependency()}}.

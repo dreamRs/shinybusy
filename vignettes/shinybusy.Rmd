@@ -160,6 +160,19 @@ knitr::include_graphics(path = "figures/modal_progress.png")
 Don't forget to remove the modal window when computation is finished !
 
 
+## Full-page loading indicator
+
+Cover the whole page with a loading indicator from the server, using the Loading module of [Notiflix](https://notiflix.github.io/loading). Unlike modals, the indicator is not a Shiny modal window and is shared by all modules in the app. To cover a single element, see `block()`.
+
+```{r loading-overlay, eval=FALSE}
+# in server
+show_loading("Calculating...", type = "circle") # show the indicator
+update_loading("Almost done...") # change its text
+remove_loading() # remove it when done
+```
+
+Use `remove_loading(timeout = 500)` to remove the indicator after a delay in milliseconds.
+
 
 ## Notifications
 
