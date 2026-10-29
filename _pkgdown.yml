@@ -1,17 +1,17 @@
 url: https://dreamrs.github.io/shinybusy/
 
 template:
-  bootstrap: 4
-  bootswatch: cosmo
+  bootstrap: 5
+  bootswatch: zephyr
   bslib:
+    base_font: {google: "Poppins"}
     primary: "#112446"
+    navbar-dark-color: "#FFFFFF"
+    secondary: "#DFDFDF"
+    navbar-dark-active-color: "#DFDFDF"
 
 navbar:
-  type: dark
   bg: primary
-
-toc:
-  depth: 3
 
 authors:
   Victor Perrier:
