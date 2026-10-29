@@ -1,11 +1,10 @@
-pandoc: 3.1.11
-pkgdown: 2.0.7
+pandoc: 3.8.3
+pkgdown: 2.2.1
 pkgdown_sha: ~
 articles:
   shinybusy: shinybusy.html
   spinners: spinners.html
-last_built: 2024-03-09T10:49Z
+last_built: 2026-10-29T09:59Z
 urls:
   reference: https://dreamrs.github.io/shinybusy/reference
   article: https://dreamrs.github.io/shinybusy/articles
-

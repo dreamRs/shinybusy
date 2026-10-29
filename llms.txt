@@ -1,0 +1,236 @@
+# shinybusy
+
+> Automated (or not) busy indicator for Shiny apps & other progress /
+> notifications tools
+
+## Installation
+
+Install from [CRAN](https://cran.r-project.org/package=shinybusy) with:
+
+``` r
+
+install.packages("shinybusy")
+```
+
+You can install dev version of `shinybusy` from
+[GitHub](https://github.com/dreamRs/shinybusy):
+
+``` r
+
+remotes::install_github("dreamRs/shinybusy")
+```
+
+## Examples
+
+### Automated busy indicators
+
+#### Gif
+
+Animate a Gif when server is busy and pause animation when server is
+idle :
+
+``` r
+
+# Somewhere in UI
+add_busy_gif(src = "https://jeroen.github.io/images/banana.gif", height = 70, width = 70)
+```
+
+![](reference/figures/shinybusy-gif.gif)
+
+#### Progress bar
+
+Make an infinite progress bar appear on top of the page when server is
+busy :
+
+``` r
+
+add_busy_bar(color = "#FF0000")
+```
+
+![](reference/figures/shinybusy-bar.gif)
+
+#### Spinner
+
+Add a spinner when server is busy on top-right corner of the page with:
+
+``` r
+
+add_busy_spinner(spin = "fading-circle")
+```
+
+![](reference/figures/shinybusy-spin.gif)
+
+### Other functionalities
+
+Display a loading indicator at the start of the application until it is
+ready to be used, block application interaction until a calculation is
+done, send notifications to user, … See vignette or [online
+website](https://dreamrs.github.io/shinybusy/) for more.
+
+## Development
+
+This package use [{packer}](https://github.com/JohnCoene/packer) to
+manage JavaScript assets, see packer’s
+[documentation](https://packer.john-coene.com/#/) for more.
+
+Install nodes modules with:
+
+``` r
+
+packer::npm_install()
+```
+
+Modify `srcjs/exts/busy.js` (or other scripts), then run:
+
+``` r
+
+packer::bundle()
+```
+
+Re-install R package and try demo applications in `examples/`.
+
+## Other related packages
+
+These packages provide cool alternative to add progress indicator in
+shiny application :
+
+- [{waiter}](https://github.com/JohnCoene/waiter) : Loading screens for
+  Shiny
+- [{shinycssloaders}](https://github.com/daattali/shinycssloaders) : Add
+  CSS loader animations to Shiny outputs
+- [{shinycustomloader}](https://github.com/emitanaka/shinycustomloader)
+  : Add a custom loader for R shiny
+
+## Acknowledgements
+
+Development of this package was funded by Silex Technologies
+(<https://www.silex-ip.com>)
+
+![](reference/figures/logo-silex.png)
+
+# Package index
+
+## All functions
+
+- [`add_busy_bar()`](https://dreamrs.github.io/shinybusy/reference/add_busy_bar.md)
+  : Automatic busy indicator (Progress bar)
+
+- [`add_busy_gif()`](https://dreamrs.github.io/shinybusy/reference/add_busy_gif.md)
+  : Automatic busy indicator (GIF)
+
+- [`add_busy_spinner()`](https://dreamrs.github.io/shinybusy/reference/add_busy_spinner.md)
+  : Automatic busy indicator (spinner)
+
+- [`add_loading_state()`](https://dreamrs.github.io/shinybusy/reference/add_loading_state.md)
+  : Loading state for Shiny Outputs
+
+- [`block()`](https://dreamrs.github.io/shinybusy/reference/block.md)
+  [`unblock()`](https://dreamrs.github.io/shinybusy/reference/block.md)
+  : Block / unblock an UI element
+
+- [`block_output()`](https://dreamrs.github.io/shinybusy/reference/block_output.md)
+  : Block an output
+
+- [`busy_start_up()`](https://dreamrs.github.io/shinybusy/reference/busy-start-up.md)
+  [`remove_start_up()`](https://dreamrs.github.io/shinybusy/reference/busy-start-up.md)
+  : Busy indicator at start up
+
+- [`config_notify()`](https://dreamrs.github.io/shinybusy/reference/config_notify.md)
+  :
+
+  Configure options for
+  [`notify()`](https://dreamrs.github.io/shinybusy/reference/notify.md)
+  and others
+
+- [`config_report()`](https://dreamrs.github.io/shinybusy/reference/config_report.md)
+  :
+
+  Configure options for
+  [`report()`](https://dreamrs.github.io/shinybusy/reference/report.md)
+  and others
+
+- [`html_dependency_spinkit()`](https://dreamrs.github.io/shinybusy/reference/html-dependencies.md)
+  [`html_dependency_epic()`](https://dreamrs.github.io/shinybusy/reference/html-dependencies.md)
+  [`html_dependency_shinybusy()`](https://dreamrs.github.io/shinybusy/reference/html-dependencies.md)
+  [`html_dependency_freezeframe()`](https://dreamrs.github.io/shinybusy/reference/html-dependencies.md)
+  [`html_dependency_nanobar()`](https://dreamrs.github.io/shinybusy/reference/html-dependencies.md)
+  [`html_dependency_notiflix()`](https://dreamrs.github.io/shinybusy/reference/html-dependencies.md)
+  [`html_dependency_startup()`](https://dreamrs.github.io/shinybusy/reference/html-dependencies.md)
+  [`html_dependency_loading()`](https://dreamrs.github.io/shinybusy/reference/html-dependencies.md)
+  [`html_dependency_busy()`](https://dreamrs.github.io/shinybusy/reference/html-dependencies.md)
+  [`html_dependency_notify()`](https://dreamrs.github.io/shinybusy/reference/html-dependencies.md)
+  [`html_dependency_report()`](https://dreamrs.github.io/shinybusy/reference/html-dependencies.md)
+  [`html_dependency_block()`](https://dreamrs.github.io/shinybusy/reference/html-dependencies.md)
+  [`html_dependency_loading_overlay()`](https://dreamrs.github.io/shinybusy/reference/html-dependencies.md)
+  : HTML dependencies used by shinybusy
+
+- [`show_loading()`](https://dreamrs.github.io/shinybusy/reference/loading-overlay.md)
+  [`update_loading()`](https://dreamrs.github.io/shinybusy/reference/loading-overlay.md)
+  [`remove_loading()`](https://dreamrs.github.io/shinybusy/reference/loading-overlay.md)
+  : Full-page loading indicator
+
+- [`logo_silex()`](https://dreamrs.github.io/shinybusy/reference/logo_silex.md)
+  : Silex logo for Shiny use
+
+- [`use_busy_gif()`](https://dreamrs.github.io/shinybusy/reference/manual-gif.md)
+  [`play_gif()`](https://dreamrs.github.io/shinybusy/reference/manual-gif.md)
+  [`stop_gif()`](https://dreamrs.github.io/shinybusy/reference/manual-gif.md)
+  : Manual busy indicator (GIF)
+
+- [`use_busy_bar()`](https://dreamrs.github.io/shinybusy/reference/manual-progressbar.md)
+  [`update_busy_bar()`](https://dreamrs.github.io/shinybusy/reference/manual-progressbar.md)
+  : Manual busy indicator (progress bar)
+
+- [`use_busy_spinner()`](https://dreamrs.github.io/shinybusy/reference/manual-spinner.md)
+  [`show_spinner()`](https://dreamrs.github.io/shinybusy/reference/manual-spinner.md)
+  [`hide_spinner()`](https://dreamrs.github.io/shinybusy/reference/manual-spinner.md)
+  : Manual busy indicator (spinner)
+
+- [`show_modal_gif()`](https://dreamrs.github.io/shinybusy/reference/modal-gif.md)
+  [`remove_modal_gif()`](https://dreamrs.github.io/shinybusy/reference/modal-gif.md)
+  : Show a modal with a GIF
+
+- [`show_modal_progress_line()`](https://dreamrs.github.io/shinybusy/reference/modal-progress.md)
+  [`show_modal_progress_circle()`](https://dreamrs.github.io/shinybusy/reference/modal-progress.md)
+  [`remove_modal_progress()`](https://dreamrs.github.io/shinybusy/reference/modal-progress.md)
+  [`update_modal_progress()`](https://dreamrs.github.io/shinybusy/reference/modal-progress.md)
+  : Show a modal with a progress bar
+
+- [`show_modal_spinner()`](https://dreamrs.github.io/shinybusy/reference/modal-spinner.md)
+  [`remove_modal_spinner()`](https://dreamrs.github.io/shinybusy/reference/modal-spinner.md)
+  [`update_modal_spinner()`](https://dreamrs.github.io/shinybusy/reference/modal-spinner.md)
+  : Show a modal with a spinner
+
+- [`notify()`](https://dreamrs.github.io/shinybusy/reference/notify.md)
+  [`notify_success()`](https://dreamrs.github.io/shinybusy/reference/notify.md)
+  [`notify_failure()`](https://dreamrs.github.io/shinybusy/reference/notify.md)
+  [`notify_info()`](https://dreamrs.github.io/shinybusy/reference/notify.md)
+  [`notify_warning()`](https://dreamrs.github.io/shinybusy/reference/notify.md)
+  : Notifications
+
+- [`progress_line()`](https://dreamrs.github.io/shinybusy/reference/progress.md)
+  [`progress_circle()`](https://dreamrs.github.io/shinybusy/reference/progress.md)
+  [`progress_semicircle()`](https://dreamrs.github.io/shinybusy/reference/progress.md)
+  [`update_progress()`](https://dreamrs.github.io/shinybusy/reference/progress.md)
+  : Create progress indicator
+
+- [`report()`](https://dreamrs.github.io/shinybusy/reference/report.md)
+  [`report_success()`](https://dreamrs.github.io/shinybusy/reference/report.md)
+  [`report_failure()`](https://dreamrs.github.io/shinybusy/reference/report.md)
+  [`report_info()`](https://dreamrs.github.io/shinybusy/reference/report.md)
+  [`report_warning()`](https://dreamrs.github.io/shinybusy/reference/report.md)
+  : Reports
+
+- [`spin_epic()`](https://dreamrs.github.io/shinybusy/reference/spin_epic.md)
+  : Epic spinners
+
+- [`spin_kit()`](https://dreamrs.github.io/shinybusy/reference/spin_kit.md)
+  : SpinKit spinners
+
+# Articles
+
+### All vignettes
+
+- [Busy indicator for shiny
+  apps](https://dreamrs.github.io/shinybusy/articles/shinybusy.md):
+- [Spinners](https://dreamrs.github.io/shinybusy/articles/spinners.md):
