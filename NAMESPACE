@@ -61,25 +61,31 @@ export(update_progress)
 export(use_busy_bar)
 export(use_busy_gif)
 export(use_busy_spinner)
-importFrom(htmltools,HTML)
-importFrom(htmltools,attachDependencies)
-importFrom(htmltools,css)
-importFrom(htmltools,doRenderTags)
-importFrom(htmltools,htmlDependency)
-importFrom(htmltools,singleton)
-importFrom(htmltools,tagAppendAttributes)
-importFrom(htmltools,tagList)
-importFrom(htmltools,tags)
-importFrom(htmltools,validateCssUnit)
-importFrom(htmlwidgets,createWidget)
-importFrom(htmlwidgets,sizingPolicy)
+importFrom(htmltools,
+  HTML,
+  attachDependencies,
+  css,
+  doRenderTags,
+  htmlDependency,
+  singleton,
+  tagAppendAttributes,
+  tagList,
+  tags,
+  validateCssUnit
+)
+importFrom(htmlwidgets,
+  createWidget,
+  sizingPolicy
+)
 importFrom(jsonlite,toJSON)
-importFrom(shiny,addResourcePath)
-importFrom(shiny,getDefaultReactiveDomain)
-importFrom(shiny,insertUI)
-importFrom(shiny,modalDialog)
-importFrom(shiny,removeModal)
-importFrom(shiny,removeUI)
-importFrom(shiny,showModal)
+importFrom(shiny,
+  addResourcePath,
+  getDefaultReactiveDomain,
+  insertUI,
+  modalDialog,
+  removeModal,
+  removeUI,
+  showModal
+)
 importFrom(tools,toTitleCase)
 importFrom(utils,packageVersion)
