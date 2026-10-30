@@ -1,6 +1,6 @@
 # Epic spinners
 
-Via <https://epic-spinners.epicmax.co/>.
+Via <https://epic-spinners.vuestic.dev/>.
 
 ## Usage
 
