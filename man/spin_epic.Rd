@@ -22,7 +22,7 @@ spin_epic(
 an HTML tag.
 }
 \description{
-Via \url{https://epic-spinners.epicmax.co/}.
+Via \url{https://epic-spinners.vuestic.dev/}.
 }
 \examples{
 if (interactive()) {

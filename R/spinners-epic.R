@@ -1,7 +1,7 @@
 
 #' @title Epic spinners
 #'
-#' @description Via \url{https://epic-spinners.epicmax.co/}.
+#' @description Via \url{https://epic-spinners.vuestic.dev/}.
 #'
 #' @param spin Name of the spinner.
 #' @param color Color of the spinner.
